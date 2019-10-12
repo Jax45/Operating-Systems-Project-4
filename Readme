@@ -1,0 +1,91 @@
+Name: Jackson Hoenig
+Class: CMP-SCI 4760-001
+
+Description: 
+-------------------------------------------------------------------------
+This program is meant to simulate an Operating System with
+many child programs that run for a random amount of time
+and terminate. The parent process will make sure only so many
+"users" can be on the os at a time. once one terminates another is
+forked off to take its place. Each child process is called "user"
+and the parent process is called "oss" the options for running oss
+are: -s (specify the max number of child processes running at any time
+-default is 5)  -t (specify the time in seconds before the timeout-default=5)
+-l (specify the logfile name-default="log.txt"). 
+This program keeps track of time using a shared memory "clock" struct
+that is protected by a semaphore and accessed in both the parent and child
+processes. when a child has determined it has ran long enough according to 
+the shared memory clock it sends a message queue to the parent process
+and terminates.
+--------------------------------------------------------------------------
+
+Ending situations:
+---------------------------------------------------------------------------
+1. The program runs for the specified timeout time, terminates all out-
+    standing children, closes and deletes IPC data, then exits.
+2. The program spawns 100 processes, terminates all outstanding
+    children processes and closes and deletes IPC data, then exits
+3. The program goes through 2 seconds of logical clock time in the shared
+    memory clock. then again the parent process "oss" will kill all outstanding
+    children and close/delete IPC data and exit.
+----------------------------------------------------------------------------- 
+
+How to run:
+
+-----------------------------------------------------------------------------
+$ make clean
+$ make
+$ ./oss [-stl]
+     [-s Max Children Spawned Simultaneously]
+     [-t Time in Seconds before timeout]
+     [-l Name of logfile]
+-----------------------------------------------------------------------------
+
+Gitlog:
+
+commit b0d1abdae13e7fbd09e2ffd9786e8dfdf32de404
+Author: Jackson Hoenig <Jthkn9@Mail.Umsl.edu>
+Date:   Wed Oct 2 20:07:23 2019 -0500
+
+    Final commit, fixed remaining errors and have removed the debugging print lines. hopefully the hard work pays off.
+    pikachu for extra credit
+    
+    `;-.          ___,
+      `.`\_...._/`.-"`
+        \        /      ,
+        /()   () \    .' `-._
+       |)  .    ()\  /   _.'
+       \  -'-     ,; '. <
+        ;.__     ,;|   > \
+       / ,    / ,  |.-'.-'
+      (_/    (_/ ,;|.<`
+        \    ,     ;-`
+         >   \    /
+        (_,-'`> .'
+             (_,'
+    <plz giv A>
+
+commit c98250d1cc8326f9e9be8341e32eed87adc64c3c
+Author: Jackson Hoenig <Jthkn9@Mail.Umsl.edu>
+Date:   Mon Sep 30 15:15:51 2019 -0500
+
+    Almost finished there might be a problem with the logical time and the forks going off before the process has died.
+
+commit c45de02aad03060ee84ff21511da96733be3b3ee
+Author: Jackson Hoenig <Jthkn9@Mail.Umsl.edu>
+Date:   Sun Sep 29 19:01:45 2019 -0500
+
+    Added some messaging between the processes and am incrementing the clock.
+
+commit 40809d4bf0f647c68e26c70fc88ba87b79cba4b0
+Author: Jackson Hoenig <Jthkn9@Mail.Umsl.edu>
+Date:   Sat Sep 28 23:58:28 2019 -0500
+
+    Added semaphores for the critical section to take care of the shared memory for the clock.
+     still need to keep log in log file and use Shared messaging.
+
+commit 16878566345a4ced3077c9c0d0cfda0d35aa5dc9
+Author: Jackson Hoenig <Jthkn9@Mail.Umsl.edu>
+Date:   Sat Sep 28 18:16:26 2019 -0500
+
+    Initial commit I have communication between the child and the parent process by looking at shared memory. and options have been done.

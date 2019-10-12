@@ -1,0 +1,14 @@
+Deliverables
+1. Have oss create a process control table with one user process (of real-time class) to verify it is working
+
+2. schedule one user process over and over, logging the data
+
+3. Create the round robin queue, add additional user processes, making all the user processes alternate in it.
+
+4. keep track of and output statistics like thorughput, idle time, etc
+
+5. implement an additional user class and the multilevel feedback queue
+
+6. add teh chance for user processes to be blocked on an event. keep track of stats on this
+
+
