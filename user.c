@@ -46,8 +46,8 @@ int r_semop(int semid, struct sembuf *sops, int nsops) {
 
 //shared memory clock
 struct Clock{
-	int second;
-	long long int nano;
+	unsigned int second;
+	unsigned int nano;
 };
 
 //shared memory dispatched quantum and pid
@@ -77,7 +77,7 @@ int main(int argc, char  **argv) {
 	int shmid = atoi(argv[1]);	
 	int semid = atoi(argv[2]);
 	int shmidPID = atoi(argv[4]);
-	//int semid = semget(semKey, 1, PERMS);
+	
         if(semid == -1){
                 perror("Error: user: Failed to create a private semaphore");
                 exit(1);
@@ -119,7 +119,7 @@ int main(int argc, char  **argv) {
 	
 		//exit the Critical Section
 		if ((error = r_semop(semid, semsignal, 1)) == -1) {
-			printf("Failed to clean up");
+			perror("User: Failed to clean up semaphore");
 			return 1;
 		}
 	
@@ -164,7 +164,8 @@ int main(int argc, char  **argv) {
         message.mesg_type = 1;
         //send back what time you calculated to end on.
 	sprintf(message.mesg_text, "quantum: %d, %d",quantum, ns);
-        msgsnd(msgid, &message, sizeof(message), 0);
-
+        msgsnd(msgid, &message, sizeof(message), IPC_NOWAIT);
+	printf("Exiting Process\n");
+	exit(0);
 	return 0;
 }	
