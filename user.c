@@ -21,50 +21,14 @@
 #include <signal.h>
 #include <sys/msg.h>
 #include <stdbool.h>
+#include "customStructs.h"
+#include "semaphoreFunc.h"
 #define PERMS (IPC_CREAT | IPC_EXCL | S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH)
-
-//prototype for signalhandler
-void signalHandler(int sig);
-
-//used to create semSignal and semWait.
-void setsembuf(struct sembuf *s, int num, int op, int flg) {
-        s->sem_num = (short)num;
-        s->sem_op = (short)op;
-        s->sem_flg = (short)flg;
-        return;
-}
-//function to run the semaphore functions set with setsembuf.
-int r_semop(int semid, struct sembuf *sops, int nsops) {
-        signal(SIGKILL,signalHandler);
-	while(semop(semid, sops, nsops) == -1){
-                if(errno != EINTR){
-                        return -1;
-                }
-	}
-        return 0;
-}
-
-//shared memory clock
-struct Clock{
-	unsigned int second;
-	unsigned int nano;
-};
-
-//shared memory dispatched quantum and pid
-struct Dispatch{
-        int quantum;
-        long long int pid;
-};
 
 //signal handler
 void signalHandler(int sig){
 	exit(1);
 }
-//message queue struct buffer.
-struct mesg_buffer {
-	long mesg_type;
-	char mesg_text[100];
-} message;
 
 int main(int argc, char  **argv) {
 	srand(getpid());
@@ -144,10 +108,6 @@ int main(int argc, char  **argv) {
 	                struct Clock *shmclock = (struct Clock*) shmat(shmid,(void*)0,0);
 			if((shmclock->nano >= ns && shmclock->second == sec) || shmclock->second > sec){
 				timeElapsed = true;
-				//display these if we should send back the clock end time instead of our 
-				//calculated end time.
-				//clockNs = shmclock->nano;
-				//clockSec = shmclock->second;
 			}
 			shmdt(shmclock);
 

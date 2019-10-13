@@ -5,14 +5,15 @@ OBJECTS		= oss.o
 CHILD		= user
 CHILDOBJS	= user.o
 LOG		= log.txt
+DEP		= customStructs.h semaphoreFunc.h
 .SUFFIXES: .c .o
 
 ALL: oss user
 
-$(TARGET): $(OBJECTS)
+$(TARGET): $(OBJECTS) $(DEP)
 	$(CC) -Wall -o $@ $(OBJECTS)
 
-$(CHILD): $(CHILDOBJS)
+$(CHILD): $(CHILDOBJS) $(DEP)
 	$(CC) -Wall -o $@ $(CHILDOBJS)
 
 .c.o: oss.c user.c
