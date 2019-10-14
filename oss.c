@@ -38,7 +38,7 @@
 void exitSafe(int);
 
 //Global option values
-int maxChildren = 5;
+int maxChildren = 10;
 char* logFile = "log.txt";
 int timeout = 3;
 
@@ -120,7 +120,7 @@ int main(int argc, char **argv){
 				exit(1);
 			case 's':
 				maxChildren = atoi(optarg);
-				if (maxChildren > 20){
+				if (maxChildren > 18){
 					printf("-s option argument must be less than 20.");
 					exit(0);
 				}
@@ -271,7 +271,7 @@ int main(int argc, char **argv){
 	while(1){
 		printf("Start of loop\n");	
 		//get launch time
-		for(i = 0; i < 1; i++){
+		for(i = 0; i < maxChildren; i++){
 			if(bitMap[i] == 0){
 				printf("generating process launch time for bitmap at index %d\n",i);
 				//generate process
@@ -298,13 +298,13 @@ int main(int argc, char **argv){
 					
 					
 				}
-			break;
+			//break;
 			}	
 		}
 	
 		//check if we need to launch the processes
 		printf("Outside the for loop\n");
-		for(i = 0; i < 1; i++){
+		for(i = 0; i < maxChildren; i++){
 			if (r_semop(semid, semwait, 1) == -1){
                                         perror("Error: oss: Failed to lock semid. ");
                                         exitSafe(1);
@@ -348,6 +348,10 @@ int main(int argc, char **argv){
 					}
                         		printf("forked child %d\n",pid);
                         		fprintf(fp,"OSS: Generating process with pid %d and putting it in queue 0 at time %d:%d\n",pid,currentTime.second,currentTime.nano);
+						printf("place in queue %d\n",i);
+						//place in queue
+						enQueue(priorityZero,i);
+
                         		        printf("Setting up the PCB\n");
                         		        shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
                         		        shmpcb[i].simPID = pid;
@@ -370,7 +374,7 @@ int main(int argc, char **argv){
 		//dispatch the ready process
 		//check queue 0
 			
-		for(i = 0; i < 1; i++){
+		/*for(i = 0; i < 1; i++){
 			if (r_semop(semid, semwait, 1) == -1){
                         	perror("Error: oss: Failed to lock semid. ");
                                 exitSafe(1);
@@ -388,96 +392,126 @@ int main(int argc, char **argv){
                                 }
 
 				continue;
-			    }
-			    if((shmpcb[i].dispatch.second == shmclock->second && shmpcb[i].dispatch.nano < shmclock->nano) || (shmpcb[i].dispatch.second < shmclock->second)){
-				//dispatch that process
-				printf("OSS: Dispatching process with PID %lld from queue 0 at time %d:%d\n",shmpcb[i].simPID,currentTime.second,currentTime.nano);
-				fprintf(fp,"OSS: Dispatching process with PID %lld from queue 0 at time %d:%d\n",shmpcb[i].simPID,currentTime.second,currentTime.nano);
-				pid_t tempPid = shmpcb[i].simPID;	
-                		shmdt(shmpcb);
+			    }*/
+			
+			    // Here we need to loop through queu
+		struct Node* n = priorityZero->front;
+		//enQueue(priorityZero, n->key);
+		while(n != NULL){
+		    if (r_semop(semid, semwait, 1) == -1){
+                        perror("Error: oss: Failed to lock semid. ");
+                        exitSafe(1);
+       	            }
+                    else{
+                       shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
+                       shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
+                       printf("Checking for dispatch time...n->key = %d\n",n->key);
 
-				//release semaphore
-				if (r_semop(semid, semsignal, 1) == -1) {
-        	                        perror("Error: oss: failed to signal Semaphore. ");
-	                                exitSafe(1);
-                                }
-				shmpid->quantum = rand() % 10 + 1;
-                                shmpid->pid = tempPid;
-
-                		//wait for child to send message back
-                		bool msgREC = false;
-				while(!msgREC){
-					//printf("         Waiting for message\n");
-                		    if (msgrcv(msgid, &message, sizeof(message), 1, IPC_NOWAIT) != -1){
-					msgREC = true;
-	                                printf("OSS: Receiving that process with PID %lld ran for %s nanoseconds",tempPid, message.mesg_text);
-	                                fprintf(fp,"OSS: Receiving that process with PID %lld ran for %s nanoseconds\n",tempPid,message.mesg_text);
-	                                wait(NULL);
-					shmpid->pid = 0;
-	                                bitMap[i] = 0;
-					shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
-					shmpcb[i].launch.second = 0;
-                			shmpcb[i].launch.nano = 0;
-                			shmpcb[i].dispatch.second = 0;
-               				shmpcb[i].dispatch.nano = 0;
-                			shmpcb[i].CPU = 0;
-                			shmpcb[i].system = 0;
-                			shmpcb[i].burst = 0;
-                			shmpcb[i].simPID = 0;
-			                shmpcb[i].priority = 0;
-
-					shmdt(shmpcb);
+		       int k = n->key;
+		       //n = n->next;
+		       if((shmpcb[k].dispatch.second == shmclock->second && shmpcb[k].dispatch.nano < shmclock->nano) || (shmpcb[k].dispatch.second < shmclock->second)){
+				    //dispatch that process
+		       		printf("OSS: Dispatching process with PID %lld from queue 0 at time %d:%d\n",shmpcb[k].simPID,currentTime.second,currentTime.nano);
+		       		fprintf(fp,"OSS: Dispatching process with PID %lld from queue 0 at time %d:%d\n",shmpcb[k].simPID,currentTime.second,currentTime.nano);
+		       		pid_t tempPid = shmpcb[k].simPID;	
+                       		shmdt(shmpcb);
+				shmdt(shmclock);
+				    //release semaphore
+		       		if (r_semop(semid, semsignal, 1) == -1) {
+        	       		    perror("Error: oss: failed to signal Semaphore. ");
+	                            exitSafe(1);
+                       		}
+		       		shmpid->quantum = rand() % 10 + 1;
+                       		shmpid->pid = tempPid;
+           	       		//wait for child to send message back
+                	    bool msgREC = false;
+			    while(!msgREC){
+				//printf("         Waiting for message\n");
+               		        if (msgrcv(msgid, &message, sizeof(message), 1, IPC_NOWAIT) != -1){
+				    msgREC = true;
+	                            printf("OSS: Receiving that process with PID %lld ran for %s nanoseconds",tempPid, message.mesg_text);
+	                            fprintf(fp,"OSS: Receiving that process with PID %lld ran for %s nanoseconds\n",tempPid,message.mesg_text);
+	                               
+				   //if the process is done wait and do not enqueue
+					
+					    //otherwise enqueue and do not wait.
+				    int status = 0;
+				    if(waitpid(tempPid, &status, 0) == -1){
+					perror("OSS: Waiting on pid failed");
+					exitSafe(1);
 				    }
-				    else if(errno == ENOMSG){
-					errno = 0;
-					//increment clock
-					if (r_semop(semid, semwait, 1) == -1){
-                                		perror("Error: oss: Failed to lock semid. ");
-                                		exitSafe(1);
-                		        }
-		                        else{
-						shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
-                				unsigned int increment = rand() % 1000;
-                				if(shmclock->nano >= 1000000000){
-                				        shmclock->second += (unsigned int)(shmclock->nano / 1000000000);
-                				        shmclock->nano = (shmclock->nano % 1000000000) + increment;
-                				}
-                				else{
+				     n = n->next;
+				     int temp = deQueue(priorityZero);
+				
+				    shmpid->pid = 0;
+	                                   bitMap[k] = 0;
+//THIS NEEDS TO BE IN SP
+				    shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
+				    shmpcb[k].launch.second = 0;
+                		    shmpcb[k].launch.nano = 0;
+                		    shmpcb[k].dispatch.second = 0;
+               			    shmpcb[k].dispatch.nano = 0;
+                		    shmpcb[k].CPU = 0;
+                		    shmpcb[k].system = 0;
+                		    shmpcb[k].burst = 0;
+                		    shmpcb[k].simPID = 0;
+			            shmpcb[k].priority = 0;
+
+				    shmdt(shmpcb);
+			        }
+				else if(errno == ENOMSG){
+					    errno = 0;
+					    //increment clock
+				    if (r_semop(semid, semwait, 1) == -1){
+                                		    perror("Error: oss: Failed to lock semid. ");
+                                		    exitSafe(1);
+               		            }
+	                            else{
+						    shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
+                				    unsigned int increment = rand() % 1000;
+                				    if(shmclock->nano >= 1000000000){
+                				            shmclock->second += (unsigned int)(shmclock->nano / 1000000000);
+                				            shmclock->nano = (shmclock->nano % 1000000000) + increment;
+                				    }
+                				    else{
         			        	        shmclock->nano += increment;
-				                }
-						shmdt(shmclock);
-						if (r_semop(semid, semsignal, 1) == -1) {
+				                    }
+						    shmdt(shmclock);
+						    if (r_semop(semid, semsignal, 1) == -1) {
 			                                perror("Error: oss: failed to signal Semaphore. ");
                 			                exitSafe(1);
-                        			}
-
-					}
+                        			    }
 				    }
 				}
+			    }
 				//break;	
-			    }
-			    else{
-				shmdt(shmpcb);
-				if (r_semop(semid, semsignal, 1) == -1) {
-                                        perror("Error: oss: failed to signal Semaphore. ");
-	                                exitSafe(1);
-                                }
-
-			    }
-			    
 			}
-		}
-		//increment the clock
-		if (r_semop(semid, semwait, 1) == -1){
-	        	perror("Error: oss: Failed to lock semid. ");
-			exitSafe(1);
-                }
-               	else{
-			//printf("Incrementing the clock\n");
-               		shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
-               		unsigned int increment = rand() % 1000;
-               		if(shmclock->nano >= 1000000000){
-               			shmclock->second += (unsigned int)(shmclock->nano / 1000000000);
+		    else{ // dispatch time not past yet
+			printf("Not dispatch time yet, enqueue %d",k);
+			//enQueue(priorityZero, k);
+			n = n->next;
+			shmdt(shmpcb);
+			shmdt(shmclock);
+			if (r_semop(semid, semsignal, 1) == -1) {
+                            perror("Error: oss: failed to signal Semaphore. ");
+	                    exitSafe(1);
+                        }
+
+		    }
+		}	    
+	}
+	    
+	//increment the clock
+	if (r_semop(semid, semwait, 1) == -1){
+        	perror("Error: oss: Failed to lock semid. ");
+		exitSafe(1);
+               }
+              	else{
+		//printf("Incrementing the clock\n");
+            		shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
+              		unsigned int increment = rand() % 1000;
+              		if(shmclock->nano >= 1000000000){
+              			shmclock->second += (unsigned int)(shmclock->nano / 1000000000);
                			shmclock->nano = (shmclock->nano % 1000000000) + increment;
                		}
                		else{

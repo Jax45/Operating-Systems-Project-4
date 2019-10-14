@@ -30,14 +30,14 @@ struct mesg_buffer {
 //Node in a queue
 struct Node {
 	int key;
-	struct Node* nextNode;
+	struct Node* next;
 };
 //Queue
 struct Queue {
-	struct QNode *front, *rear;
-}
+	struct Node *front, *rear;
+};
 
-struct Node newNode(int x){
+struct Node* newNode(int x){
 	struct Node *temp = (struct Node*)malloc(sizeof(struct Node));
 	temp->key = x;
 	temp->next = NULL;
@@ -52,7 +52,7 @@ struct Queue* createQueue(){
 
 void enQueue(struct Queue* q, int k) 
 { 
-	struct QNode* temp = newNode(k); 
+	struct Node* temp = newNode(k); 
 	if (q->rear == NULL) { 
 	        q->front = q->rear = temp; 
 	        return; 
@@ -64,7 +64,7 @@ struct Node* deQueue(struct Queue* q) {
 	if (q->front == NULL){ 
 		return NULL; 
 	}
-	struct QNode* temp = q->front; 
+	struct Node* temp = q->front; 
 	free(temp); 
 	q->front = q->front->next; 	
 	if (q->front == NULL) {
