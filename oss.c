@@ -432,27 +432,17 @@ int main(int argc, char **argv){
 				message.pid = tempPid;
 					
 				sprintf(message.mesg_text,"Test");
-				//msgsnd(msgid, &message, tempPid, 0);
 					
 				shmpid->index = k;
 		       		shmpid->quantum = rand() % 10 + 1;
                        		shmpid->pid = tempPid;
 				msgsnd(msgid, &message, sizeof(message), 0);
 				
-				//shmpid->flag = 0;
-				/*printf("Waiting for message");
-				msgrcv(msgid, &message, sizeof(message), 1, 0);
-				printf("Received message %s",message.mesg_text);
-				shmpid->quantum = 0;
-                                shmpid->pid = 0;
-           	       		*/
+				
 				//wait for child to send message back
                 	    bool msgREC = false;
 			    while(!msgREC){
-				//printf("         Waiting for message\n");
-				//set the pid to 0 once it has been received
-				//shmpid->quantum = 0;
-                                //shmpid->pid = 0;
+				
 
                		        if (msgrcv(msgid, &message, sizeof(message), 2, IPC_NOWAIT) != -1){
 					printf("Message: %s,%d,%d\n",message.mesg_text,message.mesg_type,message.pid);
@@ -488,7 +478,7 @@ int main(int argc, char **argv){
 				
 				    shmpid->pid = 0;
 	                            bitMap[k] = 0;
-//THIS NEEDS TO BE IN SP
+
 				    
 				    shmpcb[k].launch.second = 0;
                 		    shmpcb[k].launch.nano = 0;
@@ -505,26 +495,7 @@ int main(int argc, char **argv){
 					fprintf(fp,"Process %lld is still running already having used up %d CPU time\n",shmpcb[k].simPID, shmpcb[k].CPU);
 					fflush(fp);
 					n = n->next;
-					/*if(n == NULL && queueFlag == 0){
-                                            n = priorityOne->front;
-                                            queueFlag = 1;
-                                	}
-                        	        if(n == NULL && queueFlag == 1){
-                	                    n = priorityTwo->front;
-        	                            queueFlag = 2;
-	                                }
-					if(queueFlag == 0){
-					    //do we move to next queue?
-					    if(shmpcb[k].CPU > avgWait(priorityOne)){
-						enQueue(priorityOne,deQueue(priorityZero));
-					    }
-					    else{
-						//
-						enQueue(priorityZero,deQueue(priorityZero));
-					    }
-					}
-					*/ 
-
+				
 				    }
 				    shmdt(shmpcb);
 				    if (r_semop(semid, semsignal, 1) == -1) {
@@ -535,12 +506,7 @@ int main(int argc, char **argv){
  
 			        }
 				else if(errno){
-					//Temporary fix until know message or shm
-				//	shmpid->quantum = 0;
-	                        //        shmpid->pid = 0;
-	                       // perror("OSS: ");	
-				//	printf("Indside NO MESSAGe %s,%d,%d\n",message.mesg_text,message.mesg_type,message.pid);
-				    errno = 0;
+									    errno = 0;
 					    //increment clock
 				    if (r_semop(semid, semwait, 1) == -1){
                                 		    perror("Error: oss: Failed to lock semid. ");
