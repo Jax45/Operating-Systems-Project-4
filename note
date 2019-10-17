@@ -27,3 +27,15 @@ Questions:
     entire Scheduling section
     
 
+
+
+todo:
+random numbers are all generated
+user.c updates the pcb
+oss.c keeps track of the user's time and outputs it
+oss.c bitmap is a char unsigned bitmap
+oss.c will kill after so many seconds
+oss.c will wait after 100 spawned before spawning anymore.
+user.c will have the wait time written out
+user.c will have event working
+user.c will have random 0-3 working.

@@ -1,0 +1,18 @@
+Incremented the clock 1:383
+OSS: Generating process with pid 5927 and putting it in queue 0 at time 1:383
+Incremented the clock 2:1269
+OSS: Generating process with pid 5928 and putting it in queue 0 at time 2:1269
+OSS: Dispatching process with PID 5927 from queue 0 at time 2:1269
+
+
+OSS: process with PID 5927 has terminated
+OSS: Dispatching process with PID 5928 from queue 0 at time 2:1269
+Process is still running
+Incremented the clock 81:38413
+OSS: Dispatching process with PID 5928 from queue 0 at time 81:38413
+Process is still running
+Incremented the clock 87:41992
+OSS: Generating process with pid 5929 and putting it in queue 0 at time 87:41992
+OSS: Dispatching process with PID 5928 from queue 0 at time 87:41992
+Process is still running
+OSS: Dispatching process with PID 5929 from queue 0 at time 87:41992

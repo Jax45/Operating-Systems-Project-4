@@ -1,7 +1,9 @@
 //structure for the dispatch of quantum and pid
 struct Dispatch{
+	int index;
         int quantum;
         long long int pid;
+	int flag;
 };
 
 //structure for the shared memory clock
@@ -14,15 +16,17 @@ struct Clock{
 struct PCB{
         struct Clock launch;
         struct Clock dispatch;
-        int CPU;
-        int system;
+        unsigned long long int CPU;
+        unsigned long long int  system;
+	unsigned long long int duration;
         int burst;
-        long int simPID;
+        pid_t simPID;
         int priority;
 };
 //for the message queue
 struct mesg_buffer {
         long mesg_type;
+	pid_t pid;
         char mesg_text[100];
 } message;
 
