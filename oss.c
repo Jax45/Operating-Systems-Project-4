@@ -122,7 +122,18 @@ void logicalTimeout(){
         }
         exitSafe(1);
 }
+// Return -1 if not found change last to open bit
+int findOpen(int * last){
+	int i = 0;
+	for(i = 0; i < 18; i++){
+		if(pidArray[i] == 0){
+			*last = i;
+			return i;
+		}
+	}
+	return -1;
 
+}
 
 int main(int argc, char **argv){
 	int opt;
@@ -277,15 +288,41 @@ int main(int argc, char **argv){
 	const int maxTimeBetweenNewProcsNS = 10;
 	const int maxTimeBetweenNewProcsSecs = 2;
 	shmpid = (struct Dispatch*) shmat(shmidPID,(void*)0,0);
-
+	struct Clock launchTime;
+	launchTime.second = 0;
+	launchTime.nano = 0;
 	struct Clock currentTime;
 	//make the initial 18 processes
 	//for(i = 0; i < 1; i++){
-	
+	int lastPidIndex = -1;
 	int j;
 	//for(j = 0; j < 1; j++){
 	while(1){
-		printf("Start of loop\n");	
+		
+		if(launchTime.second == 0 && launchTime.nano == 0){
+			printf("Finding a launch time\n");
+			fprintf(fp,"OSS: generating a new launch time.\n");
+			//Create new launch time
+			if (r_semop(semid, semwait, 1) == -1){
+                                        perror("Error: oss: Failed to lock semid. ");
+                                        exitSafe(1);
+                        }
+                        else{
+				shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
+                                launchTime.second = shmclock->second + (rand() % maxTimeBetweenNewProcsSecs);
+                                launchTime.nano = shmclock->nano + (rand() % maxTimeBetweenNewProcsNS);
+				shmdt(shmclock);
+					
+				if (r_semop(semid, semsignal, 1) == -1) {
+                        	       perror("Error: oss: failed to signal Semaphore. ");
+                        	       exitSafe(1);
+                        	}
+			}
+				
+
+			printf("Launch time: %d:%d",launchTime.second,launchTime.nano);
+		}
+		/*printf("Start of loop\n");	
 		//get launch time
 		for(i = 0; i < maxChildren; i++){
 			if(bitMap[i] == 0){
@@ -319,19 +356,20 @@ int main(int argc, char **argv){
 				break;
 			}	
 		}
-	
+		*/
 		//check if we need to launch the processes
 		//printf("Outside the for loop\n");
-		for(i = 0; i < 18; i++){
+		
+		if(findOpen(&lastPidIndex) != -1){
 			if (r_semop(semid, semwait, 1) == -1){
                                         perror("Error: oss: Failed to lock semid. ");
                                         exitSafe(1);
                                 }
                         else{	
 				//printf("Inside the for and sp\n");
-				shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
+				//shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
 				shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
-				if(shmpcb[i].dispatch.second != 0 && shmpcb[i].dispatch.nano != 0){
+				/*if(shmpcb[i].dispatch.second != 0 && shmpcb[i].dispatch.nano != 0){
 					//already dispatched continue on
 					//printf("\nSkipping dispatch %d:%d\n",shmpcb[i].dispatch.second, shmpcb[i].dispatch.nano);
 					shmdt(shmclock);
@@ -341,10 +379,13 @@ int main(int argc, char **argv){
                                         	exitSafe(1);
                                 	}
 					continue;
-				}
+				}*/
 				//printf("Checking launch times %d:%d and clock %d:%d\n",shmpcb[i].launch.second, shmpcb[i].launch.nano, shmclock->second, shmclock->nano);
-				else if(shmclock->second > shmpcb[i].launch.second || (shmclock->second == shmpcb[i].launch.second && shmclock->nano > shmpcb[i].launch.nano)){
+				if(shmclock->second > launchTime.second || (shmclock->second == launchTime.second && shmclock->nano > launchTime.nano)){
 				//	printf("Dispatching process\n");
+					//reset the launch time to calculate new one later
+					launchTime.second = 0;
+					launchTime.nano = 0;
 					//launch the process
 					pid_t pid = fork();
                        			if(pid == 0){
@@ -368,18 +409,21 @@ int main(int argc, char **argv){
 						exitSafe(2);
 					}
                         		printf("forked child %d\n",pid);
-                        		fprintf(fp,"OSS: Generating process with pid %d and putting it in queue 0 at time %d:%d\n",pid,currentTime.second,currentTime.nano);
+                        		fprintf(fp,"OSS: Generating process with pid %d and putting it in queue 0 at time %d:%d\n",pid,shmclock->second,shmclock->nano);
 					fflush(fp);	
-					printf("place in queue %d\n",i);
+					printf("place in queue %d\n",lastPidIndex);
 						//place in queue
-						enQueue(priorityZero,i);
+						enQueue(priorityZero,lastPidIndex);
 
                         		        printf("Setting up the PCB\n");
                         		        shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
-                        		        shmpcb[i].simPID = pid;
-						bitMap[i] = 1;
-						shmpcb[i].dispatch.second = currentTime.second + 1;
-	                        	    	shmpcb[i].dispatch.nano = currentTime.nano + 1;
+                        		        shmpcb[lastPidIndex].simPID = pid;
+//Add start time
+//							
+						pidArray[lastPidIndex] = 1;
+						//bitMap[i] = 1;
+						//shmpcb[i].dispatch.second = currentTime.second + 1;
+	                        	    	//shmpcb[i].dispatch.nano = currentTime.nano + 1;
 						shmdt(shmclock);
 	                        	        shmdt(shmpcb);
 				}
@@ -388,12 +432,7 @@ int main(int argc, char **argv){
                                          perror("Error: oss: failed to signal Semaphore. ");
                                		 exitSafe(1);
                                 }
-				break;
-
 			}
-		
-		
-
 		}
 		//dispatch the ready process
 		//check queue 0
@@ -401,6 +440,7 @@ int main(int argc, char **argv){
 		// Here we need to loop through queu
 		struct Node* n = priorityZero->front;
 		int queueFlag = 0;
+		
 		//enQueue(priorityZero, n->key);
 		while(n != NULL){
 		    if (r_semop(semid, semwait, 1) == -1){
@@ -408,14 +448,14 @@ int main(int argc, char **argv){
                         exitSafe(1);
        	            }
                     else{
-                       shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
-                       shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
-                       printf("Checking for dispatch time...n->key = %d\n",n->key);
-
-		       int k = n->key;
-		       //n = n->next;
-		       if((shmpcb[k].dispatch.second == shmclock->second && shmpcb[k].dispatch.nano < shmclock->nano) || (shmpcb[k].dispatch.second < shmclock->second && shmpcb[k].dispatch.second != 0)){
-				    //dispatch that process
+                        shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
+                        shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
+                        printf("Checking for dispatch time...n->key = %d\n",n->key);
+			fflush(stdout);
+		        int k = n->key;
+		        //n = n->next;
+		        if(1){
+				//dispatch that process
 		       		printf("OSS: Dispatching process with PID %lld from queue 0 at time %d:%d\n",shmpcb[k].simPID,currentTime.second,currentTime.nano);
 		       		fprintf(fp,"OSS: Dispatching process with PID %lld from queue 0 at Index %d at time %d:%d\n",shmpcb[k].simPID,k,currentTime.second,currentTime.nano);
 		       		fflush(fp);
@@ -549,14 +589,14 @@ int main(int argc, char **argv){
 		    }
 		}	    
 	}
-	struct Node* queueTest = priorityZero->front;
-	printf("\n\nQueue: ");
-	 while(queueTest != NULL){
-		printf("%d, ",queueTest->key);
-		queueTest = queueTest->next;
-	}
-	printf("\n");
-	fflush(stdout);
+	//struct Node* queueTest = priorityZero->front;
+	//printf("\n\nQueue: ");
+	// while(queueTest != NULL){
+	//	printf("%d, ",queueTest->key);
+	//	queueTest = queueTest->next;
+	//}
+	//printf("\n");
+	//fflush(stdout);
 	//increment the clock
 	if (r_semop(semid, semwait, 1) == -1){
         	perror("Error: oss: Failed to lock semid. ");
@@ -577,7 +617,7 @@ int main(int argc, char **argv){
 			shmclock->second += 10;
 			currentTime.nano = shmclock->nano;
 			currentTime.second = shmclock->second;
-			fprintf(fp,"Incremented the clock %d:%d\n",shmclock->second,shmclock->nano);
+			//fprintf(fp,"Incremented the clock %d:%d\n",shmclock->second,shmclock->nano);
                		fflush(fp);
 			shmdt(shmclock);
                		if (r_semop(semid, semsignal, 1) == -1) {

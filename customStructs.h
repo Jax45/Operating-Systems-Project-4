@@ -75,4 +75,5 @@ struct Node* deQueue(struct Queue* q) {
 	        q->rear = NULL;
 	} 
 	return temp; 
-} 
+}
+ 
