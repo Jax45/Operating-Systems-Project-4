@@ -51,12 +51,13 @@ int main(int argc, char  **argv) {
 	
 	setsembuf(semwait, 0, -1, 0);
 	setsembuf(semsignal, 0, 1, 0);
-	printf("Before the while loop\n");
+	//printf("Before the while loop\n");
     while(1){	
 	message.mesg_type = 1;	
 	pid_t myPid = getpid();
 	//struct mesg_buffer Rcv;
 	message.mesg_type = 1;
+	message.pid = 0;
 	while(1){
 	    int result = msgrcv(msgid, &message, sizeof(message), 1, IPC_NOWAIT);
 		if(result != -1){
@@ -118,27 +119,23 @@ int main(int argc, char  **argv) {
 	unsigned int ns = quantum;
 	unsigned int sec;
 	unsigned long long startTime;
-	perror("USER CHECK: ");
+/*	
 	if (r_semop(semid, semwait, 1) == -1){
                  perror("Error: oss: Failed to lock semid. ");
                  exit(1);
         }
-	/*if (r_semop(semid, semwait, 1) == -1){
-		perror("Error: user: Child failed to lock semid. ");
-		exit(1);
-	}*/
 	else{
-		//inside critical section
+*/		//inside critical section
 	        struct Clock *shmclock = (struct Clock*) shmat(shmid,(void*)0,0);
 		ns += shmclock->nano;
 		sec = shmclock->second;
 	 	startTime = (1000000000 * shmclock->second) + shmclock->nano; 
 	        shmdt(shmclock);
-		printf("got the clock\n");	
+		printf("got the clock ns= %lld sec= %lld\n",ns,sec);	
 		struct PCB *shmpcb = (struct PCB*) shmat(shmidpcb, (void*)0,0);
 		burst = shmpcb[bitIndex].burst;
 		shmdt(shmpcb);	
-		//exit the Critical Section
+/*		//exit the Critical Section
 		if ( r_semop(semid, semsignal, 1) == -1) {
 			perror("User: Failed to clean up semaphore");
 			return 1;
@@ -146,16 +143,16 @@ int main(int argc, char  **argv) {
 	
 	}
 	
-	
+*/	
 	
 	//Make sure we convert the nanoseconds to seconds if big enough
-	if( ns >= 1000000000){
-		sec += ns % 1000000000;
-		ns = ns / 1000000000;
-	}
+	//if( ns >= 1000000000){
+	//	sec += ns % 1000000000;
+	//	ns = ns / 1000000000;
+	//}
 //	printf("Waiting for logical time: %d:%lld",sec,ns);
 	
-
+	fflush(stdout);
 	bool timeElapsed = false;
 	while(!timeElapsed){
 		if (error = r_semop(semid, semwait, 1) == -1){
@@ -178,9 +175,9 @@ int main(int argc, char  **argv) {
 
 				}
 				shmpcb[bitIndex].duration = (currentTime - startTime);
-				shmpcb[bitIndex].CPU += shmpcb[bitIndex].duration;
-				duration = shmpcb[bitIndex].duration;
-				CPU = shmpcb[bitIndex].CPU;
+				shmpcb[bitIndex].CPU += 1000;//(currentTime - startTime);//shmpcb[bitIndex].duration;
+				
+				
 				
 				shmdt(shmpcb);	
 				
@@ -195,26 +192,13 @@ int main(int argc, char  **argv) {
 
 		}
 	}
-	
-/*	if(CPU >= burst){
-		//message.mesg_text = "Done";
-
-		//send message
-		message.pid = getppid();
-        	message.mesg_type = 1;
-		sprintf(message.mesg_text, "Done");
-        	msgsnd(msgid, &message, sizeof(message), 0);
-		printf("Exiting Process\n");
-		exit(0);
-	}
-	else{*/
+		fflush(stdout);	
 		//message.mesg_text = "Not Done";
 		message.pid = 0;//getppid();
 		message.mesg_type = 2;
 		sprintf(message.mesg_text, "Not done yet.");
 		msgsnd(msgid, &message, sizeof(message), IPC_NOWAIT);
 			
-	//}
     }
 	return 0;
 }	

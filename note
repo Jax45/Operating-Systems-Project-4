@@ -27,8 +27,6 @@ Questions:
     entire Scheduling section
     
 
-
-
 todo:
 random numbers are all generated
 user.c updates the pcb
@@ -39,3 +37,18 @@ oss.c will wait after 100 spawned before spawning anymore.
 user.c will have the wait time written out
 user.c will have event working
 user.c will have random 0-3 working.
+
+
+
+Updated todo:
+take out semaphores except to increment clock or read clock
+take out dummy comments
+0 not generated til after 50 ms
+take out extra launch step
+rework queue to deq and enq
+add bitmap
+add wait time
+add start time
+add cpu time
+add functions for queue (avgwait and count);
+

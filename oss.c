@@ -269,6 +269,8 @@ int main(int argc, char **argv){
 	
 	//Create the queues
 	struct Queue* priorityZero = createQueue();
+	struct Queue* priorityOne = createQueue();
+	struct Queue* priorityTwo = createQueue();
 	
 	
 	int i;
@@ -302,7 +304,8 @@ int main(int argc, char **argv){
                         		currentTime.nano = shmclock->nano;
 					currentTime.second = shmclock->second;
 					shmdt(shmclock);
-					shmpcb[i].priority = 0;	
+					shmpcb[i].priority = 0;
+					shmpcb[i].simPID = 0;	
 					shmdt(shmpcb);
 					bitMap[i] = 1;
 					if (r_semop(semid, semsignal, 1) == -1) {
@@ -330,7 +333,7 @@ int main(int argc, char **argv){
 				shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
 				if(shmpcb[i].dispatch.second != 0 && shmpcb[i].dispatch.nano != 0){
 					//already dispatched continue on
-					printf("\nSkipping dispatch %d:%d\n",shmpcb[i].dispatch.second, shmpcb[i].dispatch.nano);
+					//printf("\nSkipping dispatch %d:%d\n",shmpcb[i].dispatch.second, shmpcb[i].dispatch.nano);
 					shmdt(shmclock);
 					shmdt(shmpcb);
 					if (r_semop(semid, semsignal, 1) == -1) {
@@ -395,28 +398,9 @@ int main(int argc, char **argv){
 		//dispatch the ready process
 		//check queue 0
 			
-		/*for(i = 0; i < 1; i++){
-			if (r_semop(semid, semwait, 1) == -1){
-                        	perror("Error: oss: Failed to lock semid. ");
-                                exitSafe(1);
-                        }
-                        else{
-			    shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
-			    shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
-			    printf("Checking for dispatch time...\n");
-			    if(shmpcb[i].dispatch.second == 0 && shmpcb[i].dispatch.nano == 0){
-				
-				shmdt(shmpcb);
-                                if (r_semop(semid, semsignal, 1) == -1) {
-                                        perror("Error: oss: failed to signal Semaphore. ");
-                                        exitSafe(1);
-                                }
-
-				continue;
-			    }*/
-			
-			    // Here we need to loop through queu
+		// Here we need to loop through queu
 		struct Node* n = priorityZero->front;
+		int queueFlag = 0;
 		//enQueue(priorityZero, n->key);
 		while(n != NULL){
 		    if (r_semop(semid, semwait, 1) == -1){
@@ -430,10 +414,10 @@ int main(int argc, char **argv){
 
 		       int k = n->key;
 		       //n = n->next;
-		       if((shmpcb[k].dispatch.second == shmclock->second && shmpcb[k].dispatch.nano < shmclock->nano) || (shmpcb[k].dispatch.second < shmclock->second)){
+		       if((shmpcb[k].dispatch.second == shmclock->second && shmpcb[k].dispatch.nano < shmclock->nano) || (shmpcb[k].dispatch.second < shmclock->second && shmpcb[k].dispatch.second != 0)){
 				    //dispatch that process
 		       		printf("OSS: Dispatching process with PID %lld from queue 0 at time %d:%d\n",shmpcb[k].simPID,currentTime.second,currentTime.nano);
-		       		fprintf(fp,"OSS: Dispatching process with PID %lld from queue 0 at time %d:%d\n",shmpcb[k].simPID,currentTime.second,currentTime.nano);
+		       		fprintf(fp,"OSS: Dispatching process with PID %lld from queue 0 at Index %d at time %d:%d\n",shmpcb[k].simPID,k,currentTime.second,currentTime.nano);
 		       		fflush(fp);
 				pid_t tempPid = shmpcb[k].simPID;	
                        		shmdt(shmpcb);
@@ -443,17 +427,17 @@ int main(int argc, char **argv){
         	       		    perror("Error: oss: failed to signal Semaphore. ");
 	                            exitSafe(1);
                        		}
-				struct mesg_buffer childMSG;
-				childMSG.mesg_type = 1;
-				childMSG.pid = tempPid;
+				
+				message.mesg_type = 1;
+				message.pid = tempPid;
 					
-				sprintf(childMSG.mesg_text,"Test");
+				sprintf(message.mesg_text,"Test");
 				//msgsnd(msgid, &message, tempPid, 0);
 					
 				shmpid->index = k;
 		       		shmpid->quantum = rand() % 10 + 1;
                        		shmpid->pid = tempPid;
-				msgsnd(msgid, &childMSG, sizeof(childMSG), 0);
+				msgsnd(msgid, &message, sizeof(message), 0);
 				
 				//shmpid->flag = 0;
 				/*printf("Waiting for message");
@@ -484,7 +468,7 @@ int main(int argc, char **argv){
 				   //if the process is done wait and do not enqueue
 				    if(message.pid == getpid()){
 					printf("lower process is done");
-					fprintf(fp, "\n\nOSS: process with PID %lld has terminated\n",tempPid);			
+					fprintf(fp, "OSS: process with PID %lld has terminated and had %lld CPU time\n",shmpcb[k].simPID, shmpcb[k].CPU);			
 					    //otherwise enqueue and do not wait.
 				        int status = 0;
 				        if(waitpid(tempPid, &status, 0) == -1){
@@ -492,6 +476,14 @@ int main(int argc, char **argv){
 					    exitSafe(1);
 				        }
 				     n = n->next;
+				    if(n == NULL && queueFlag == 0){
+					n = priorityOne->front;
+				    	queueFlag = 1;	
+				    }
+				    if(n == NULL && queueFlag == 1){
+					n = priorityTwo->front;
+				    	queueFlag = 2;
+				    }
 				     int temp = deQueue(priorityZero);
 				
 				    shmpid->pid = 0;
@@ -510,9 +502,29 @@ int main(int argc, char **argv){
 				    }
 				    else{
 					//process not done yet
-					fprintf(fp,"Process is still running\n");
+					fprintf(fp,"Process %lld is still running already having used up %d CPU time\n",shmpcb[k].simPID, shmpcb[k].CPU);
 					fflush(fp);
 					n = n->next;
+					/*if(n == NULL && queueFlag == 0){
+                                            n = priorityOne->front;
+                                            queueFlag = 1;
+                                	}
+                        	        if(n == NULL && queueFlag == 1){
+                	                    n = priorityTwo->front;
+        	                            queueFlag = 2;
+	                                }
+					if(queueFlag == 0){
+					    //do we move to next queue?
+					    if(shmpcb[k].CPU > avgWait(priorityOne)){
+						enQueue(priorityOne,deQueue(priorityZero));
+					    }
+					    else{
+						//
+						enQueue(priorityZero,deQueue(priorityZero));
+					    }
+					}
+					*/ 
+
 				    }
 				    shmdt(shmpcb);
 				    if (r_semop(semid, semsignal, 1) == -1) {
@@ -522,7 +534,7 @@ int main(int argc, char **argv){
 				    //exitSafe(1);
  
 			        }
-				else if(errno == ENOMSG){
+				else if(errno){
 					//Temporary fix until know message or shm
 				//	shmpid->quantum = 0;
 	                        //        shmpid->pid = 0;
@@ -545,7 +557,7 @@ int main(int argc, char **argv){
                 				    else{
         			        	        shmclock->nano += increment;
 				                    }
-						    shmclock->second += 1;
+						    shmclock->second += 10;
 				//		    printf("the clock is %d:%d\n",shmclock->second,shmclock->nano);
 						    shmdt(shmclock);
 						    if (r_semop(semid, semsignal, 1) == -1) {
@@ -572,11 +584,13 @@ int main(int argc, char **argv){
 		}	    
 	}
 	struct Node* queueTest = priorityZero->front;
-	printf("Queue: ");
+	printf("\n\nQueue: ");
 	 while(queueTest != NULL){
 		printf("%d, ",queueTest->key);
 		queueTest = queueTest->next;
 	}
+	printf("\n");
+	fflush(stdout);
 	//increment the clock
 	if (r_semop(semid, semwait, 1) == -1){
         	perror("Error: oss: Failed to lock semid. ");
@@ -594,7 +608,7 @@ int main(int argc, char **argv){
                			shmclock->nano += increment;
                		}
 			//add a second!
-			shmclock->second += 1;
+			shmclock->second += 10;
 			currentTime.nano = shmclock->nano;
 			currentTime.second = shmclock->second;
 			fprintf(fp,"Incremented the clock %d:%d\n",shmclock->second,shmclock->nano);
