@@ -61,7 +61,7 @@ int main(int argc, char  **argv) {
 	int purpose = 1;
 	unsigned int quantum;
         int bitIndex;
-
+	bool isFinished = false;
 	setsembuf(semwait, 0, -1, 0);
 	setsembuf(semsignal, 0, 1, 0);
 	//printf("Before the while loop\n");
@@ -98,11 +98,15 @@ int main(int argc, char  **argv) {
 	dispatch->quantum = 0;
 	shmdt(dispatch);
 	r_semop(semid, semsignal, 1);
-
-	//get random number
 	
-	//int purpose = rand() % 3;
-	purpose = 1;
+	//get random number
+	if(isFinished){
+		purpose = rand() % 3;
+	}
+	else{
+		purpose = rand() % 2 + 1;
+	}
+	//purpose = 0;
 	if (purpose == 0){
 		//terminate
 		message.pid = getppid();
@@ -140,7 +144,7 @@ int main(int argc, char  **argv) {
 	unsigned long long  burst;
 	unsigned int ns = quantum;
 	unsigned int sec;
-	unsigned long long startTime;
+	unsigned long long int startTime;
 	
 	if (r_semop(semid, semwait, 1) == -1){
                  perror("Error: oss: Failed to lock semid. ");
@@ -149,7 +153,7 @@ int main(int argc, char  **argv) {
 	else{
 		//inside critical section
 	        struct Clock *shmclock = (struct Clock*) shmat(shmid,(void*)0,0);
-		//ns = shmclock->nano;
+		ns += shmclock->nano;
 		sec = shmclock->second;
 	 	startTime = (1000000000 * shmclock->second) + shmclock->nano; 
 	        shmdt(shmclock);
@@ -169,8 +173,8 @@ int main(int argc, char  **argv) {
 	
 	//Make sure we convert the nanoseconds to seconds if big enough
 	if( ns >= 1000000000){
-		sec += ns % 1000000000;
-		ns = ns / 1000000000;
+		sec += ns / 1000000000;
+		ns = ns % 1000000000;
 	}
 	printf("Waiting for logical time: %d:%d",sec,ns);
 	
@@ -199,9 +203,11 @@ int main(int argc, char  **argv) {
 
 				}
 				shmpcb[bitIndex].duration = (currentTime - startTime);
-				shmpcb[bitIndex].CPU += 1000;//(currentTime - startTime);//shmpcb[bitIndex].duration;
+				shmpcb[bitIndex].CPU += (currentTime - startTime);//shmpcb[bitIndex].duration;
 				
-				
+				if(shmpcb[bitIndex].CPU >= 50000000){
+					isFinished = true;
+				}
 				
 				shmdt(shmpcb);	
 				
@@ -216,6 +222,7 @@ int main(int argc, char  **argv) {
 
 		}
 	}
+	
 	//purpose = 0;
 		fflush(stdout);	
 		//message.mesg_text = "Not Done";

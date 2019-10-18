@@ -474,10 +474,10 @@ int main(int argc, char **argv){
 					            perror("OSS: Waiting on pid failed");
 						    exitSafe(1);
 					        }			
-					   	shmpid->pid = 0;
+					   	//shmpid->pid = 0;
 	                        	   	resetBit(bitMap,k);
 		
-						pidArray[k] = 0;
+						//pidArray[k] = 0;
 						shmpcb[k].launch.second = 0;
         	        			shmpcb[k].launch.nano = 0;
         	        			shmpcb[k].dispatch.second = 0;
@@ -487,8 +487,12 @@ int main(int argc, char **argv){
                 				shmpcb[k].burst = 0;
                 				shmpcb[k].simPID = 0;
 					        shmpcb[k].priority = 0;
-						
 						size--;
+						if(size > 0){
+							n = deQueue(priorityZero);	
+                                                       printf("Dequeued %d\n",n->key);
+
+						}
 					}
 					else{
 						//process not done yet
@@ -531,7 +535,7 @@ void incrementClock(){
                 }
                 else{
                         shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
-                        unsigned int increment = rand() % 1000;
+                        unsigned int increment = rand() % 50000000;
                         if(shmclock->nano >= 1000000000){
                                 shmclock->second += (unsigned int)(shmclock->nano / 1000000000);
                                 shmclock->nano = (shmclock->nano % 1000000000) + increment;
@@ -540,7 +544,7 @@ void incrementClock(){
                                 shmclock->nano += increment;
                         }
                         /*add a second!*/
-                        shmclock->second += 1;
+                        //shmclock->second += 1;
                         //currentTime.nano = shmclock->nano;
                         //currentTime.second = shmclock->second;
                         /*fprintf(fp,"Incremented the clock %d:%d\n",shmclock->second,shmclock->nano);*/
