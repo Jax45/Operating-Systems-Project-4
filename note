@@ -41,8 +41,7 @@ user.c will have random 0-3 working.
 
 
 Updated todo:
-take out semaphores except to increment clock or read clock
-take out dummy comments
+Fix the bitmap kill in oss.
 0 not generated til after 50 ms
 take out extra launch step
 rework queue to deq and enq

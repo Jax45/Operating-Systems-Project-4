@@ -32,14 +32,15 @@ struct Dispatch *dispatch;
 
 //signal handler
 void signalHandler(int sig){
-	shmdt(shmpcb);
-        shmdt(dispatch);
+	//shmdt(shmpcb);
+        //shmdt(dispatch);
+	//shmdt(shmclock);
 	exit(1);
 }
 
 int main(int argc, char  **argv) {
 	srand(getpid());
-	signal(SIGKILL,signalHandler);	
+	//signal(SIGKILL,signalHandler);	
 	
 	struct sembuf semsignal[1];
 	struct sembuf semwait[1];
@@ -55,33 +56,53 @@ int main(int argc, char  **argv) {
                 perror("Error: user: Failed to create a private semaphore");
                 exit(1);
         }	
-	struct Dispatch *dispatch = (struct Dispatch*) shmat(shmidPID,(void*)0,0);
-        struct PCB *shmpcb = (struct PCB*) shmat(shmidpcb,(void*)0,0);
+	//struct Dispatch *dispatch = (struct Dispatch*) shmat(shmidPID,(void*)0,0);
+        //struct PCB *shmpcb = (struct PCB*) shmat(shmidpcb,(void*)0,0);
+	int purpose = 1;
+	unsigned int quantum;
+        int bitIndex;
 
 	setsembuf(semwait, 0, -1, 0);
 	setsembuf(semsignal, 0, 1, 0);
 	//printf("Before the while loop\n");
     while(1){	
-	message.mesg_type = 1;	
+	 dispatch = (struct Dispatch*) shmat(shmidPID,(void*)0,0);
+	//message.mesg_type = 1;	
 	pid_t myPid = getpid();
-	//struct mesg_buffer Rcv;
-	message.mesg_type = 1;
-	message.pid = 0;
-	while(1){
-	    int result = msgrcv(msgid, &message, sizeof(message), 1, IPC_NOWAIT);
+	//message.mesg_type = 1;
+	//message.pid = 0;
+	/*while(1){
+		int result = msgrcv(msgid, &message, sizeof(message), 1, IPC_NOWAIT);
 		if(result != -1){
-		    printf("message pid = %s, %lld my pid = %lld",message.mesg_text,message.pid,myPid);	
 		    if (message.pid == myPid){	
 	                break;
 		    }
 	        }
-		errno = 0;
+		else{
+			errno = 0;
+		}
+	}*/
+	while(1){
+			
+        	if(dispatch->pid == myPid){
+        		break;	
+		}
 	}
-	
+
+	//wait for semaphore and reset shmpid
+	r_semop(semid, semwait, 1);
+	dispatch->pid = 0;
+	quantum = dispatch->quantum;
+        bitIndex = dispatch->index;
+	dispatch->index = -1;
+	dispatch->quantum = 0;
+	shmdt(dispatch);
+	r_semop(semid, semsignal, 1);
+
 	//get random number
 	
-	int purpose = rand() % 3;
-	purpose = 0;
+	//int purpose = rand() % 3;
+	purpose = 1;
 	if (purpose == 0){
 		//terminate
 		message.pid = getppid();
@@ -91,7 +112,7 @@ int main(int argc, char  **argv) {
                 msgsnd(msgid, &message, sizeof(message), 0);
                 perror("USER: ");
 		printf("Exiting Process\n");
-		shmdt(shmpcb);
+		//shmdt(shmpcb);
 		shmdt(dispatch);
                 exit(0);
 	}	
@@ -102,9 +123,9 @@ int main(int argc, char  **argv) {
 	//else = 1
 	
 	//get quantum from shm
-	//struct Dispatch *dispatch = (struct Dispatch*) shmat(shmidPID,(void*)0,0);
-	unsigned int quantum = dispatch->quantum;
-	int bitIndex = dispatch->index;
+	//dispatch = (struct Dispatch*) shmat(shmidPID,(void*)0,0);
+	//unsigned int quantum = dispatch->quantum;
+	//int bitIndex = dispatch->index;
 	printf("bit index %d, quantum %d",bitIndex,quantum);
 	//dispatch->pid = 0;
 	//will we use entire quantum?
@@ -113,8 +134,8 @@ int main(int argc, char  **argv) {
 		//use part of quantum
 		quantum = rand() % quantum;
 	}
-	unsigned long long int CPU;
-	unsigned long long int duration; 	
+	//unsigned long long int CPU;
+	//unsigned long long int duration; 	
 	unsigned long long int currentTime;	
 	unsigned long long  burst;
 	unsigned int ns = quantum;
@@ -128,14 +149,14 @@ int main(int argc, char  **argv) {
 	else{
 		//inside critical section
 	        struct Clock *shmclock = (struct Clock*) shmat(shmid,(void*)0,0);
-		ns += shmclock->nano;
+		//ns = shmclock->nano;
 		sec = shmclock->second;
 	 	startTime = (1000000000 * shmclock->second) + shmclock->nano; 
 	        shmdt(shmclock);
 		printf("got the clock ns= %d sec= %d\n",ns,sec);	
-	//	struct PCB *shmpcb = (struct PCB*) shmat(shmidpcb, (void*)0,0);
+		shmpcb = (struct PCB*) shmat(shmidpcb, (void*)0,0);
 		burst = shmpcb[bitIndex].burst;
-	//	shmdt(shmpcb);	
+		shmdt(shmpcb);	
 		//exit the Critical Section
 		if ( r_semop(semid, semsignal, 1) == -1) {
 			perror("User: Failed to clean up semaphore");
@@ -156,7 +177,7 @@ int main(int argc, char  **argv) {
 	fflush(stdout);
 	bool timeElapsed = false;
 	while(!timeElapsed){
-		if (error = r_semop(semid, semwait, 1) == -1){
+		if ((error = r_semop(semid, semwait, 1)) == -1){
 			perror("Error: user: Child failed to lock semid. ");
 	                return 1;
 	        }
@@ -167,7 +188,9 @@ int main(int argc, char  **argv) {
 			if((shmclock->nano >= ns && shmclock->second == sec) || shmclock->second > sec){
 				timeElapsed = true;
 				currentTime = (1000000000 * shmclock->second) + shmclock->nano;
-				
+			//	dispatch = (struct Dispatch*) shmat(shmidPID,(void*)0,0);
+			        shmpcb = (struct PCB*) shmat(shmidpcb,(void*)0,0);
+
 				//struct PCB *shmpcb = (struct PCB*) shmat(shmidpcb, (void*)0,0);
 				if (shmpcb == (struct PCB*)(-1)){
 
@@ -180,7 +203,7 @@ int main(int argc, char  **argv) {
 				
 				
 				
-				//shmdt(shmpcb);	
+				shmdt(shmpcb);	
 				
 			}
 			shmdt(shmclock);
@@ -193,12 +216,13 @@ int main(int argc, char  **argv) {
 
 		}
 	}
+	//purpose = 0;
 		fflush(stdout);	
 		//message.mesg_text = "Not Done";
 		message.pid = 0;//getppid();
 		message.mesg_type = 2;
 		sprintf(message.mesg_text, "Not done yet.");
-		msgsnd(msgid, &message, sizeof(message), IPC_NOWAIT);
+		msgsnd(msgid, &message, sizeof(message), 0);
 			
     }
 	return 0;

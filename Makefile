@@ -5,7 +5,7 @@ OBJECTS		= oss.o
 CHILD		= user
 CHILDOBJS	= user.o
 LOG		= log.txt
-DEP		= customStructs.h semaphoreFunc.h
+DEP		= customStructs.h semaphoreFunc.h bitMap.h
 .SUFFIXES: .c .o
 
 ALL: oss user

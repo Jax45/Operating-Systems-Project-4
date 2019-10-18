@@ -69,11 +69,24 @@ struct Node* deQueue(struct Queue* q) {
 		return NULL; 
 	}
 	struct Node* temp = q->front; 
-	free(temp); 
+	//free(temp); 
+	//int temp = q->front->key;
 	q->front = q->front->next; 	
 	if (q->front == NULL) {
 	        q->rear = NULL;
 	} 
 	return temp; 
 }
- 
+int sizeOfQueue(struct Queue* q) {
+	if(q->front == NULL){
+		return 0;
+	}
+	int i = 1;
+	struct Node *n = q->front->next;
+	while(n != NULL){
+		i++;
+		n = n->next;
+	}
+	return i;
+}
+//something
