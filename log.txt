@@ -1,120 +1,2123 @@
 OSS: generating a new launch time.
-OSS: Generating process with pid 5523 and putting it in queue 0 at time 1:133027
-OSS: Dispatching process with PID 5523 from queue 0 at Index 0 at time 1:133027
-OSS: Receiving that process with PID 5523 ran for 81796 nanoseconds
-Process 5523 is still running already having used up 81796 CPU time
+OSS: Generating process 0 with pid 21623 and putting it in queue 0 at time 1:777
+OSS: Dispatching process with PID 21623 from queue 0 at Index 0 at time 1:777
+OSS: Receiving that process with PID 21623 ran for 1000000925 nanoseconds
+OSS: total time this dispatch was 1000000925 nanoseconds
+OSS: Placing PID 21623 in queue 0
 OSS: generating a new launch time.
-OSS: Dispatching process with PID 5523 from queue 0 at Index 0 at time 1:3084407
-OSS: Receiving that process with PID 5523 ran for 88746 nanoseconds
-Process 5523 is still running already having used up 170542 CPU time
-OSS: Dispatching process with PID 5523 from queue 0 at Index 0 at time 1:3359559
-OSS: Receiving that process with PID 5523 ran for 93321 nanoseconds
-Process 5523 is still running already having used up 263863 CPU time
-OSS: Generating process with pid 5525 and putting it in queue 0 at time 4:3750038
-OSS: Dispatching process with PID 5525 from queue 0 at Index 1 at time 4:3750038
-OSS: Receiving that process with PID 5525 ran for 120528 nanoseconds
-Process 5525 is still running already having used up 120528 CPU time
+OSS: Dispatching process with PID 21623 from queue 1 at Index 0 at time 61:27836
+OSS: Receiving that process with PID 21623 ran for 1000000895 nanoseconds
+OSS: total time this dispatch was 1000000895 nanoseconds
+OSS: Placing PID 21623 in queue 1
+OSS: Generating process 1 with pid 21624 and putting it in queue 0 at time 68:31881
+OSS: Dispatching process with PID 21624 from queue 0 at Index 1 at time 68:31881
+OSS: Receiving that process with PID 21624 ran for 1000000117 nanoseconds
+OSS: total time this dispatch was 1000000117 nanoseconds
+OSS: Placing PID 21624 in queue 0
+OSS: Dispatching process with PID 21623 from queue 2 at Index 0 at time 118:54799
+OSS: Receiving that process with PID 21623 ran for 1000000675 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21623 in queue 2
 OSS: generating a new launch time.
-OSS: Dispatching process with PID 5525 from queue 0 at Index 1 at time 4:7712056
-OSS: Receiving that process with PID 5525 ran for 36884 nanoseconds
-Process 5525 is still running already having used up 157412 CPU time
-OSS: Generating process with pid 5526 and putting it in queue 0 at time 4:7927225
-OSS: Dispatching process with PID 5526 from queue 0 at Index 2 at time 4:7927225
-OSS: Receiving that process with PID 5526 ran for 17475 nanoseconds
-Process 5526 is still running already having used up 17475 CPU time
+OSS: Dispatching process with PID 21624 from queue 1 at Index 1 at time 122:57591
+OSS: Receiving that process with PID 21624 ran for 1000000586 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21624 in queue 1
+OSS: Dispatching process with PID 21623 from queue 2 at Index 0 at time 125:59495
+OSS: Receiving that process with PID 21623 ran for 1000000219 nanoseconds
+OSS: total time this dispatch was 1000000219 nanoseconds
+OSS: Placing PID 21623 in queue 2
+OSS: Generating process 2 with pid 21625 and putting it in queue 0 at time 129:61549
+OSS: Dispatching process with PID 21625 from queue 0 at Index 2 at time 129:61549
+OSS: Receiving that process with PID 21625 ran for 1000000880 nanoseconds
+OSS: total time this dispatch was 1000000880 nanoseconds
+OSS: Placing PID 21625 in queue 0
+OSS: Dispatching process with PID 21624 from queue 2 at Index 1 at time 2279:1149208
+OSS: Receiving that process with PID 21624 ran for 1000000586 nanoseconds
+OSS: process with PID 21624 has terminated and had 2000000703 CPU time
+OSS: Dispatching process with PID 21623 from queue 2 at Index 0 at time 2281:1150471
+OSS: Receiving that process with PID 21623 ran for 1000000530 nanoseconds
+OSS: total time this dispatch was 1000000530 nanoseconds
+OSS: Placing PID 21623 in queue 2
 OSS: generating a new launch time.
-OSS: Dispatching process with PID 5526 from queue 0 at Index 2 at time 7:10314776
-OSS: Receiving that process with PID 5526 ran for 137258 nanoseconds
-Process 5526 is still running already having used up 154733 CPU time
-OSS: Generating process with pid 5529 and putting it in queue 0 at time 10:10751920
-OSS: Dispatching process with PID 5529 from queue 0 at Index 3 at time 10:10751920
-OSS: Receiving that process with PID 5529 ran for 102217 nanoseconds
-Process 5529 is still running already having used up 102217 CPU time
+OSS: Dispatching process with PID 21625 from queue 1 at Index 2 at time 2285:1152679
+OSS: Receiving that process with PID 21625 ran for 1000000858 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21625 in queue 1
+OSS: Dispatching process with PID 21623 from queue 2 at Index 0 at time 2288:1155034
+OSS: Receiving that process with PID 21623 ran for 1000000698 nanoseconds
+OSS: total time this dispatch was -3294966598 nanoseconds
+OSS: Placing PID 21623 in queue 2
+OSS: Generating process 3 with pid 21626 and putting it in queue 0 at time 2292:1157336
+OSS: Dispatching process with PID 21626 from queue 0 at Index 3 at time 2292:1157336
+OSS: Receiving that process with PID 21626 ran for 1000000839 nanoseconds
+OSS: total time this dispatch was 1000000839 nanoseconds
+OSS: Placing PID 21626 in queue 0
+OSS: Dispatching process with PID 21625 from queue 2 at Index 2 at time 4661:2313730
+OSS: Receiving that process with PID 21625 ran for 1000000114 nanoseconds
+OSS: total time this dispatch was 1000000114 nanoseconds
+OSS: Placing PID 21625 in queue 2
+OSS: Dispatching process with PID 21623 from queue 2 at Index 0 at time 4668:2316178
+OSS: Receiving that process with PID 21623 ran for 1000000698 nanoseconds
+OSS: process with PID 21623 has terminated and had 1705036646 CPU time
 OSS: generating a new launch time.
-OSS: Dispatching process with PID 5529 from queue 0 at Index 3 at time 10:88520993
-OSS: Receiving that process with PID 5529 ran for 78548 nanoseconds
-Process 5529 is still running already having used up 180765 CPU time
-OSS: Generating process with pid 5530 and putting it in queue 0 at time 10:152022521
-OSS: Dispatching process with PID 5530 from queue 0 at Index 4 at time 10:152022521
-OSS: Receiving that process with PID 5530 ran for 22704 nanoseconds
-Process 5530 is still running already having used up 22704 CPU time
+OSS: Dispatching process with PID 21626 from queue 1 at Index 3 at time 4670:2317744
+OSS: Receiving that process with PID 21626 ran for 1000000330 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21626 in queue 1
+OSS: Dispatching process with PID 21625 from queue 2 at Index 2 at time 4673:2318478
+OSS: Receiving that process with PID 21625 ran for 1000000856 nanoseconds
+OSS: total time this dispatch was 1000000856 nanoseconds
+OSS: Placing PID 21625 in queue 2
+OSS: Generating process 4 with pid 21627 and putting it in queue 0 at time 4677:2321069
+OSS: Dispatching process with PID 21627 from queue 0 at Index 4 at time 4677:2321069
+OSS: Receiving that process with PID 21627 ran for 1000000606 nanoseconds
+OSS: total time this dispatch was -3294966690 nanoseconds
+OSS: Placing PID 21627 in queue 0
+OSS: Dispatching process with PID 21626 from queue 1 at Index 3 at time 7028:3494309
+OSS: Receiving that process with PID 21626 ran for 1000000870 nanoseconds
+OSS: total time this dispatch was 1000000870 nanoseconds
+OSS: Placing PID 21626 in queue 1
+OSS: Dispatching process with PID 21625 from queue 2 at Index 2 at time 7036:3498074
+OSS: Receiving that process with PID 21625 ran for 1000000856 nanoseconds
+OSS: process with PID 21625 has terminated and had 4000002708 CPU time
 OSS: generating a new launch time.
-OSS: Dispatching process with PID 5530 from queue 0 at Index 4 at time 10:213988649
-OSS: Receiving that process with PID 5530 ran for 72955 nanoseconds
-Process 5530 is still running already having used up 95659 CPU time
-OSS: Dispatching process with PID 5530 from queue 0 at Index 4 at time 10:214185175
-OSS: Receiving that process with PID 5530 ran for 90905 nanoseconds
-Process 5530 is still running already having used up 186564 CPU time
-OSS: Generating process with pid 5532 and putting it in queue 0 at time 11:213995678
-OSS: Dispatching process with PID 5532 from queue 0 at Index 5 at time 11:213995678
-OSS: Receiving that process with PID 5532 ran for 76686 nanoseconds
-Process 5532 is still running already having used up 76686 CPU time
+OSS: Dispatching process with PID 21627 from queue 0 at Index 4 at time 7039:3499183
+OSS: Receiving that process with PID 21627 ran for 1000000664 nanoseconds
+OSS: total time this dispatch was 1000000664 nanoseconds
+OSS: Placing PID 21627 in queue 0
+OSS: Dispatching process with PID 21626 from queue 2 at Index 3 at time 7042:3500076
+OSS: Receiving that process with PID 21626 ran for 1000000529 nanoseconds
+OSS: total time this dispatch was 1000000529 nanoseconds
+OSS: Placing PID 21626 in queue 2
+OSS: Generating process 5 with pid 21628 and putting it in queue 0 at time 7049:3503182
+OSS: Dispatching process with PID 21628 from queue 0 at Index 5 at time 7049:3503182
+OSS: Receiving that process with PID 21628 ran for 1000000222 nanoseconds
+OSS: total time this dispatch was 1000000222 nanoseconds
+OSS: Placing PID 21628 in queue 0
+OSS: Dispatching process with PID 21627 from queue 1 at Index 4 at time 9374:4670054
+OSS: Receiving that process with PID 21627 ran for 1000000664 nanoseconds
+OSS: process with PID 21627 has terminated and had -2294966026 CPU time
+OSS: Dispatching process with PID 21626 from queue 2 at Index 3 at time 9375:4670306
+OSS: Receiving that process with PID 21626 ran for 1000000660 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21626 in queue 2
 OSS: generating a new launch time.
-OSS: Dispatching process with PID 5532 from queue 0 at Index 5 at time 11:504845644
-OSS: Receiving that process with PID 5532 ran for 62410 nanoseconds
-Process 5532 is still running already having used up 139096 CPU time
-OSS: Generating process with pid 5534 and putting it in queue 0 at time 13:568276506
-OSS: Dispatching process with PID 5534 from queue 0 at Index 6 at time 13:568276506
-OSS: Receiving that process with PID 5534 ran for 101442 nanoseconds
-Process 5534 is still running already having used up 101442 CPU time
+OSS: Dispatching process with PID 21628 from queue 1 at Index 5 at time 9379:4672641
+OSS: Receiving that process with PID 21628 ran for 1000000222 nanoseconds
+OSS: process with PID 21628 has terminated and had 1000000222 CPU time
+OSS: Dispatching process with PID 21626 from queue 2 at Index 3 at time 9380:4673537
+OSS: Receiving that process with PID 21626 ran for 1000000966 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21626 in queue 2
+OSS: Generating process 6 with pid 21630 and putting it in queue 0 at time 9384:4675762
+OSS: Dispatching process with PID 21630 from queue 0 at Index 6 at time 9384:4675762
+OSS: Receiving that process with PID 21630 ran for 1000000258 nanoseconds
+OSS: total time this dispatch was 1000000258 nanoseconds
+OSS: Placing PID 21630 in queue 0
+OSS: Dispatching process with PID 21626 from queue 2 at Index 3 at time 9439:4703143
+OSS: Receiving that process with PID 21626 ran for 1000000718 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21626 in queue 2
 OSS: generating a new launch time.
-OSS: Dispatching process with PID 5534 from queue 0 at Index 6 at time 15:745403834
-OSS: Receiving that process with PID 5534 ran for 92677 nanoseconds
-Process 5534 is still running already having used up 194119 CPU time
-OSS: Generating process with pid 5536 and putting it in queue 0 at time 16:879404199
-OSS: Dispatching process with PID 5536 from queue 0 at Index 7 at time 16:879404199
-OSS: Receiving that process with PID 5536 ran for 99291 nanoseconds
-Process 5536 is still running already having used up 99291 CPU time
+OSS: Dispatching process with PID 21630 from queue 1 at Index 6 at time 9443:4705025
+OSS: Receiving that process with PID 21630 ran for 1000000461 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21630 in queue 1
+OSS: Dispatching process with PID 21626 from queue 2 at Index 3 at time 9446:4707237
+OSS: Receiving that process with PID 21626 ran for 1000000290 nanoseconds
+OSS: total time this dispatch was 1000000290 nanoseconds
+OSS: Placing PID 21626 in queue 2
+OSS: Generating process 7 with pid 21631 and putting it in queue 0 at time 9453:4710527
+OSS: Dispatching process with PID 21631 from queue 0 at Index 7 at time 9453:4710527
+OSS: Receiving that process with PID 21631 ran for 1000000121 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21631 in queue 0
+OSS: Dispatching process with PID 21630 from queue 1 at Index 6 at time 11634:5779275
+OSS: Receiving that process with PID 21630 ran for 1000000205 nanoseconds
+OSS: total time this dispatch was 1000000205 nanoseconds
+OSS: Placing PID 21630 in queue 1
+OSS: Dispatching process with PID 21626 from queue 2 at Index 3 at time 11639:5780361
+OSS: Receiving that process with PID 21626 ran for 1000000089 nanoseconds
+OSS: total time this dispatch was 1000000089 nanoseconds
+OSS: Placing PID 21626 in queue 2
 OSS: generating a new launch time.
-OSS: Dispatching process with PID 5536 from queue 0 at Index 7 at time 16:975767050
-OSS: Receiving that process with PID 5536 ran for 32676 nanoseconds
-Process 5536 is still running already having used up 131967 CPU time
-OSS: Dispatching process with PID 5536 from queue 0 at Index 7 at time 17:37220766
-OSS: Receiving that process with PID 5536 ran for 94448 nanoseconds
-Process 5536 is still running already having used up 226415 CPU time
-OSS: Generating process with pid 5540 and putting it in queue 0 at time 20:100403744
-OSS: Dispatching process with PID 5540 from queue 0 at Index 8 at time 20:100403744
-OSS: Receiving that process with PID 5540 ran for 76519 nanoseconds
-Process 5540 is still running already having used up 76519 CPU time
+OSS: Dispatching process with PID 21631 from queue 0 at Index 7 at time 11644:5782793
+OSS: Receiving that process with PID 21631 ran for 1000000817 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21631 in queue 0
+OSS: Dispatching process with PID 21630 from queue 1 at Index 6 at time 11647:5784069
+OSS: Receiving that process with PID 21630 ran for 1000000524 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21630 in queue 1
+OSS: Dispatching process with PID 21626 from queue 2 at Index 3 at time 11650:5785474
+OSS: Receiving that process with PID 21626 ran for 1000000784 nanoseconds
+OSS: total time this dispatch was 1000000784 nanoseconds
+OSS: Placing PID 21626 in queue 2
+OSS: Generating process 8 with pid 21632 and putting it in queue 0 at time 11654:5787990
+OSS: Dispatching process with PID 21631 from queue 0 at Index 7 at time 11654:5787990
+OSS: Receiving that process with PID 21631 ran for 1000000817 nanoseconds
+OSS: process with PID 21631 has terminated and had 2000000938 CPU time
+OSS: Dispatching process with PID 21632 from queue 0 at Index 8 at time 11655:5788540
+OSS: Receiving that process with PID 21632 ran for 1000000061 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21632 in queue 0
+OSS: Dispatching process with PID 21630 from queue 1 at Index 6 at time 11713:5815517
+OSS: Receiving that process with PID 21630 ran for 1000000443 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21630 in queue 1
+OSS: Dispatching process with PID 21626 from queue 2 at Index 3 at time 11716:5816851
+OSS: Receiving that process with PID 21626 ran for 1000000945 nanoseconds
+OSS: total time this dispatch was 1000000945 nanoseconds
+OSS: Placing PID 21626 in queue 2
 OSS: generating a new launch time.
-OSS: Dispatching process with PID 5540 from queue 0 at Index 8 at time 20:281544072
-OSS: Receiving that process with PID 5540 ran for 108701 nanoseconds
-Process 5540 is still running already having used up 185220 CPU time
-OSS: Generating process with pid 5542 and putting it in queue 0 at time 22:346386950
-OSS: Dispatching process with PID 5542 from queue 0 at Index 9 at time 22:346386950
-OSS: Receiving that process with PID 5542 ran for 146530 nanoseconds
-Process 5542 is still running already having used up 146530 CPU time
+OSS: Dispatching process with PID 21632 from queue 0 at Index 8 at time 11720:5818996
+OSS: Receiving that process with PID 21632 ran for 1000000135 nanoseconds
+OSS: total time this dispatch was 1000000135 nanoseconds
+OSS: Placing PID 21632 in queue 0
+OSS: Dispatching process with PID 21630 from queue 1 at Index 6 at time 11725:5821075
+OSS: Receiving that process with PID 21630 ran for 1000000969 nanoseconds
+OSS: total time this dispatch was 1000000969 nanoseconds
+OSS: Placing PID 21630 in queue 1
+OSS: Dispatching process with PID 21626 from queue 2 at Index 3 at time 11728:5823027
+OSS: Receiving that process with PID 21626 ran for 1000000582 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21626 in queue 2
+OSS: Generating process 9 with pid 21633 and putting it in queue 0 at time 11732:5824879
+OSS: Dispatching process with PID 21633 from queue 0 at Index 9 at time 11732:5824879
+OSS: Receiving that process with PID 21633 ran for 1000000194 nanoseconds
+OSS: total time this dispatch was -3294967102 nanoseconds
+OSS: Placing PID 21633 in queue 0
+OSS: Dispatching process with PID 21632 from queue 1 at Index 8 at time 12861:6392152
+OSS: Receiving that process with PID 21632 ran for 1000000135 nanoseconds
+OSS: process with PID 21632 has terminated and had 2000000196 CPU time
+OSS: Dispatching process with PID 21630 from queue 1 at Index 6 at time 12862:6392189
+OSS: Receiving that process with PID 21630 ran for 1000000969 nanoseconds
+OSS: process with PID 21630 has terminated and had 1705035564 CPU time
+OSS: Dispatching process with PID 21626 from queue 2 at Index 3 at time 15256:7592729
+OSS: Receiving that process with PID 21626 ran for 1000000582 nanoseconds
+OSS: process with PID 21626 has terminated and had 3410073010 CPU time
 OSS: generating a new launch time.
-OSS: Dispatching process with PID 5542 from queue 0 at Index 9 at time 22:451756971
-OSS: Receiving that process with PID 5542 ran for 48159 nanoseconds
-Process 5542 is still running already having used up 194689 CPU time
-OSS: Dispatching process with PID 5542 from queue 0 at Index 9 at time 22:451936781
-OSS: Receiving that process with PID 5542 ran for 63409361 nanoseconds
-Process 5542 is still running already having used up 63604050 CPU time
-OSS: Generating process with pid 5543 and putting it in queue 0 at time 23:451796812
-OSS: Dispatching process with PID 5543 from queue 0 at Index 10 at time 23:451796812
-OSS: Receiving that process with PID 5543 ran for 13742 nanoseconds
-Process 5543 is still running already having used up 13742 CPU time
+OSS: Dispatching process with PID 21633 from queue 0 at Index 9 at time 15259:7593108
+OSS: Receiving that process with PID 21633 ran for 1000000194 nanoseconds
+OSS: process with PID 21633 has terminated and had -3294967102 CPU time
+OSS: Generating process 10 with pid 21634 and putting it in queue 0 at time 15261:7593507
+OSS: Dispatching process with PID 21634 from queue 0 at Index 10 at time 15261:7593507
+OSS: Receiving that process with PID 21634 ran for 1000000569 nanoseconds
+OSS: total time this dispatch was -3294966727 nanoseconds
+OSS: Placing PID 21634 in queue 0
 OSS: generating a new launch time.
-OSS: Dispatching process with PID 5543 from queue 0 at Index 10 at time 27:562021206
-OSS: Receiving that process with PID 5543 ran for 78927 nanoseconds
-Process 5543 is still running already having used up 92669 CPU time
-OSS: Generating process with pid 5547 and putting it in queue 0 at time 27:625764465
-OSS: Dispatching process with PID 5547 from queue 0 at Index 11 at time 27:625764465
-OSS: Receiving that process with PID 5547 ran for 56779 nanoseconds
-Process 5547 is still running already having used up 56779 CPU time
+OSS: Dispatching process with PID 21634 from queue 1 at Index 10 at time 15327:7623871
+OSS: Receiving that process with PID 21634 ran for 1000000192 nanoseconds
+OSS: total time this dispatch was -3294967104 nanoseconds
+OSS: Placing PID 21634 in queue 1
+OSS: Generating process 11 with pid 21635 and putting it in queue 0 at time 15331:7625595
+OSS: Dispatching process with PID 21635 from queue 0 at Index 11 at time 15331:7625595
+OSS: Receiving that process with PID 21635 ran for 1000000945 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21635 in queue 0
+OSS: Dispatching process with PID 21634 from queue 2 at Index 10 at time 15399:7659706
+OSS: Receiving that process with PID 21634 ran for 1000000447 nanoseconds
+OSS: total time this dispatch was 1000000447 nanoseconds
+OSS: Placing PID 21634 in queue 2
 OSS: generating a new launch time.
-OSS: Dispatching process with PID 5547 from queue 0 at Index 11 at time 30:688454825
-OSS: Receiving that process with PID 5547 ran for 69627 nanoseconds
-Process 5547 is still running already having used up 126406 CPU time
-OSS: Generating process with pid 5555 and putting it in queue 0 at time 31:749616522
-OSS: Dispatching process with PID 5555 from queue 0 at Index 12 at time 31:749616522
-OSS: Receiving that process with PID 5555 ran for 87730 nanoseconds
-Process 5555 is still running already having used up 87730 CPU time
+OSS: Dispatching process with PID 21635 from queue 1 at Index 11 at time 15405:7662387
+OSS: Receiving that process with PID 21635 ran for 1000000999 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21635 in queue 1
+OSS: Dispatching process with PID 21634 from queue 2 at Index 10 at time 15408:7664913
+OSS: Receiving that process with PID 21634 ran for 1000000894 nanoseconds
+OSS: total time this dispatch was 1000000894 nanoseconds
+OSS: Placing PID 21634 in queue 2
+OSS: Generating process 12 with pid 21636 and putting it in queue 0 at time 15416:7669329
+OSS: Dispatching process with PID 21636 from queue 0 at Index 12 at time 15416:7669329
+OSS: Receiving that process with PID 21636 ran for 1000000931 nanoseconds
+OSS: total time this dispatch was 1000000931 nanoseconds
+OSS: Placing PID 21636 in queue 0
+OSS: Dispatching process with PID 21635 from queue 2 at Index 11 at time 17603:8774620
+OSS: Receiving that process with PID 21635 ran for 1000000710 nanoseconds
+OSS: total time this dispatch was 1000000710 nanoseconds
+OSS: Placing PID 21635 in queue 2
+OSS: Dispatching process with PID 21634 from queue 2 at Index 10 at time 17606:8776622
+OSS: Receiving that process with PID 21634 ran for 1000000050 nanoseconds
+OSS: total time this dispatch was 1000000050 nanoseconds
+OSS: Placing PID 21634 in queue 2
 OSS: generating a new launch time.
-OSS: Dispatching process with PID 5555 from queue 0 at Index 12 at time 31:813379559
-OSS: Receiving that process with PID 5555 ran for 72701 nanoseconds
-Process 5555 is still running already having used up 160431 CPU time
-OSS: Dispatching process with PID 5555 from queue 0 at Index 12 at time 31:813531619
-OSS: Receiving that process with PID 5555 ran for 62285 nanoseconds
-Process 5555 is still running already having used up 222716 CPU time
+OSS: Dispatching process with PID 21636 from queue 1 at Index 12 at time 17610:8777906
+OSS: Receiving that process with PID 21636 ran for 1000000742 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21636 in queue 1
+OSS: Dispatching process with PID 21635 from queue 2 at Index 11 at time 17613:8779610
+OSS: Receiving that process with PID 21635 ran for 1000000805 nanoseconds
+OSS: total time this dispatch was 1000000805 nanoseconds
+OSS: Placing PID 21635 in queue 2
+OSS: Dispatching process with PID 21634 from queue 2 at Index 10 at time 17616:8781076
+OSS: Receiving that process with PID 21634 ran for 1000000501 nanoseconds
+OSS: total time this dispatch was 1000000501 nanoseconds
+OSS: Placing PID 21634 in queue 2
+OSS: Generating process 13 with pid 21637 and putting it in queue 0 at time 17622:8784498
+OSS: Dispatching process with PID 21637 from queue 0 at Index 13 at time 17622:8784498
+OSS: Receiving that process with PID 21637 ran for 1000000869 nanoseconds
+OSS: total time this dispatch was -3294966427 nanoseconds
+OSS: Placing PID 21637 in queue 0
+OSS: Dispatching process with PID 21636 from queue 2 at Index 12 at time 19028:9488683
+OSS: Receiving that process with PID 21636 ran for 1000000742 nanoseconds
+OSS: process with PID 21636 has terminated and had 2000001673 CPU time
+OSS: Dispatching process with PID 21635 from queue 2 at Index 11 at time 19029:9488804
+OSS: Receiving that process with PID 21635 ran for 1000000009 nanoseconds
+OSS: total time this dispatch was -3294967287 nanoseconds
+OSS: Placing PID 21635 in queue 2
+OSS: Dispatching process with PID 21634 from queue 2 at Index 10 at time 19032:9489404
+OSS: Receiving that process with PID 21634 ran for 1000000501 nanoseconds
+OSS: process with PID 21634 has terminated and had -2589931939 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21637 from queue 1 at Index 13 at time 19034:9490983
+OSS: Receiving that process with PID 21637 ran for 1000000071 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21637 in queue 1
+OSS: Dispatching process with PID 21635 from queue 2 at Index 11 at time 19037:9491631
+OSS: Receiving that process with PID 21635 ran for 1000000730 nanoseconds
+OSS: total time this dispatch was 1000000730 nanoseconds
+OSS: Placing PID 21635 in queue 2
+OSS: Generating process 14 with pid 21638 and putting it in queue 0 at time 19043:9495188
+OSS: Dispatching process with PID 21638 from queue 0 at Index 14 at time 19043:9495188
+OSS: Receiving that process with PID 21638 ran for 1000000071 nanoseconds
+OSS: total time this dispatch was 1000000071 nanoseconds
+OSS: Placing PID 21638 in queue 0
+OSS: Dispatching process with PID 21637 from queue 1 at Index 13 at time 21409:10661991
+OSS: Receiving that process with PID 21637 ran for 1000000135 nanoseconds
+OSS: total time this dispatch was 1000000135 nanoseconds
+OSS: Placing PID 21637 in queue 1
+OSS: Dispatching process with PID 21635 from queue 2 at Index 11 at time 21414:10663014
+OSS: Receiving that process with PID 21635 ran for 1000000730 nanoseconds
+OSS: process with PID 21635 has terminated and had -6884897690 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21638 from queue 0 at Index 14 at time 21416:10664244
+OSS: Receiving that process with PID 21638 ran for 1000000686 nanoseconds
+OSS: total time this dispatch was 1000000686 nanoseconds
+OSS: Placing PID 21638 in queue 0
+OSS: Dispatching process with PID 21637 from queue 1 at Index 13 at time 21421:10665550
+OSS: Receiving that process with PID 21637 ran for 1000000135 nanoseconds
+OSS: process with PID 21637 has terminated and had -5589933517 CPU time
+OSS: Generating process 15 with pid 21639 and putting it in queue 0 at time 21423:10665901
+OSS: Dispatching process with PID 21639 from queue 0 at Index 15 at time 21423:10665901
+OSS: Receiving that process with PID 21639 ran for 1000000473 nanoseconds
+OSS: total time this dispatch was 1000000473 nanoseconds
+OSS: Placing PID 21639 in queue 0
+OSS: Dispatching process with PID 21638 from queue 1 at Index 14 at time 21478:10693286
+OSS: Receiving that process with PID 21638 ran for 1000000686 nanoseconds
+OSS: process with PID 21638 has terminated and had 2000000757 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21639 from queue 0 at Index 15 at time 21480:10693765
+OSS: Receiving that process with PID 21639 ran for 1000000721 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21639 in queue 0
+OSS: Generating process 16 with pid 21640 and putting it in queue 0 at time 21484:10696641
+OSS: Dispatching process with PID 21640 from queue 0 at Index 16 at time 21484:10696641
+OSS: Receiving that process with PID 21640 ran for 1000000824 nanoseconds
+OSS: total time this dispatch was -3294966472 nanoseconds
+OSS: Placing PID 21640 in queue 0
+OSS: Dispatching process with PID 21639 from queue 1 at Index 15 at time 21532:10721409
+OSS: Receiving that process with PID 21639 ran for 1000000410 nanoseconds
+OSS: total time this dispatch was 1000000410 nanoseconds
+OSS: Placing PID 21639 in queue 1
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21640 from queue 1 at Index 16 at time 21541:10724830
+OSS: Receiving that process with PID 21640 ran for 1000000393 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21640 in queue 1
+OSS: Dispatching process with PID 21639 from queue 2 at Index 15 at time 21544:10725732
+OSS: Receiving that process with PID 21639 ran for 1000000449 nanoseconds
+OSS: total time this dispatch was -3294966847 nanoseconds
+OSS: Placing PID 21639 in queue 2
+OSS: Generating process 17 with pid 21641 and putting it in queue 0 at time 21550:10729560
+OSS: Dispatching process with PID 21641 from queue 0 at Index 17 at time 21550:10729560
+OSS: Receiving that process with PID 21641 ran for 1000000565 nanoseconds
+OSS: total time this dispatch was 1000000565 nanoseconds
+OSS: Placing PID 21641 in queue 0
+OSS: Dispatching process with PID 21640 from queue 1 at Index 16 at time 23883:11883808
+OSS: Receiving that process with PID 21640 ran for 1000000389 nanoseconds
+OSS: total time this dispatch was 1000000389 nanoseconds
+OSS: Placing PID 21640 in queue 1
+OSS: Dispatching process with PID 21639 from queue 2 at Index 15 at time 23889:11886680
+OSS: Receiving that process with PID 21639 ran for 1000000549 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21639 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21641 from queue 0 at Index 17 at time 23893:11889218
+OSS: Receiving that process with PID 21641 ran for 1000000058 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21641 in queue 0
+OSS: Dispatching process with PID 21640 from queue 2 at Index 16 at time 23896:11890493
+OSS: Receiving that process with PID 21640 ran for 1000000687 nanoseconds
+OSS: total time this dispatch was -3294966609 nanoseconds
+OSS: Placing PID 21640 in queue 2
+OSS: Dispatching process with PID 21639 from queue 2 at Index 15 at time 23899:11891798
+OSS: Receiving that process with PID 21639 ran for 1000000062 nanoseconds
+OSS: total time this dispatch was 1000000062 nanoseconds
+OSS: Placing PID 21639 in queue 2
+OSS: Generating process 18 with pid 21642 and putting it in queue 0 at time 23903:11893288
+OSS: Dispatching process with PID 21642 from queue 0 at Index 0 at time 23903:11893288
+OSS: Receiving that process with PID 21642 ran for 1000000841 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21642 in queue 0
+OSS: Dispatching process with PID 21641 from queue 1 at Index 17 at time 25263:12557821
+OSS: Receiving that process with PID 21641 ran for 1000000720 nanoseconds
+OSS: total time this dispatch was 1000000720 nanoseconds
+OSS: Placing PID 21641 in queue 1
+OSS: Dispatching process with PID 21640 from queue 2 at Index 16 at time 25266:12559148
+OSS: Receiving that process with PID 21640 ran for 1000000770 nanoseconds
+OSS: total time this dispatch was 1000000770 nanoseconds
+OSS: Placing PID 21640 in queue 2
+OSS: Dispatching process with PID 21639 from queue 2 at Index 15 at time 25272:12562373
+OSS: Receiving that process with PID 21639 ran for 1000000691 nanoseconds
+OSS: total time this dispatch was 1000000691 nanoseconds
+OSS: Placing PID 21639 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21642 from queue 0 at Index 0 at time 26497:13157379
+OSS: Receiving that process with PID 21642 ran for 1000000027 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21642 in queue 0
+OSS: Dispatching process with PID 21641 from queue 1 at Index 17 at time 27730:13778139
+OSS: Receiving that process with PID 21641 ran for 1000000274 nanoseconds
+OSS: total time this dispatch was -3294967022 nanoseconds
+OSS: Placing PID 21641 in queue 1
+OSS: Dispatching process with PID 21640 from queue 2 at Index 16 at time 27734:13779078
+OSS: Receiving that process with PID 21640 ran for 1000000032 nanoseconds
+OSS: total time this dispatch was -3294967264 nanoseconds
+OSS: Placing PID 21640 in queue 2
+OSS: Dispatching process with PID 21639 from queue 2 at Index 15 at time 29499:14669954
+OSS: Receiving that process with PID 21639 ran for 1000000682 nanoseconds
+OSS: total time this dispatch was 1000000682 nanoseconds
+OSS: Placing PID 21639 in queue 2
+OSS: Generating process 19 with pid 21643 and putting it in queue 0 at time 31095:15472771
+OSS: Dispatching process with PID 21643 from queue 0 at Index 1 at time 31095:15472771
+OSS: Receiving that process with PID 21643 ran for 1000000728 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21643 in queue 0
+OSS: Dispatching process with PID 21642 from queue 1 at Index 0 at time 32316:16076755
+OSS: Receiving that process with PID 21642 ran for 1000000027 nanoseconds
+OSS: process with PID 21642 has terminated and had -2294966428 CPU time
+OSS: Dispatching process with PID 21641 from queue 1 at Index 17 at time 32318:16077879
+OSS: Receiving that process with PID 21641 ran for 1000000003 nanoseconds
+OSS: total time this dispatch was -3294967293 nanoseconds
+OSS: Placing PID 21641 in queue 1
+OSS: Dispatching process with PID 21640 from queue 2 at Index 16 at time 32321:16078288
+OSS: Receiving that process with PID 21640 ran for 1000000733 nanoseconds
+OSS: total time this dispatch was 1000000733 nanoseconds
+OSS: Placing PID 21640 in queue 2
+OSS: Dispatching process with PID 21639 from queue 2 at Index 15 at time 32328:16082296
+OSS: Receiving that process with PID 21639 ran for 1000000020 nanoseconds
+OSS: total time this dispatch was 1000000020 nanoseconds
+OSS: Placing PID 21639 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21643 from queue 1 at Index 1 at time 32336:16086573
+OSS: Receiving that process with PID 21643 ran for 1000000728 nanoseconds
+OSS: process with PID 21643 has terminated and had 1000000728 CPU time
+OSS: Dispatching process with PID 21641 from queue 2 at Index 17 at time 32337:16087197
+OSS: Receiving that process with PID 21641 ran for 1000000588 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21641 in queue 2
+OSS: Dispatching process with PID 21640 from queue 2 at Index 16 at time 36028:17973411
+OSS: Receiving that process with PID 21640 ran for 1000000136 nanoseconds
+OSS: total time this dispatch was 1000000136 nanoseconds
+OSS: Placing PID 21640 in queue 2
+OSS: Dispatching process with PID 21639 from queue 2 at Index 15 at time 36033:17975820
+OSS: Receiving that process with PID 21639 ran for 1000000031 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21639 in queue 2
+OSS: Generating process 20 with pid 21645 and putting it in queue 0 at time 36037:17977726
+OSS: Dispatching process with PID 21645 from queue 0 at Index 2 at time 36037:17977726
+OSS: Receiving that process with PID 21645 ran for 1000000123 nanoseconds
+OSS: total time this dispatch was 1000000123 nanoseconds
+OSS: Placing PID 21645 in queue 0
+OSS: Dispatching process with PID 21641 from queue 2 at Index 17 at time 37420:18666300
+OSS: Receiving that process with PID 21641 ran for 1000000527 nanoseconds
+OSS: total time this dispatch was 1000000527 nanoseconds
+OSS: Placing PID 21641 in queue 2
+OSS: Dispatching process with PID 21640 from queue 2 at Index 16 at time 39868:19880262
+OSS: Receiving that process with PID 21640 ran for 1000000796 nanoseconds
+OSS: total time this dispatch was 1000000796 nanoseconds
+OSS: Placing PID 21640 in queue 2
+OSS: Dispatching process with PID 21639 from queue 2 at Index 15 at time 39871:19882356
+OSS: Receiving that process with PID 21639 ran for 1000000823 nanoseconds
+OSS: total time this dispatch was 1000000823 nanoseconds
+OSS: Placing PID 21639 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21645 from queue 1 at Index 2 at time 39878:19885249
+OSS: Receiving that process with PID 21645 ran for 1000000123 nanoseconds
+OSS: process with PID 21645 has terminated and had 1000000123 CPU time
+OSS: Dispatching process with PID 21641 from queue 2 at Index 17 at time 40992:20449167
+OSS: Receiving that process with PID 21641 ran for 1000000831 nanoseconds
+OSS: total time this dispatch was 1000000831 nanoseconds
+OSS: Placing PID 21641 in queue 2
+OSS: Dispatching process with PID 21640 from queue 2 at Index 16 at time 40995:20451262
+OSS: Receiving that process with PID 21640 ran for 1000000796 nanoseconds
+OSS: process with PID 21640 has terminated and had -3884897128 CPU time
+OSS: Dispatching process with PID 21639 from queue 2 at Index 15 at time 40996:20451665
+OSS: Receiving that process with PID 21639 ran for 1000000806 nanoseconds
+OSS: total time this dispatch was -3294966490 nanoseconds
+OSS: Placing PID 21639 in queue 2
+OSS: Generating process 21 with pid 21646 and putting it in queue 0 at time 41002:20455595
+OSS: Dispatching process with PID 21646 from queue 0 at Index 3 at time 41002:20455595
+OSS: Receiving that process with PID 21646 ran for 1000000172 nanoseconds
+OSS: total time this dispatch was 1000000172 nanoseconds
+OSS: Placing PID 21646 in queue 0
+OSS: Dispatching process with PID 21641 from queue 2 at Index 17 at time 42336:21116606
+OSS: Receiving that process with PID 21641 ran for 1000000831 nanoseconds
+OSS: process with PID 21641 has terminated and had -4884898322 CPU time
+OSS: Dispatching process with PID 21639 from queue 2 at Index 15 at time 42337:21117195
+OSS: Receiving that process with PID 21639 ran for 1000000806 nanoseconds
+OSS: process with PID 21639 has terminated and had -884896171 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21646 from queue 1 at Index 3 at time 42339:21119055
+OSS: Receiving that process with PID 21646 ran for 1000000172 nanoseconds
+OSS: process with PID 21646 has terminated and had 1000000172 CPU time
+OSS: Generating process 22 with pid 21647 and putting it in queue 0 at time 42341:21120478
+OSS: Dispatching process with PID 21647 from queue 0 at Index 4 at time 42341:21120478
+OSS: Receiving that process with PID 21647 ran for 1000000186 nanoseconds
+OSS: total time this dispatch was 1000000186 nanoseconds
+OSS: Placing PID 21647 in queue 0
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21647 from queue 1 at Index 4 at time 42399:21147241
+OSS: Receiving that process with PID 21647 ran for 1000000461 nanoseconds
+OSS: total time this dispatch was 1000000461 nanoseconds
+OSS: Placing PID 21647 in queue 1
+OSS: Generating process 23 with pid 21648 and putting it in queue 0 at time 42403:21148844
+OSS: Dispatching process with PID 21648 from queue 0 at Index 5 at time 42403:21148844
+OSS: Receiving that process with PID 21648 ran for 1000000427 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21648 in queue 0
+OSS: Dispatching process with PID 21647 from queue 2 at Index 4 at time 42454:21175257
+OSS: Receiving that process with PID 21647 ran for 1000000504 nanoseconds
+OSS: total time this dispatch was -3294966792 nanoseconds
+OSS: Placing PID 21647 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21648 from queue 1 at Index 5 at time 42458:21177694
+OSS: Receiving that process with PID 21648 ran for 1000000214 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21648 in queue 1
+OSS: Dispatching process with PID 21647 from queue 2 at Index 4 at time 42461:21178888
+OSS: Receiving that process with PID 21647 ran for 1000000184 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21647 in queue 2
+OSS: Generating process 24 with pid 21649 and putting it in queue 0 at time 42465:21180649
+OSS: Dispatching process with PID 21649 from queue 0 at Index 6 at time 42465:21180649
+OSS: Receiving that process with PID 21649 ran for 1000000638 nanoseconds
+OSS: total time this dispatch was 1000000638 nanoseconds
+OSS: Placing PID 21649 in queue 0
+OSS: Dispatching process with PID 21648 from queue 2 at Index 5 at time 43765:21820283
+OSS: Receiving that process with PID 21648 ran for 1000000214 nanoseconds
+OSS: process with PID 21648 has terminated and had 2000000641 CPU time
+OSS: Dispatching process with PID 21647 from queue 2 at Index 4 at time 43766:21820369
+OSS: Receiving that process with PID 21647 ran for 1000000877 nanoseconds
+OSS: total time this dispatch was 1000000877 nanoseconds
+OSS: Placing PID 21647 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21649 from queue 1 at Index 6 at time 43770:21822817
+OSS: Receiving that process with PID 21649 ran for 1000000498 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21649 in queue 1
+OSS: Dispatching process with PID 21647 from queue 2 at Index 4 at time 43773:21823537
+OSS: Receiving that process with PID 21647 ran for 1000000605 nanoseconds
+OSS: total time this dispatch was -3294966691 nanoseconds
+OSS: Placing PID 21647 in queue 2
+OSS: Generating process 25 with pid 21650 and putting it in queue 0 at time 43781:21827146
+OSS: Dispatching process with PID 21650 from queue 0 at Index 7 at time 43781:21827146
+OSS: Receiving that process with PID 21650 ran for 1000000051 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21650 in queue 0
+OSS: Dispatching process with PID 21649 from queue 2 at Index 6 at time 45723:22815517
+OSS: Receiving that process with PID 21649 ran for 1000000197 nanoseconds
+OSS: total time this dispatch was -3294967099 nanoseconds
+OSS: Placing PID 21649 in queue 2
+OSS: Dispatching process with PID 21647 from queue 2 at Index 4 at time 45726:22816047
+OSS: Receiving that process with PID 21647 ran for 1000000605 nanoseconds
+OSS: process with PID 21647 has terminated and had -2589931775 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21650 from queue 1 at Index 7 at time 45728:22817171
+OSS: Receiving that process with PID 21650 ran for 1000000950 nanoseconds
+OSS: total time this dispatch was -3294966346 nanoseconds
+OSS: Placing PID 21650 in queue 1
+OSS: Dispatching process with PID 21649 from queue 2 at Index 6 at time 45734:22820395
+OSS: Receiving that process with PID 21649 ran for 1000000197 nanoseconds
+OSS: process with PID 21649 has terminated and had -1294965963 CPU time
+OSS: Generating process 26 with pid 21651 and putting it in queue 0 at time 45736:22820861
+OSS: Dispatching process with PID 21651 from queue 0 at Index 8 at time 45736:22820861
+OSS: Receiving that process with PID 21651 ran for 1000000799 nanoseconds
+OSS: total time this dispatch was -3294966497 nanoseconds
+OSS: Placing PID 21651 in queue 0
+OSS: Dispatching process with PID 21650 from queue 2 at Index 7 at time 45786:22847708
+OSS: Receiving that process with PID 21650 ran for 1000000176 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21650 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21651 from queue 1 at Index 8 at time 45790:22849226
+OSS: Receiving that process with PID 21651 ran for 1000000014 nanoseconds
+OSS: total time this dispatch was 1000000014 nanoseconds
+OSS: Placing PID 21651 in queue 1
+OSS: Dispatching process with PID 21650 from queue 2 at Index 7 at time 45796:22851123
+OSS: Receiving that process with PID 21650 ran for 1000000740 nanoseconds
+OSS: total time this dispatch was -3294966556 nanoseconds
+OSS: Placing PID 21650 in queue 2
+OSS: Generating process 27 with pid 21652 and putting it in queue 0 at time 45800:22852954
+OSS: Dispatching process with PID 21652 from queue 0 at Index 9 at time 45800:22852954
+OSS: Receiving that process with PID 21652 ran for 1000000366 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21652 in queue 0
+OSS: Dispatching process with PID 21651 from queue 2 at Index 8 at time 48119:24009991
+OSS: Receiving that process with PID 21651 ran for 1000000855 nanoseconds
+OSS: total time this dispatch was -3294966441 nanoseconds
+OSS: Placing PID 21651 in queue 2
+OSS: Dispatching process with PID 21650 from queue 2 at Index 7 at time 48127:24012513
+OSS: Receiving that process with PID 21650 ran for 1000000141 nanoseconds
+OSS: total time this dispatch was 1000000141 nanoseconds
+OSS: Placing PID 21650 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21652 from queue 1 at Index 9 at time 48133:24014637
+OSS: Receiving that process with PID 21652 ran for 1000000738 nanoseconds
+OSS: total time this dispatch was 1000000738 nanoseconds
+OSS: Placing PID 21652 in queue 1
+OSS: Dispatching process with PID 21651 from queue 2 at Index 8 at time 48136:24015491
+OSS: Receiving that process with PID 21651 ran for 1000000380 nanoseconds
+OSS: total time this dispatch was -3294966916 nanoseconds
+OSS: Placing PID 21651 in queue 2
+OSS: Dispatching process with PID 21650 from queue 2 at Index 7 at time 48139:24016989
+OSS: Receiving that process with PID 21650 ran for 1000000141 nanoseconds
+OSS: process with PID 21650 has terminated and had -3589932534 CPU time
+OSS: Generating process 28 with pid 21653 and putting it in queue 0 at time 48141:24018027
+OSS: Dispatching process with PID 21653 from queue 0 at Index 10 at time 48141:24018027
+OSS: Receiving that process with PID 21653 ran for 1000000111 nanoseconds
+OSS: total time this dispatch was 1000000111 nanoseconds
+OSS: Placing PID 21653 in queue 0
+OSS: Dispatching process with PID 21652 from queue 1 at Index 9 at time 50447:25151749
+OSS: Receiving that process with PID 21652 ran for 1000000334 nanoseconds
+OSS: total time this dispatch was -3294966962 nanoseconds
+OSS: Placing PID 21652 in queue 1
+OSS: Dispatching process with PID 21651 from queue 2 at Index 8 at time 50450:25152820
+OSS: Receiving that process with PID 21651 ran for 1000000733 nanoseconds
+OSS: total time this dispatch was 1000000733 nanoseconds
+OSS: Placing PID 21651 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21653 from queue 1 at Index 10 at time 50456:25156678
+OSS: Receiving that process with PID 21653 ran for 1000000111 nanoseconds
+OSS: process with PID 21653 has terminated and had 1000000111 CPU time
+OSS: Dispatching process with PID 21652 from queue 1 at Index 9 at time 50457:25156932
+OSS: Receiving that process with PID 21652 ran for 1000000596 nanoseconds
+OSS: total time this dispatch was 1000000596 nanoseconds
+OSS: Placing PID 21652 in queue 1
+OSS: Dispatching process with PID 21651 from queue 2 at Index 8 at time 50462:25158963
+OSS: Receiving that process with PID 21651 ran for 1000000470 nanoseconds
+OSS: total time this dispatch was 1000000470 nanoseconds
+OSS: Placing PID 21651 in queue 2
+OSS: Generating process 29 with pid 21654 and putting it in queue 0 at time 50470:25162610
+OSS: Dispatching process with PID 21654 from queue 0 at Index 11 at time 50470:25162610
+OSS: Receiving that process with PID 21654 ran for 1000000902 nanoseconds
+OSS: total time this dispatch was 1000000902 nanoseconds
+OSS: Placing PID 21654 in queue 0
+OSS: Dispatching process with PID 21652 from queue 1 at Index 9 at time 53558:26730780
+OSS: Receiving that process with PID 21652 ran for 1000000623 nanoseconds
+OSS: total time this dispatch was 1000000623 nanoseconds
+OSS: Placing PID 21652 in queue 1
+OSS: Dispatching process with PID 21651 from queue 2 at Index 8 at time 53563:26733476
+OSS: Receiving that process with PID 21651 ran for 1000000572 nanoseconds
+OSS: total time this dispatch was 1000000572 nanoseconds
+OSS: Placing PID 21651 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21654 from queue 1 at Index 11 at time 53571:26737179
+OSS: Receiving that process with PID 21654 ran for 1000000824 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21654 in queue 1
+OSS: Dispatching process with PID 21652 from queue 1 at Index 9 at time 53574:26739739
+OSS: Receiving that process with PID 21652 ran for 1000000846 nanoseconds
+OSS: total time this dispatch was -3294966450 nanoseconds
+OSS: Placing PID 21652 in queue 1
+OSS: Dispatching process with PID 21651 from queue 2 at Index 8 at time 53581:26745010
+OSS: Receiving that process with PID 21651 ran for 1000000572 nanoseconds
+OSS: process with PID 21651 has terminated and had -5884898065 CPU time
+OSS: Generating process 30 with pid 21655 and putting it in queue 0 at time 53583:26745539
+OSS: Dispatching process with PID 21655 from queue 0 at Index 12 at time 53583:26745539
+OSS: Receiving that process with PID 21655 ran for 1000000422 nanoseconds
+OSS: total time this dispatch was -3294966874 nanoseconds
+OSS: Placing PID 21655 in queue 0
+OSS: Dispatching process with PID 21654 from queue 1 at Index 11 at time 54930:27409604
+OSS: Receiving that process with PID 21654 ran for 1000000924 nanoseconds
+OSS: total time this dispatch was 1000000924 nanoseconds
+OSS: Placing PID 21654 in queue 1
+OSS: Dispatching process with PID 21652 from queue 1 at Index 9 at time 54933:27411788
+OSS: Receiving that process with PID 21652 ran for 1000000557 nanoseconds
+OSS: total time this dispatch was 1000000557 nanoseconds
+OSS: Placing PID 21652 in queue 1
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21655 from queue 1 at Index 12 at time 54941:27416268
+OSS: Receiving that process with PID 21655 ran for 1000000757 nanoseconds
+OSS: total time this dispatch was 1000000757 nanoseconds
+OSS: Placing PID 21655 in queue 1
+OSS: Dispatching process with PID 21654 from queue 2 at Index 11 at time 54944:27417819
+OSS: Receiving that process with PID 21654 ran for 1000000149 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21654 in queue 2
+OSS: Dispatching process with PID 21652 from queue 2 at Index 9 at time 54947:27419051
+OSS: Receiving that process with PID 21652 ran for 1000000833 nanoseconds
+OSS: total time this dispatch was 1000000833 nanoseconds
+OSS: Placing PID 21652 in queue 2
+OSS: Generating process 31 with pid 21656 and putting it in queue 0 at time 54953:27422766
+OSS: Dispatching process with PID 21656 from queue 0 at Index 13 at time 54953:27422766
+OSS: Receiving that process with PID 21656 ran for 1000000942 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21656 in queue 0
+OSS: Dispatching process with PID 21655 from queue 2 at Index 12 at time 56151:28009677
+OSS: Receiving that process with PID 21655 ran for 1000000820 nanoseconds
+OSS: total time this dispatch was 1000000820 nanoseconds
+OSS: Placing PID 21655 in queue 2
+OSS: Dispatching process with PID 21654 from queue 2 at Index 11 at time 56260:28060622
+OSS: Receiving that process with PID 21654 ran for 1000000765 nanoseconds
+OSS: total time this dispatch was 1000000765 nanoseconds
+OSS: Placing PID 21654 in queue 2
+OSS: Dispatching process with PID 21652 from queue 2 at Index 9 at time 56267:28062972
+OSS: Receiving that process with PID 21652 ran for 1000000399 nanoseconds
+OSS: total time this dispatch was -3294966897 nanoseconds
+OSS: Placing PID 21652 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21656 from queue 1 at Index 13 at time 56271:28064126
+OSS: Receiving that process with PID 21656 ran for 1000000403 nanoseconds
+OSS: total time this dispatch was 1000000403 nanoseconds
+OSS: Placing PID 21656 in queue 1
+OSS: Dispatching process with PID 21655 from queue 2 at Index 12 at time 56279:28068002
+OSS: Receiving that process with PID 21655 ran for 1000000955 nanoseconds
+OSS: total time this dispatch was 1000000955 nanoseconds
+OSS: Placing PID 21655 in queue 2
+OSS: Dispatching process with PID 21654 from queue 2 at Index 11 at time 56282:28069710
+OSS: Receiving that process with PID 21654 ran for 1000000058 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21654 in queue 2
+OSS: Dispatching process with PID 21652 from queue 2 at Index 9 at time 57387:28612722
+OSS: Receiving that process with PID 21652 ran for 1000000737 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21652 in queue 2
+OSS: Generating process 32 with pid 21657 and putting it in queue 0 at time 57492:28670231
+OSS: Dispatching process with PID 21657 from queue 0 at Index 14 at time 57492:28670231
+OSS: Receiving that process with PID 21657 ran for 1000000007 nanoseconds
+OSS: total time this dispatch was 1000000007 nanoseconds
+OSS: Placing PID 21657 in queue 0
+OSS: Dispatching process with PID 21656 from queue 1 at Index 13 at time 58676:29254917
+OSS: Receiving that process with PID 21656 ran for 1000000761 nanoseconds
+OSS: total time this dispatch was -3294966535 nanoseconds
+OSS: Placing PID 21656 in queue 1
+OSS: Dispatching process with PID 21655 from queue 2 at Index 12 at time 58679:29256797
+OSS: Receiving that process with PID 21655 ran for 1000000518 nanoseconds
+OSS: total time this dispatch was 1000000518 nanoseconds
+OSS: Placing PID 21655 in queue 2
+OSS: Dispatching process with PID 21654 from queue 2 at Index 11 at time 58686:29258859
+OSS: Receiving that process with PID 21654 ran for 1000000780 nanoseconds
+OSS: total time this dispatch was 1000000780 nanoseconds
+OSS: Placing PID 21654 in queue 2
+OSS: Dispatching process with PID 21652 from queue 2 at Index 9 at time 59459:29643581
+OSS: Receiving that process with PID 21652 ran for 1000000266 nanoseconds
+OSS: total time this dispatch was -3294967030 nanoseconds
+OSS: Placing PID 21652 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21657 from queue 1 at Index 14 at time 60901:30378370
+OSS: Receiving that process with PID 21657 ran for 1000000183 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21657 in queue 1
+OSS: Dispatching process with PID 21656 from queue 1 at Index 13 at time 61787:30825756
+OSS: Receiving that process with PID 21656 ran for 1000000079 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21656 in queue 1
+OSS: Dispatching process with PID 21655 from queue 2 at Index 12 at time 61790:30827583
+OSS: Receiving that process with PID 21655 ran for 1000000779 nanoseconds
+OSS: total time this dispatch was -3294966517 nanoseconds
+OSS: Placing PID 21655 in queue 2
+OSS: Dispatching process with PID 21654 from queue 2 at Index 11 at time 61793:30829168
+OSS: Receiving that process with PID 21654 ran for 1000000324 nanoseconds
+OSS: total time this dispatch was 1000000324 nanoseconds
+OSS: Placing PID 21654 in queue 2
+OSS: Dispatching process with PID 21652 from queue 2 at Index 9 at time 61799:30831640
+OSS: Receiving that process with PID 21652 ran for 1000000067 nanoseconds
+OSS: total time this dispatch was 1000000067 nanoseconds
+OSS: Placing PID 21652 in queue 2
+OSS: Generating process 33 with pid 21659 and putting it in queue 0 at time 63264:31560212
+OSS: Dispatching process with PID 21659 from queue 0 at Index 15 at time 63264:31560212
+OSS: Receiving that process with PID 21659 ran for 1000000631 nanoseconds
+OSS: total time this dispatch was 1000000631 nanoseconds
+OSS: Placing PID 21659 in queue 0
+OSS: Dispatching process with PID 21657 from queue 1 at Index 14 at time 66403:33133908
+OSS: Receiving that process with PID 21657 ran for 1000000073 nanoseconds
+OSS: total time this dispatch was 1000000073 nanoseconds
+OSS: Placing PID 21657 in queue 1
+OSS: Dispatching process with PID 21656 from queue 1 at Index 13 at time 67069:33485700
+OSS: Receiving that process with PID 21656 ran for 1000000716 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21656 in queue 1
+OSS: Dispatching process with PID 21655 from queue 2 at Index 12 at time 67072:33487649
+OSS: Receiving that process with PID 21655 ran for 1000000219 nanoseconds
+OSS: total time this dispatch was 1000000219 nanoseconds
+OSS: Placing PID 21655 in queue 2
+OSS: Dispatching process with PID 21654 from queue 2 at Index 11 at time 68298:34100807
+OSS: Receiving that process with PID 21654 ran for 1000000324 nanoseconds
+OSS: process with PID 21654 has terminated and had -589929866 CPU time
+OSS: Dispatching process with PID 21652 from queue 2 at Index 9 at time 68299:34100897
+OSS: Receiving that process with PID 21652 ran for 1000000067 nanoseconds
+OSS: process with PID 21652 has terminated and had -5179862822 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21659 from queue 0 at Index 15 at time 68301:34101848
+OSS: Receiving that process with PID 21659 ran for 1000000599 nanoseconds
+OSS: total time this dispatch was 1000000599 nanoseconds
+OSS: Placing PID 21659 in queue 0
+OSS: Dispatching process with PID 21657 from queue 2 at Index 14 at time 70208:35033368
+OSS: Receiving that process with PID 21657 ran for 1000000960 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21657 in queue 2
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 70211:35034995
+OSS: Receiving that process with PID 21656 ran for 1000000635 nanoseconds
+OSS: total time this dispatch was 1000000635 nanoseconds
+OSS: Placing PID 21656 in queue 2
+OSS: Dispatching process with PID 21655 from queue 2 at Index 12 at time 71896:35873400
+OSS: Receiving that process with PID 21655 ran for 1000000828 nanoseconds
+OSS: total time this dispatch was -3294966468 nanoseconds
+OSS: Placing PID 21655 in queue 2
+OSS: Generating process 34 with pid 21660 and putting it in queue 0 at time 73129:36494932
+OSS: Dispatching process with PID 21660 from queue 0 at Index 16 at time 73129:36494932
+OSS: Receiving that process with PID 21660 ran for 1000000201 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21660 in queue 0
+OSS: Dispatching process with PID 21659 from queue 1 at Index 15 at time 76012:37938501
+OSS: Receiving that process with PID 21659 ran for 1000000402 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21659 in queue 1
+OSS: Dispatching process with PID 21657 from queue 2 at Index 14 at time 76015:37939900
+OSS: Receiving that process with PID 21657 ran for 1000000283 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21657 in queue 2
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 76567:38198020
+OSS: Receiving that process with PID 21656 ran for 1000000940 nanoseconds
+OSS: total time this dispatch was 1000000940 nanoseconds
+OSS: Placing PID 21656 in queue 2
+OSS: Dispatching process with PID 21655 from queue 2 at Index 12 at time 77572:38698494
+OSS: Receiving that process with PID 21655 ran for 1000000885 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21655 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21660 from queue 1 at Index 16 at time 78126:38985428
+OSS: Receiving that process with PID 21660 ran for 1000000201 nanoseconds
+OSS: process with PID 21660 has terminated and had 1000000201 CPU time
+OSS: Dispatching process with PID 21659 from queue 2 at Index 15 at time 80451:40142231
+OSS: Receiving that process with PID 21659 ran for 1000000922 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21659 in queue 2
+OSS: Dispatching process with PID 21657 from queue 2 at Index 14 at time 80454:40143461
+OSS: Receiving that process with PID 21657 ran for 1000000307 nanoseconds
+OSS: total time this dispatch was 1000000307 nanoseconds
+OSS: Placing PID 21657 in queue 2
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 81652:40752917
+OSS: Receiving that process with PID 21656 ran for 1000000541 nanoseconds
+OSS: total time this dispatch was 1000000541 nanoseconds
+OSS: Placing PID 21656 in queue 2
+OSS: Dispatching process with PID 21655 from queue 2 at Index 12 at time 81656:40754745
+OSS: Receiving that process with PID 21655 ran for 1000000791 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21655 in queue 2
+OSS: Generating process 35 with pid 21661 and putting it in queue 0 at time 81660:40755792
+OSS: Dispatching process with PID 21661 from queue 0 at Index 17 at time 81660:40755792
+OSS: Receiving that process with PID 21661 ran for 1000000214 nanoseconds
+OSS: total time this dispatch was 1000000214 nanoseconds
+OSS: Placing PID 21661 in queue 0
+OSS: Dispatching process with PID 21659 from queue 2 at Index 15 at time 83911:41878802
+OSS: Receiving that process with PID 21659 ran for 1000000579 nanoseconds
+OSS: total time this dispatch was 1000000579 nanoseconds
+OSS: Placing PID 21659 in queue 2
+OSS: Dispatching process with PID 21657 from queue 2 at Index 14 at time 83914:41880492
+OSS: Receiving that process with PID 21657 ran for 1000000817 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21657 in queue 2
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 85138:42493523
+OSS: Receiving that process with PID 21656 ran for 1000000200 nanoseconds
+OSS: total time this dispatch was -3294967096 nanoseconds
+OSS: Placing PID 21656 in queue 2
+OSS: Dispatching process with PID 21655 from queue 2 at Index 12 at time 85141:42494454
+OSS: Receiving that process with PID 21655 ran for 1000000504 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21655 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21661 from queue 1 at Index 17 at time 85145:42495631
+OSS: Receiving that process with PID 21661 ran for 1000000196 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21661 in queue 1
+OSS: Dispatching process with PID 21659 from queue 2 at Index 15 at time 86366:43079523
+OSS: Receiving that process with PID 21659 ran for 1000000461 nanoseconds
+OSS: total time this dispatch was 1000000461 nanoseconds
+OSS: Placing PID 21659 in queue 2
+OSS: Dispatching process with PID 21657 from queue 2 at Index 14 at time 86372:43081918
+OSS: Receiving that process with PID 21657 ran for 1000000444 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21657 in queue 2
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 86376:43084215
+OSS: Receiving that process with PID 21656 ran for 1000000020 nanoseconds
+OSS: total time this dispatch was 1000000020 nanoseconds
+OSS: Placing PID 21656 in queue 2
+OSS: Dispatching process with PID 21655 from queue 2 at Index 12 at time 86483:43138806
+OSS: Receiving that process with PID 21655 ran for 1000000830 nanoseconds
+OSS: total time this dispatch was 1000000830 nanoseconds
+OSS: Placing PID 21655 in queue 2
+OSS: Generating process 36 with pid 21662 and putting it in queue 0 at time 87712:43762788
+OSS: Dispatching process with PID 21662 from queue 0 at Index 0 at time 87712:43762788
+OSS: Receiving that process with PID 21662 ran for 1000000952 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21662 in queue 0
+OSS: Dispatching process with PID 21661 from queue 1 at Index 17 at time 88903:44371318
+OSS: Receiving that process with PID 21661 ran for 1000000471 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21661 in queue 1
+OSS: Dispatching process with PID 21659 from queue 2 at Index 15 at time 89347:44593557
+OSS: Receiving that process with PID 21659 ran for 1000000799 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21659 in queue 2
+OSS: Dispatching process with PID 21657 from queue 2 at Index 14 at time 89350:44595100
+OSS: Receiving that process with PID 21657 ran for 1000000281 nanoseconds
+OSS: total time this dispatch was 1000000281 nanoseconds
+OSS: Placing PID 21657 in queue 2
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 89449:44645302
+OSS: Receiving that process with PID 21656 ran for 1000000481 nanoseconds
+OSS: total time this dispatch was -3294966815 nanoseconds
+OSS: Placing PID 21656 in queue 2
+OSS: Dispatching process with PID 21655 from queue 2 at Index 12 at time 91918:45895094
+OSS: Receiving that process with PID 21655 ran for 1000000830 nanoseconds
+OSS: process with PID 21655 has terminated and had -884893580 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21662 from queue 1 at Index 0 at time 91920:45896026
+OSS: Receiving that process with PID 21662 ran for 1000000952 nanoseconds
+OSS: process with PID 21662 has terminated and had -3294966344 CPU time
+OSS: Dispatching process with PID 21661 from queue 2 at Index 17 at time 91921:45896279
+OSS: Receiving that process with PID 21661 ran for 1000000177 nanoseconds
+OSS: total time this dispatch was 1000000177 nanoseconds
+OSS: Placing PID 21661 in queue 2
+OSS: Dispatching process with PID 21659 from queue 2 at Index 15 at time 91924:45897287
+OSS: Receiving that process with PID 21659 ran for 1000000342 nanoseconds
+OSS: total time this dispatch was -3294966954 nanoseconds
+OSS: Placing PID 21659 in queue 2
+OSS: Dispatching process with PID 21657 from queue 2 at Index 14 at time 91927:45898189
+OSS: Receiving that process with PID 21657 ran for 1000000137 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21657 in queue 2
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 92483:46166437
+OSS: Receiving that process with PID 21656 ran for 1000000406 nanoseconds
+OSS: total time this dispatch was 1000000406 nanoseconds
+OSS: Placing PID 21656 in queue 2
+OSS: Generating process 37 with pid 21664 and putting it in queue 0 at time 92487:46168826
+OSS: Dispatching process with PID 21664 from queue 0 at Index 1 at time 92487:46168826
+OSS: Receiving that process with PID 21664 ran for 1000000192 nanoseconds
+OSS: total time this dispatch was 1000000192 nanoseconds
+OSS: Placing PID 21664 in queue 0
+OSS: Dispatching process with PID 21661 from queue 2 at Index 17 at time 94926:47405927
+OSS: Receiving that process with PID 21661 ran for 1000000177 nanoseconds
+OSS: process with PID 21661 has terminated and had 4000001058 CPU time
+OSS: Dispatching process with PID 21659 from queue 2 at Index 15 at time 97338:48591925
+OSS: Receiving that process with PID 21659 ran for 1000000658 nanoseconds
+OSS: total time this dispatch was 1000000658 nanoseconds
+OSS: Placing PID 21659 in queue 2
+OSS: Dispatching process with PID 21657 from queue 2 at Index 14 at time 97341:48593570
+OSS: Receiving that process with PID 21657 ran for 1000000182 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21657 in queue 2
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 97345:48594698
+OSS: Receiving that process with PID 21656 ran for 1000000223 nanoseconds
+OSS: total time this dispatch was -3294967073 nanoseconds
+OSS: Placing PID 21656 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21664 from queue 1 at Index 1 at time 98005:48919488
+OSS: Receiving that process with PID 21664 ran for 1000000470 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21664 in queue 1
+OSS: Dispatching process with PID 21659 from queue 2 at Index 15 at time 98008:48920331
+OSS: Receiving that process with PID 21659 ran for 1000000610 nanoseconds
+OSS: total time this dispatch was -3294966686 nanoseconds
+OSS: Placing PID 21659 in queue 2
+OSS: Dispatching process with PID 21657 from queue 2 at Index 14 at time 98013:48923468
+OSS: Receiving that process with PID 21657 ran for 1000000461 nanoseconds
+OSS: total time this dispatch was -3294966835 nanoseconds
+OSS: Placing PID 21657 in queue 2
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 98223:49027024
+OSS: Receiving that process with PID 21656 ran for 1000000920 nanoseconds
+OSS: total time this dispatch was 1000000920 nanoseconds
+OSS: Placing PID 21656 in queue 2
+OSS: Generating process 38 with pid 21665 and putting it in queue 0 at time 100003:49933427
+OSS: Dispatching process with PID 21665 from queue 0 at Index 2 at time 100003:49933427
+OSS: Receiving that process with PID 21665 ran for 1000000477 nanoseconds
+OSS: total time this dispatch was 1000000477 nanoseconds
+OSS: Placing PID 21665 in queue 0
+OSS: Dispatching process with PID 21664 from queue 1 at Index 1 at time 101188:50528768
+OSS: Receiving that process with PID 21664 ran for 1000000712 nanoseconds
+OSS: total time this dispatch was 1000000712 nanoseconds
+OSS: Placing PID 21664 in queue 1
+OSS: Dispatching process with PID 21659 from queue 2 at Index 15 at time 101193:50531892
+OSS: Receiving that process with PID 21659 ran for 1000000897 nanoseconds
+OSS: total time this dispatch was 1000000897 nanoseconds
+OSS: Placing PID 21659 in queue 2
+OSS: Dispatching process with PID 21657 from queue 2 at Index 14 at time 101624:50747890
+OSS: Receiving that process with PID 21657 ran for 1000000375 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21657 in queue 2
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 101627:50749016
+OSS: Receiving that process with PID 21656 ran for 1000000517 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21656 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21665 from queue 0 at Index 2 at time 101631:50750345
+OSS: Receiving that process with PID 21665 ran for 1000000203 nanoseconds
+OSS: total time this dispatch was 1000000203 nanoseconds
+OSS: Placing PID 21665 in queue 0
+OSS: Dispatching process with PID 21664 from queue 2 at Index 1 at time 101634:50751403
+OSS: Receiving that process with PID 21664 ran for 1000000929 nanoseconds
+OSS: total time this dispatch was 1000000929 nanoseconds
+OSS: Placing PID 21664 in queue 2
+OSS: Dispatching process with PID 21659 from queue 2 at Index 15 at time 101637:50753573
+OSS: Receiving that process with PID 21659 ran for 1000000897 nanoseconds
+OSS: process with PID 21659 has terminated and had -1884894988 CPU time
+OSS: Dispatching process with PID 21657 from queue 2 at Index 14 at time 101638:50753774
+OSS: Receiving that process with PID 21657 ran for 1000000993 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21657 in queue 2
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 104015:51923081
+OSS: Receiving that process with PID 21656 ran for 1000000627 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21656 in queue 2
+OSS: Generating process 39 with pid 21666 and putting it in queue 0 at time 104019:51924587
+OSS: Dispatching process with PID 21666 from queue 0 at Index 3 at time 104019:51924587
+OSS: Receiving that process with PID 21666 ran for 1000000852 nanoseconds
+OSS: total time this dispatch was -3294966444 nanoseconds
+OSS: Placing PID 21666 in queue 0
+OSS: Dispatching process with PID 21665 from queue 1 at Index 2 at time 106332:53080991
+OSS: Receiving that process with PID 21665 ran for 1000000791 nanoseconds
+OSS: total time this dispatch was -3294966505 nanoseconds
+OSS: Placing PID 21665 in queue 1
+OSS: Dispatching process with PID 21664 from queue 2 at Index 1 at time 108694:54236033
+OSS: Receiving that process with PID 21664 ran for 1000000677 nanoseconds
+OSS: total time this dispatch was 1000000677 nanoseconds
+OSS: Placing PID 21664 in queue 2
+OSS: Dispatching process with PID 21657 from queue 2 at Index 14 at time 109861:54829194
+OSS: Receiving that process with PID 21657 ran for 1000000993 nanoseconds
+OSS: process with PID 21657 has terminated and had 5410070911 CPU time
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 109863:54830878
+OSS: Receiving that process with PID 21656 ran for 1000000619 nanoseconds
+OSS: total time this dispatch was 1000000619 nanoseconds
+OSS: Placing PID 21656 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21666 from queue 1 at Index 3 at time 109867:54832971
+OSS: Receiving that process with PID 21666 ran for 1000000004 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21666 in queue 1
+OSS: Dispatching process with PID 21665 from queue 2 at Index 2 at time 109870:54834046
+OSS: Receiving that process with PID 21665 ran for 1000000791 nanoseconds
+OSS: process with PID 21665 has terminated and had -1294965825 CPU time
+OSS: Dispatching process with PID 21664 from queue 2 at Index 1 at time 109871:54834339
+OSS: Receiving that process with PID 21664 ran for 1000000557 nanoseconds
+OSS: total time this dispatch was 1000000557 nanoseconds
+OSS: Placing PID 21664 in queue 2
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 109874:54835574
+OSS: Receiving that process with PID 21656 ran for 1000000458 nanoseconds
+OSS: total time this dispatch was 1000000458 nanoseconds
+OSS: Placing PID 21656 in queue 2
+OSS: Generating process 40 with pid 21667 and putting it in queue 0 at time 109878:54837554
+OSS: Dispatching process with PID 21667 from queue 0 at Index 4 at time 109878:54837554
+OSS: Receiving that process with PID 21667 ran for 1000000490 nanoseconds
+OSS: total time this dispatch was -3294966806 nanoseconds
+OSS: Placing PID 21667 in queue 0
+OSS: Dispatching process with PID 21666 from queue 1 at Index 3 at time 112083:55942706
+OSS: Receiving that process with PID 21666 ran for 1000000645 nanoseconds
+OSS: total time this dispatch was 1000000645 nanoseconds
+OSS: Placing PID 21666 in queue 1
+OSS: Dispatching process with PID 21664 from queue 2 at Index 1 at time 112086:55944627
+OSS: Receiving that process with PID 21664 ran for 1000000719 nanoseconds
+OSS: total time this dispatch was -3294966577 nanoseconds
+OSS: Placing PID 21664 in queue 2
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 112092:55948329
+OSS: Receiving that process with PID 21656 ran for 1000000256 nanoseconds
+OSS: total time this dispatch was 1000000256 nanoseconds
+OSS: Placing PID 21656 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21667 from queue 1 at Index 4 at time 112096:55950633
+OSS: Receiving that process with PID 21667 ran for 1000000119 nanoseconds
+OSS: total time this dispatch was 1000000119 nanoseconds
+OSS: Placing PID 21667 in queue 1
+OSS: Dispatching process with PID 21666 from queue 1 at Index 3 at time 112099:55951851
+OSS: Receiving that process with PID 21666 ran for 1000000645 nanoseconds
+OSS: process with PID 21666 has terminated and had -1294965795 CPU time
+OSS: Dispatching process with PID 21664 from queue 2 at Index 1 at time 113287:56536661
+OSS: Receiving that process with PID 21664 ran for 1000000719 nanoseconds
+OSS: process with PID 21664 has terminated and had -1589930336 CPU time
+OSS: Dispatching process with PID 21656 from queue 2 at Index 13 at time 115682:57739485
+OSS: Receiving that process with PID 21656 ran for 1000000256 nanoseconds
+OSS: process with PID 21656 has terminated and had -2474826736 CPU time
+OSS: Generating process 41 with pid 21669 and putting it in queue 0 at time 115684:57740531
+OSS: Dispatching process with PID 21669 from queue 0 at Index 5 at time 115684:57740531
+OSS: Receiving that process with PID 21669 ran for 1000000043 nanoseconds
+OSS: total time this dispatch was -3294967253 nanoseconds
+OSS: Placing PID 21669 in queue 0
+OSS: Dispatching process with PID 21667 from queue 2 at Index 4 at time 115747:57773897
+OSS: Receiving that process with PID 21667 ran for 1000000119 nanoseconds
+OSS: process with PID 21667 has terminated and had -2294966687 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21669 from queue 1 at Index 5 at time 115749:57774537
+OSS: Receiving that process with PID 21669 ran for 1000000246 nanoseconds
+OSS: total time this dispatch was 1000000246 nanoseconds
+OSS: Placing PID 21669 in queue 1
+OSS: Generating process 42 with pid 21670 and putting it in queue 0 at time 115755:57778212
+OSS: Dispatching process with PID 21670 from queue 0 at Index 6 at time 115755:57778212
+OSS: Receiving that process with PID 21670 ran for 1000000376 nanoseconds
+OSS: total time this dispatch was -3294966920 nanoseconds
+OSS: Placing PID 21670 in queue 0
+OSS: Dispatching process with PID 21669 from queue 2 at Index 5 at time 115815:57815609
+OSS: Receiving that process with PID 21669 ran for 1000000246 nanoseconds
+OSS: process with PID 21669 has terminated and had -2294967007 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21670 from queue 1 at Index 6 at time 115817:57816439
+OSS: Receiving that process with PID 21670 ran for 1000000117 nanoseconds
+OSS: total time this dispatch was -3294967179 nanoseconds
+OSS: Placing PID 21670 in queue 1
+OSS: Generating process 43 with pid 21671 and putting it in queue 0 at time 115825:57818556
+OSS: Dispatching process with PID 21671 from queue 0 at Index 7 at time 115825:57818556
+OSS: Receiving that process with PID 21671 ran for 1000000483 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21671 in queue 0
+OSS: Dispatching process with PID 21670 from queue 2 at Index 6 at time 115874:57839184
+OSS: Receiving that process with PID 21670 ran for 1000000904 nanoseconds
+OSS: total time this dispatch was 1000000904 nanoseconds
+OSS: Placing PID 21670 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21671 from queue 1 at Index 7 at time 115878:57842201
+OSS: Receiving that process with PID 21671 ran for 1000000701 nanoseconds
+OSS: total time this dispatch was 1000000701 nanoseconds
+OSS: Placing PID 21671 in queue 1
+OSS: Dispatching process with PID 21670 from queue 2 at Index 6 at time 115881:57842936
+OSS: Receiving that process with PID 21670 ran for 1000000849 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21670 in queue 2
+OSS: Generating process 44 with pid 21672 and putting it in queue 0 at time 115885:57845187
+OSS: Dispatching process with PID 21672 from queue 0 at Index 8 at time 115885:57845187
+OSS: Receiving that process with PID 21672 ran for 1000000065 nanoseconds
+OSS: total time this dispatch was -3294967231 nanoseconds
+OSS: Placing PID 21672 in queue 0
+OSS: Dispatching process with PID 21671 from queue 1 at Index 7 at time 118143:58983723
+OSS: Receiving that process with PID 21671 ran for 1000000964 nanoseconds
+OSS: total time this dispatch was 1000000964 nanoseconds
+OSS: Placing PID 21671 in queue 1
+OSS: Dispatching process with PID 21670 from queue 2 at Index 6 at time 118146:58985503
+OSS: Receiving that process with PID 21670 ran for 1000000559 nanoseconds
+OSS: total time this dispatch was 1000000559 nanoseconds
+OSS: Placing PID 21670 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21672 from queue 1 at Index 8 at time 118155:58989399
+OSS: Receiving that process with PID 21672 ran for 1000000961 nanoseconds
+OSS: total time this dispatch was 1000000961 nanoseconds
+OSS: Placing PID 21672 in queue 1
+OSS: Dispatching process with PID 21671 from queue 2 at Index 7 at time 118158:58991716
+OSS: Receiving that process with PID 21671 ran for 1000000697 nanoseconds
+OSS: total time this dispatch was 1000000697 nanoseconds
+OSS: Placing PID 21671 in queue 2
+OSS: Dispatching process with PID 21670 from queue 2 at Index 6 at time 118164:58994395
+OSS: Receiving that process with PID 21670 ran for 1000000128 nanoseconds
+OSS: total time this dispatch was 1000000128 nanoseconds
+OSS: Placing PID 21670 in queue 2
+OSS: Generating process 45 with pid 21673 and putting it in queue 0 at time 118173:58998375
+OSS: Dispatching process with PID 21673 from queue 0 at Index 9 at time 118173:58998375
+OSS: Receiving that process with PID 21673 ran for 1000000888 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21673 in queue 0
+OSS: Dispatching process with PID 21672 from queue 2 at Index 8 at time 120538:60211626
+OSS: Receiving that process with PID 21672 ran for 1000000961 nanoseconds
+OSS: process with PID 21672 has terminated and had -2294966270 CPU time
+OSS: Dispatching process with PID 21671 from queue 2 at Index 7 at time 120540:60212504
+OSS: Receiving that process with PID 21671 ran for 1000000697 nanoseconds
+OSS: process with PID 21671 has terminated and had 4000002845 CPU time
+OSS: Dispatching process with PID 21670 from queue 2 at Index 6 at time 120541:60213367
+OSS: Receiving that process with PID 21670 ran for 1000000128 nanoseconds
+OSS: process with PID 21670 has terminated and had -6884898955 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21673 from queue 1 at Index 9 at time 120543:60214697
+OSS: Receiving that process with PID 21673 ran for 1000000888 nanoseconds
+OSS: process with PID 21673 has terminated and had 1000000888 CPU time
+OSS: Generating process 46 with pid 21674 and putting it in queue 0 at time 120545:60215145
+OSS: Dispatching process with PID 21674 from queue 0 at Index 10 at time 120545:60215145
+OSS: Receiving that process with PID 21674 ran for 1000000684 nanoseconds
+OSS: total time this dispatch was 1000000684 nanoseconds
+OSS: Placing PID 21674 in queue 0
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21674 from queue 1 at Index 10 at time 120613:60249876
+OSS: Receiving that process with PID 21674 ran for 1000000684 nanoseconds
+OSS: process with PID 21674 has terminated and had 1000000684 CPU time
+OSS: Generating process 47 with pid 21675 and putting it in queue 0 at time 120615:60251446
+OSS: Dispatching process with PID 21675 from queue 0 at Index 11 at time 120615:60251446
+OSS: Receiving that process with PID 21675 ran for 1000000097 nanoseconds
+OSS: total time this dispatch was 1000000097 nanoseconds
+OSS: Placing PID 21675 in queue 0
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21675 from queue 1 at Index 11 at time 120673:60280230
+OSS: Receiving that process with PID 21675 ran for 1000000097 nanoseconds
+OSS: process with PID 21675 has terminated and had 1000000097 CPU time
+OSS: Generating process 48 with pid 21676 and putting it in queue 0 at time 120675:60280983
+OSS: Dispatching process with PID 21676 from queue 0 at Index 12 at time 120675:60280983
+OSS: Receiving that process with PID 21676 ran for 1000000451 nanoseconds
+OSS: total time this dispatch was 1000000451 nanoseconds
+OSS: Placing PID 21676 in queue 0
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21676 from queue 1 at Index 12 at time 120735:60312155
+OSS: Receiving that process with PID 21676 ran for 1000000451 nanoseconds
+OSS: process with PID 21676 has terminated and had 1000000451 CPU time
+OSS: Generating process 49 with pid 21677 and putting it in queue 0 at time 120737:60313072
+OSS: Dispatching process with PID 21677 from queue 0 at Index 13 at time 120737:60313072
+OSS: Receiving that process with PID 21677 ran for 1000000001 nanoseconds
+OSS: total time this dispatch was 1000000001 nanoseconds
+OSS: Placing PID 21677 in queue 0
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21677 from queue 1 at Index 13 at time 120795:60340885
+OSS: Receiving that process with PID 21677 ran for 1000000239 nanoseconds
+OSS: total time this dispatch was 1000000239 nanoseconds
+OSS: Placing PID 21677 in queue 1
+OSS: Generating process 50 with pid 21678 and putting it in queue 0 at time 120802:60343642
+OSS: Dispatching process with PID 21678 from queue 0 at Index 14 at time 120802:60343642
+OSS: Receiving that process with PID 21678 ran for 1000000525 nanoseconds
+OSS: total time this dispatch was -3294966771 nanoseconds
+OSS: Placing PID 21678 in queue 0
+OSS: Dispatching process with PID 21677 from queue 2 at Index 13 at time 120858:60372292
+OSS: Receiving that process with PID 21677 ran for 1000000074 nanoseconds
+OSS: total time this dispatch was 1000000074 nanoseconds
+OSS: Placing PID 21677 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21678 from queue 1 at Index 14 at time 120862:60374749
+OSS: Receiving that process with PID 21678 ran for 1000000088 nanoseconds
+OSS: total time this dispatch was 1000000088 nanoseconds
+OSS: Placing PID 21678 in queue 1
+OSS: Dispatching process with PID 21677 from queue 2 at Index 13 at time 120865:60376512
+OSS: Receiving that process with PID 21677 ran for 1000000844 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21677 in queue 2
+OSS: Generating process 51 with pid 21679 and putting it in queue 0 at time 120869:60379556
+OSS: Dispatching process with PID 21679 from queue 0 at Index 15 at time 120869:60379556
+OSS: Receiving that process with PID 21679 ran for 1000000544 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21679 in queue 0
+OSS: Dispatching process with PID 21678 from queue 1 at Index 14 at time 123118:61526288
+OSS: Receiving that process with PID 21678 ran for 1000000098 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21678 in queue 1
+OSS: Dispatching process with PID 21677 from queue 2 at Index 13 at time 123121:61527666
+OSS: Receiving that process with PID 21677 ran for 1000000616 nanoseconds
+OSS: total time this dispatch was 1000000616 nanoseconds
+OSS: Placing PID 21677 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21679 from queue 0 at Index 15 at time 123128:61529855
+OSS: Receiving that process with PID 21679 ran for 1000000544 nanoseconds
+OSS: process with PID 21679 has terminated and had 1000000544 CPU time
+OSS: Dispatching process with PID 21678 from queue 1 at Index 14 at time 123129:61530147
+OSS: Receiving that process with PID 21678 ran for 1000000229 nanoseconds
+OSS: total time this dispatch was 1000000229 nanoseconds
+OSS: Placing PID 21678 in queue 1
+OSS: Dispatching process with PID 21677 from queue 2 at Index 13 at time 123132:61530778
+OSS: Receiving that process with PID 21677 ran for 1000000673 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21677 in queue 2
+OSS: Generating process 52 with pid 21680 and putting it in queue 0 at time 123136:61532307
+OSS: Dispatching process with PID 21680 from queue 0 at Index 16 at time 123136:61532307
+OSS: Receiving that process with PID 21680 ran for 1000000810 nanoseconds
+OSS: total time this dispatch was 1000000810 nanoseconds
+OSS: Placing PID 21680 in queue 0
+OSS: Dispatching process with PID 21678 from queue 1 at Index 14 at time 125407:62673838
+OSS: Receiving that process with PID 21678 ran for 1000000229 nanoseconds
+OSS: process with PID 21678 has terminated and had -4589933652 CPU time
+OSS: Dispatching process with PID 21677 from queue 2 at Index 13 at time 125408:62674139
+OSS: Receiving that process with PID 21677 ran for 1000000446 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21677 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21680 from queue 0 at Index 16 at time 125412:62676453
+OSS: Receiving that process with PID 21680 ran for 1000000276 nanoseconds
+OSS: total time this dispatch was 1000000276 nanoseconds
+OSS: Placing PID 21680 in queue 0
+OSS: Dispatching process with PID 21677 from queue 2 at Index 13 at time 125415:62677990
+OSS: Receiving that process with PID 21677 ran for 1000000935 nanoseconds
+OSS: total time this dispatch was 1000000935 nanoseconds
+OSS: Placing PID 21677 in queue 2
+OSS: Generating process 53 with pid 21681 and putting it in queue 0 at time 125419:62680301
+OSS: Dispatching process with PID 21681 from queue 0 at Index 17 at time 125419:62680301
+OSS: Receiving that process with PID 21681 ran for 1000000590 nanoseconds
+OSS: total time this dispatch was 1000000590 nanoseconds
+OSS: Placing PID 21681 in queue 0
+OSS: Dispatching process with PID 21680 from queue 1 at Index 16 at time 127643:63780713
+OSS: Receiving that process with PID 21680 ran for 1000000960 nanoseconds
+OSS: total time this dispatch was 1000000960 nanoseconds
+OSS: Placing PID 21680 in queue 1
+OSS: Dispatching process with PID 21677 from queue 2 at Index 13 at time 127646:63783523
+OSS: Receiving that process with PID 21677 ran for 1000000374 nanoseconds
+OSS: total time this dispatch was 1000000374 nanoseconds
+OSS: Placing PID 21677 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21681 from queue 0 at Index 17 at time 127650:63785870
+OSS: Receiving that process with PID 21681 ran for 1000000590 nanoseconds
+OSS: process with PID 21681 has terminated and had 1000000590 CPU time
+OSS: Dispatching process with PID 21680 from queue 1 at Index 16 at time 127651:63786563
+OSS: Receiving that process with PID 21680 ran for 1000000392 nanoseconds
+OSS: total time this dispatch was 1000000392 nanoseconds
+OSS: Placing PID 21680 in queue 1
+OSS: Dispatching process with PID 21677 from queue 2 at Index 13 at time 127654:63788483
+OSS: Receiving that process with PID 21677 ran for 1000000087 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21677 in queue 2
+OSS: Generating process 54 with pid 21682 and putting it in queue 0 at time 127658:63790747
+OSS: Dispatching process with PID 21682 from queue 0 at Index 0 at time 127658:63790747
+OSS: Receiving that process with PID 21682 ran for 1000000340 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21682 in queue 0
+OSS: Dispatching process with PID 21680 from queue 2 at Index 16 at time 131047:65502435
+OSS: Receiving that process with PID 21680 ran for 1000000926 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21680 in queue 2
+OSS: Dispatching process with PID 21677 from queue 2 at Index 13 at time 131050:65503942
+OSS: Receiving that process with PID 21677 ran for 1000000087 nanoseconds
+OSS: process with PID 21677 has terminated and had 10000004289 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21682 from queue 1 at Index 0 at time 131052:65505174
+OSS: Receiving that process with PID 21682 ran for 1000000662 nanoseconds
+OSS: total time this dispatch was -3294966634 nanoseconds
+OSS: Placing PID 21682 in queue 1
+OSS: Dispatching process with PID 21680 from queue 2 at Index 16 at time 131058:65508354
+OSS: Receiving that process with PID 21680 ran for 1000000150 nanoseconds
+OSS: total time this dispatch was 1000000150 nanoseconds
+OSS: Placing PID 21680 in queue 2
+OSS: Generating process 55 with pid 21683 and putting it in queue 0 at time 131062:65509341
+OSS: Dispatching process with PID 21683 from queue 0 at Index 1 at time 131062:65509341
+OSS: Receiving that process with PID 21683 ran for 1000000185 nanoseconds
+OSS: total time this dispatch was -3294967111 nanoseconds
+OSS: Placing PID 21683 in queue 0
+OSS: Dispatching process with PID 21682 from queue 1 at Index 0 at time 132325:66140580
+OSS: Receiving that process with PID 21682 ran for 1000000517 nanoseconds
+OSS: total time this dispatch was 1000000517 nanoseconds
+OSS: Placing PID 21682 in queue 1
+OSS: Dispatching process with PID 21680 from queue 2 at Index 16 at time 132331:66143313
+OSS: Receiving that process with PID 21680 ran for 1000000980 nanoseconds
+OSS: total time this dispatch was -3294966316 nanoseconds
+OSS: Placing PID 21680 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21683 from queue 1 at Index 1 at time 132335:66145898
+OSS: Receiving that process with PID 21683 ran for 1000000169 nanoseconds
+OSS: total time this dispatch was 1000000169 nanoseconds
+OSS: Placing PID 21683 in queue 1
+OSS: Dispatching process with PID 21682 from queue 1 at Index 0 at time 132341:66148843
+OSS: Receiving that process with PID 21682 ran for 1000000517 nanoseconds
+OSS: process with PID 21682 has terminated and had -1294965777 CPU time
+OSS: Dispatching process with PID 21680 from queue 2 at Index 16 at time 132342:66149616
+OSS: Receiving that process with PID 21680 ran for 1000000969 nanoseconds
+OSS: total time this dispatch was 1000000969 nanoseconds
+OSS: Placing PID 21680 in queue 2
+OSS: Generating process 56 with pid 21684 and putting it in queue 0 at time 132346:66152247
+OSS: Dispatching process with PID 21684 from queue 0 at Index 2 at time 132346:66152247
+OSS: Receiving that process with PID 21684 ran for 1000000228 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21684 in queue 0
+OSS: Dispatching process with PID 21683 from queue 1 at Index 1 at time 134459:67212065
+OSS: Receiving that process with PID 21683 ran for 1000000657 nanoseconds
+OSS: total time this dispatch was 1000000657 nanoseconds
+OSS: Placing PID 21683 in queue 1
+OSS: Dispatching process with PID 21680 from queue 2 at Index 16 at time 134462:67213599
+OSS: Receiving that process with PID 21680 ran for 1000000823 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21680 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21684 from queue 0 at Index 2 at time 134466:67215723
+OSS: Receiving that process with PID 21684 ran for 1000000985 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21684 in queue 0
+OSS: Dispatching process with PID 21683 from queue 2 at Index 1 at time 134469:67218227
+OSS: Receiving that process with PID 21683 ran for 1000000095 nanoseconds
+OSS: total time this dispatch was 1000000095 nanoseconds
+OSS: Placing PID 21683 in queue 2
+OSS: Dispatching process with PID 21680 from queue 2 at Index 16 at time 134472:67219946
+OSS: Receiving that process with PID 21680 ran for 1000000222 nanoseconds
+OSS: total time this dispatch was 1000000222 nanoseconds
+OSS: Placing PID 21680 in queue 2
+OSS: Generating process 57 with pid 21686 and putting it in queue 0 at time 134476:67221230
+OSS: Dispatching process with PID 21686 from queue 0 at Index 3 at time 134476:67221230
+OSS: Receiving that process with PID 21686 ran for 1000000529 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21686 in queue 0
+OSS: Dispatching process with PID 21684 from queue 1 at Index 2 at time 136709:68322157
+OSS: Receiving that process with PID 21684 ran for 1000000266 nanoseconds
+OSS: total time this dispatch was 1000000266 nanoseconds
+OSS: Placing PID 21684 in queue 1
+OSS: Dispatching process with PID 21683 from queue 2 at Index 1 at time 136717:68325775
+OSS: Receiving that process with PID 21683 ran for 1000000186 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21683 in queue 2
+OSS: Dispatching process with PID 21680 from queue 2 at Index 16 at time 136720:68326730
+OSS: Receiving that process with PID 21680 ran for 1000000209 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21680 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21686 from queue 0 at Index 3 at time 136724:68327932
+OSS: Receiving that process with PID 21686 ran for 1000000529 nanoseconds
+OSS: process with PID 21686 has terminated and had 1000000529 CPU time
+OSS: Dispatching process with PID 21684 from queue 2 at Index 2 at time 136725:68328905
+OSS: Receiving that process with PID 21684 ran for 1000000260 nanoseconds
+OSS: total time this dispatch was -3294967036 nanoseconds
+OSS: Placing PID 21684 in queue 2
+OSS: Dispatching process with PID 21683 from queue 2 at Index 1 at time 137483:68709966
+OSS: Receiving that process with PID 21683 ran for 1000000621 nanoseconds
+OSS: total time this dispatch was 1000000621 nanoseconds
+OSS: Placing PID 21683 in queue 2
+OSS: Dispatching process with PID 21680 from queue 2 at Index 16 at time 137486:68711371
+OSS: Receiving that process with PID 21680 ran for 1000000209 nanoseconds
+OSS: process with PID 21680 has terminated and had 2410072125 CPU time
+OSS: Generating process 58 with pid 21687 and putting it in queue 0 at time 137489:68712742
+OSS: Dispatching process with PID 21687 from queue 0 at Index 4 at time 137489:68712742
+OSS: Receiving that process with PID 21687 ran for 1000000447 nanoseconds
+OSS: total time this dispatch was 1000000447 nanoseconds
+OSS: Placing PID 21687 in queue 0
+OSS: Dispatching process with PID 21684 from queue 2 at Index 2 at time 139611:69762475
+OSS: Receiving that process with PID 21684 ran for 1000000681 nanoseconds
+OSS: total time this dispatch was 1000000681 nanoseconds
+OSS: Placing PID 21684 in queue 2
+OSS: Dispatching process with PID 21683 from queue 2 at Index 1 at time 139616:69765628
+OSS: Receiving that process with PID 21683 ran for 1000000621 nanoseconds
+OSS: process with PID 21683 has terminated and had 1705034617 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21687 from queue 1 at Index 4 at time 139618:69766554
+OSS: Receiving that process with PID 21687 ran for 1000000447 nanoseconds
+OSS: process with PID 21687 has terminated and had 1000000447 CPU time
+OSS: Dispatching process with PID 21684 from queue 2 at Index 2 at time 139619:69766807
+OSS: Receiving that process with PID 21684 ran for 1000000984 nanoseconds
+OSS: total time this dispatch was 1000000984 nanoseconds
+OSS: Placing PID 21684 in queue 2
+OSS: Generating process 59 with pid 21688 and putting it in queue 0 at time 139697:69806133
+OSS: Dispatching process with PID 21688 from queue 0 at Index 5 at time 139697:69806133
+OSS: Receiving that process with PID 21688 ran for 1000000190 nanoseconds
+OSS: total time this dispatch was 1000000190 nanoseconds
+OSS: Placing PID 21688 in queue 0
+OSS: Dispatching process with PID 21684 from queue 2 at Index 2 at time 139763:69837105
+OSS: Receiving that process with PID 21684 ran for 1000000919 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21684 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21688 from queue 1 at Index 5 at time 139767:69839935
+OSS: Receiving that process with PID 21688 ran for 1000000064 nanoseconds
+OSS: total time this dispatch was 1000000064 nanoseconds
+OSS: Placing PID 21688 in queue 1
+OSS: Dispatching process with PID 21684 from queue 2 at Index 2 at time 139770:69840753
+OSS: Receiving that process with PID 21684 ran for 1000000552 nanoseconds
+OSS: total time this dispatch was -3294966744 nanoseconds
+OSS: Placing PID 21684 in queue 2
+OSS: Generating process 60 with pid 21689 and putting it in queue 0 at time 139774:69842456
+OSS: Dispatching process with PID 21689 from queue 0 at Index 6 at time 139774:69842456
+OSS: Receiving that process with PID 21689 ran for 1000000300 nanoseconds
+OSS: total time this dispatch was 1000000300 nanoseconds
+OSS: Placing PID 21689 in queue 0
+OSS: Dispatching process with PID 21688 from queue 1 at Index 5 at time 142085:70987718
+OSS: Receiving that process with PID 21688 ran for 1000000064 nanoseconds
+OSS: process with PID 21688 has terminated and had 2000000254 CPU time
+OSS: Dispatching process with PID 21684 from queue 2 at Index 2 at time 142086:70987820
+OSS: Receiving that process with PID 21684 ran for 1000000186 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21684 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21689 from queue 1 at Index 6 at time 142090:70988609
+OSS: Receiving that process with PID 21689 ran for 1000000026 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21689 in queue 1
+OSS: Dispatching process with PID 21684 from queue 2 at Index 2 at time 142093:70990294
+OSS: Receiving that process with PID 21684 ran for 1000000123 nanoseconds
+OSS: total time this dispatch was 1000000123 nanoseconds
+OSS: Placing PID 21684 in queue 2
+OSS: Generating process 61 with pid 21690 and putting it in queue 0 at time 142102:70993988
+OSS: Dispatching process with PID 21690 from queue 0 at Index 7 at time 142102:70993988
+OSS: Receiving that process with PID 21690 ran for 1000000517 nanoseconds
+OSS: total time this dispatch was 1000000517 nanoseconds
+OSS: Placing PID 21690 in queue 0
+OSS: Dispatching process with PID 21689 from queue 2 at Index 6 at time 144280:72089136
+OSS: Receiving that process with PID 21689 ran for 1000000026 nanoseconds
+OSS: process with PID 21689 has terminated and had 2000000326 CPU time
+OSS: Dispatching process with PID 21684 from queue 2 at Index 2 at time 144281:72089975
+OSS: Receiving that process with PID 21684 ran for 1000000844 nanoseconds
+OSS: total time this dispatch was 1000000844 nanoseconds
+OSS: Placing PID 21684 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21690 from queue 1 at Index 7 at time 144290:72094154
+OSS: Receiving that process with PID 21690 ran for 1000000369 nanoseconds
+OSS: total time this dispatch was -3294966927 nanoseconds
+OSS: Placing PID 21690 in queue 1
+OSS: Dispatching process with PID 21684 from queue 2 at Index 2 at time 144295:72096523
+OSS: Receiving that process with PID 21684 ran for 1000000844 nanoseconds
+OSS: process with PID 21684 has terminated and had 2410071436 CPU time
+OSS: Generating process 62 with pid 21691 and putting it in queue 0 at time 144297:72097304
+OSS: Dispatching process with PID 21691 from queue 0 at Index 8 at time 144297:72097304
+OSS: Receiving that process with PID 21691 ran for 1000000202 nanoseconds
+OSS: total time this dispatch was 1000000202 nanoseconds
+OSS: Placing PID 21691 in queue 0
+OSS: Dispatching process with PID 21690 from queue 1 at Index 7 at time 144353:72121439
+OSS: Receiving that process with PID 21690 ran for 1000000837 nanoseconds
+OSS: total time this dispatch was 1000000837 nanoseconds
+OSS: Placing PID 21690 in queue 1
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21691 from queue 0 at Index 8 at time 144358:72124506
+OSS: Receiving that process with PID 21691 ran for 1000000386 nanoseconds
+OSS: total time this dispatch was 1000000386 nanoseconds
+OSS: Placing PID 21691 in queue 0
+OSS: Dispatching process with PID 21690 from queue 2 at Index 7 at time 144366:72128157
+OSS: Receiving that process with PID 21690 ran for 1000000779 nanoseconds
+OSS: total time this dispatch was 1000000779 nanoseconds
+OSS: Placing PID 21690 in queue 2
+OSS: Generating process 63 with pid 21692 and putting it in queue 0 at time 144370:72131111
+OSS: Dispatching process with PID 21692 from queue 0 at Index 9 at time 144370:72131111
+OSS: Receiving that process with PID 21692 ran for 1000000231 nanoseconds
+OSS: total time this dispatch was -3294967065 nanoseconds
+OSS: Placing PID 21692 in queue 0
+OSS: Dispatching process with PID 21691 from queue 1 at Index 8 at time 146718:73304913
+OSS: Receiving that process with PID 21691 ran for 1000000246 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21691 in queue 1
+OSS: Dispatching process with PID 21690 from queue 2 at Index 7 at time 146721:73305500
+OSS: Receiving that process with PID 21690 ran for 1000000494 nanoseconds
+OSS: total time this dispatch was 1000000494 nanoseconds
+OSS: Placing PID 21690 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21692 from queue 1 at Index 9 at time 146725:73307637
+OSS: Receiving that process with PID 21692 ran for 1000000714 nanoseconds
+OSS: total time this dispatch was 1000000714 nanoseconds
+OSS: Placing PID 21692 in queue 1
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 146729:73309658
+OSS: Receiving that process with PID 21691 ran for 1000000318 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21691 in queue 2
+OSS: Dispatching process with PID 21690 from queue 2 at Index 7 at time 146732:73310440
+OSS: Receiving that process with PID 21690 ran for 1000000324 nanoseconds
+OSS: total time this dispatch was 1000000324 nanoseconds
+OSS: Placing PID 21690 in queue 2
+OSS: Generating process 64 with pid 21693 and putting it in queue 0 at time 146738:73313355
+OSS: Dispatching process with PID 21693 from queue 0 at Index 10 at time 146738:73313355
+OSS: Receiving that process with PID 21693 ran for 1000000133 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21693 in queue 0
+OSS: Dispatching process with PID 21692 from queue 2 at Index 9 at time 148046:73965229
+OSS: Receiving that process with PID 21692 ran for 1000000425 nanoseconds
+OSS: total time this dispatch was 1000000425 nanoseconds
+OSS: Placing PID 21692 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 148050:73967752
+OSS: Receiving that process with PID 21691 ran for 1000000308 nanoseconds
+OSS: total time this dispatch was -3294966988 nanoseconds
+OSS: Placing PID 21691 in queue 2
+OSS: Dispatching process with PID 21690 from queue 2 at Index 7 at time 150433:75147995
+OSS: Receiving that process with PID 21690 ran for 1000000268 nanoseconds
+OSS: total time this dispatch was -3294967028 nanoseconds
+OSS: Placing PID 21690 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21693 from queue 1 at Index 10 at time 150438:75151092
+OSS: Receiving that process with PID 21693 ran for 1000000291 nanoseconds
+OSS: total time this dispatch was 1000000291 nanoseconds
+OSS: Placing PID 21693 in queue 1
+OSS: Dispatching process with PID 21692 from queue 2 at Index 9 at time 150442:75153321
+OSS: Receiving that process with PID 21692 ran for 1000000394 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21692 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 152708:76286199
+OSS: Receiving that process with PID 21691 ran for 1000000472 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21691 in queue 2
+OSS: Dispatching process with PID 21690 from queue 2 at Index 7 at time 154195:77022673
+OSS: Receiving that process with PID 21690 ran for 1000000777 nanoseconds
+OSS: total time this dispatch was 1000000777 nanoseconds
+OSS: Placing PID 21690 in queue 2
+OSS: Generating process 65 with pid 21695 and putting it in queue 0 at time 154202:77028898
+OSS: Dispatching process with PID 21695 from queue 0 at Index 11 at time 154202:77028898
+OSS: Receiving that process with PID 21695 ran for 1000000510 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21695 in queue 0
+OSS: Dispatching process with PID 21693 from queue 2 at Index 10 at time 155316:77568069
+OSS: Receiving that process with PID 21693 ran for 1000000106 nanoseconds
+OSS: total time this dispatch was 1000000106 nanoseconds
+OSS: Placing PID 21693 in queue 2
+OSS: Dispatching process with PID 21692 from queue 2 at Index 9 at time 155319:77569450
+OSS: Receiving that process with PID 21692 ran for 1000000422 nanoseconds
+OSS: total time this dispatch was 1000000422 nanoseconds
+OSS: Placing PID 21692 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 155324:77571611
+OSS: Receiving that process with PID 21691 ran for 1000000201 nanoseconds
+OSS: total time this dispatch was -3294967095 nanoseconds
+OSS: Placing PID 21691 in queue 2
+OSS: Dispatching process with PID 21690 from queue 2 at Index 7 at time 157133:78480735
+OSS: Receiving that process with PID 21690 ran for 1000000996 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21690 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21695 from queue 1 at Index 11 at time 157137:78483525
+OSS: Receiving that process with PID 21695 ran for 1000000286 nanoseconds
+OSS: total time this dispatch was 1000000286 nanoseconds
+OSS: Placing PID 21695 in queue 1
+OSS: Dispatching process with PID 21693 from queue 2 at Index 10 at time 157230:78530520
+OSS: Receiving that process with PID 21693 ran for 1000000250 nanoseconds
+OSS: total time this dispatch was 1000000250 nanoseconds
+OSS: Placing PID 21693 in queue 2
+OSS: Dispatching process with PID 21692 from queue 2 at Index 9 at time 157238:78533786
+OSS: Receiving that process with PID 21692 ran for 1000000039 nanoseconds
+OSS: total time this dispatch was 1000000039 nanoseconds
+OSS: Placing PID 21692 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 158192:79026393
+OSS: Receiving that process with PID 21691 ran for 1000000923 nanoseconds
+OSS: total time this dispatch was 1000000923 nanoseconds
+OSS: Placing PID 21691 in queue 2
+OSS: Dispatching process with PID 21690 from queue 2 at Index 7 at time 158287:79071608
+OSS: Receiving that process with PID 21690 ran for 1000000996 nanoseconds
+OSS: process with PID 21690 has terminated and had 410070769 CPU time
+OSS: Generating process 66 with pid 21697 and putting it in queue 0 at time 160502:80184736
+OSS: Dispatching process with PID 21697 from queue 0 at Index 12 at time 160502:80184736
+OSS: Receiving that process with PID 21697 ran for 1000000944 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21697 in queue 0
+OSS: Dispatching process with PID 21695 from queue 2 at Index 11 at time 161622:80743481
+OSS: Receiving that process with PID 21695 ran for 1000000288 nanoseconds
+OSS: total time this dispatch was -3294967008 nanoseconds
+OSS: Placing PID 21695 in queue 2
+OSS: Dispatching process with PID 21693 from queue 2 at Index 10 at time 161625:80744371
+OSS: Receiving that process with PID 21693 ran for 1000000250 nanoseconds
+OSS: process with PID 21693 has terminated and had 4000000780 CPU time
+OSS: Dispatching process with PID 21692 from queue 2 at Index 9 at time 161626:80744828
+OSS: Receiving that process with PID 21692 ran for 1000000755 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21692 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 162571:81218898
+OSS: Receiving that process with PID 21691 ran for 1000000002 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21691 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21697 from queue 1 at Index 12 at time 162575:81220379
+OSS: Receiving that process with PID 21697 ran for 1000000886 nanoseconds
+OSS: total time this dispatch was 1000000886 nanoseconds
+OSS: Placing PID 21697 in queue 1
+OSS: Dispatching process with PID 21695 from queue 2 at Index 11 at time 162578:81221663
+OSS: Receiving that process with PID 21695 ran for 1000000908 nanoseconds
+OSS: total time this dispatch was 1000000908 nanoseconds
+OSS: Placing PID 21695 in queue 2
+OSS: Dispatching process with PID 21692 from queue 2 at Index 9 at time 162586:81225895
+OSS: Receiving that process with PID 21692 ran for 1000000920 nanoseconds
+OSS: total time this dispatch was 1000000920 nanoseconds
+OSS: Placing PID 21692 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 164823:82355158
+OSS: Receiving that process with PID 21691 ran for 1000000883 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21691 in queue 2
+OSS: Generating process 67 with pid 21698 and putting it in queue 0 at time 164828:82357359
+OSS: Dispatching process with PID 21698 from queue 0 at Index 13 at time 164828:82357359
+OSS: Receiving that process with PID 21698 ran for 1000000870 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21698 in queue 0
+OSS: Dispatching process with PID 21697 from queue 2 at Index 12 at time 166155:83027035
+OSS: Receiving that process with PID 21697 ran for 1000000886 nanoseconds
+OSS: process with PID 21697 has terminated and had 2000001830 CPU time
+OSS: Dispatching process with PID 21695 from queue 2 at Index 11 at time 167328:83618976
+OSS: Receiving that process with PID 21695 ran for 1000000816 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21695 in queue 2
+OSS: Dispatching process with PID 21692 from queue 2 at Index 9 at time 167331:83620956
+OSS: Receiving that process with PID 21692 ran for 1000000920 nanoseconds
+OSS: process with PID 21692 has terminated and had 3705036604 CPU time
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 167430:83668223
+OSS: Receiving that process with PID 21691 ran for 1000000478 nanoseconds
+OSS: total time this dispatch was 1000000478 nanoseconds
+OSS: Placing PID 21691 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21698 from queue 1 at Index 13 at time 169149:84520731
+OSS: Receiving that process with PID 21698 ran for 1000000905 nanoseconds
+OSS: total time this dispatch was 1000000905 nanoseconds
+OSS: Placing PID 21698 in queue 1
+OSS: Dispatching process with PID 21695 from queue 2 at Index 11 at time 169155:84524768
+OSS: Receiving that process with PID 21695 ran for 1000000252 nanoseconds
+OSS: total time this dispatch was 1000000252 nanoseconds
+OSS: Placing PID 21695 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 169158:84525615
+OSS: Receiving that process with PID 21691 ran for 1000000605 nanoseconds
+OSS: total time this dispatch was 1000000605 nanoseconds
+OSS: Placing PID 21691 in queue 2
+OSS: Generating process 68 with pid 21699 and putting it in queue 0 at time 169166:84530159
+OSS: Dispatching process with PID 21699 from queue 0 at Index 14 at time 169166:84530159
+OSS: Receiving that process with PID 21699 ran for 1000000068 nanoseconds
+OSS: total time this dispatch was 1000000068 nanoseconds
+OSS: Placing PID 21699 in queue 0
+OSS: Dispatching process with PID 21698 from queue 2 at Index 13 at time 171226:85547840
+OSS: Receiving that process with PID 21698 ran for 1000000814 nanoseconds
+OSS: total time this dispatch was 1000000814 nanoseconds
+OSS: Placing PID 21698 in queue 2
+OSS: Dispatching process with PID 21695 from queue 2 at Index 11 at time 172390:86136766
+OSS: Receiving that process with PID 21695 ran for 1000000437 nanoseconds
+OSS: total time this dispatch was 1000000437 nanoseconds
+OSS: Placing PID 21695 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 172395:86139224
+OSS: Receiving that process with PID 21691 ran for 1000000932 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21691 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21699 from queue 1 at Index 14 at time 172399:86142040
+OSS: Receiving that process with PID 21699 ran for 1000000682 nanoseconds
+OSS: total time this dispatch was 1000000682 nanoseconds
+OSS: Placing PID 21699 in queue 1
+OSS: Dispatching process with PID 21698 from queue 2 at Index 13 at time 172402:86143605
+OSS: Receiving that process with PID 21698 ran for 1000000135 nanoseconds
+OSS: total time this dispatch was -3294967161 nanoseconds
+OSS: Placing PID 21698 in queue 2
+OSS: Dispatching process with PID 21695 from queue 2 at Index 11 at time 172410:86147065
+OSS: Receiving that process with PID 21695 ran for 1000000720 nanoseconds
+OSS: total time this dispatch was 1000000720 nanoseconds
+OSS: Placing PID 21695 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 174750:87298501
+OSS: Receiving that process with PID 21691 ran for 1000000226 nanoseconds
+OSS: total time this dispatch was -3294967070 nanoseconds
+OSS: Placing PID 21691 in queue 2
+OSS: Generating process 69 with pid 21701 and putting it in queue 0 at time 174756:87300825
+OSS: Dispatching process with PID 21701 from queue 0 at Index 15 at time 174756:87300825
+OSS: Receiving that process with PID 21701 ran for 1000000237 nanoseconds
+OSS: total time this dispatch was 1000000237 nanoseconds
+OSS: Placing PID 21701 in queue 0
+OSS: Dispatching process with PID 21699 from queue 2 at Index 14 at time 177390:88620581
+OSS: Receiving that process with PID 21699 ran for 1000000003 nanoseconds
+OSS: total time this dispatch was 1000000003 nanoseconds
+OSS: Placing PID 21699 in queue 2
+OSS: Dispatching process with PID 21698 from queue 2 at Index 13 at time 178549:89195992
+OSS: Receiving that process with PID 21698 ran for 1000000042 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21698 in queue 2
+OSS: Dispatching process with PID 21695 from queue 2 at Index 11 at time 178553:89197813
+OSS: Receiving that process with PID 21695 ran for 1000000368 nanoseconds
+OSS: total time this dispatch was -3294966928 nanoseconds
+OSS: Placing PID 21695 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 178560:89201091
+OSS: Receiving that process with PID 21691 ran for 1000000434 nanoseconds
+OSS: total time this dispatch was 1000000434 nanoseconds
+OSS: Placing PID 21691 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21701 from queue 1 at Index 15 at time 180598:90214461
+OSS: Receiving that process with PID 21701 ran for 1000000104 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21701 in queue 1
+OSS: Dispatching process with PID 21699 from queue 2 at Index 14 at time 181871:90851647
+OSS: Receiving that process with PID 21699 ran for 1000000003 nanoseconds
+OSS: process with PID 21699 has terminated and had 3000000753 CPU time
+OSS: Dispatching process with PID 21698 from queue 2 at Index 13 at time 181872:90852338
+OSS: Receiving that process with PID 21698 ran for 1000000582 nanoseconds
+OSS: total time this dispatch was 1000000582 nanoseconds
+OSS: Placing PID 21698 in queue 2
+OSS: Dispatching process with PID 21695 from queue 2 at Index 11 at time 184116:91964560
+OSS: Receiving that process with PID 21695 ran for 1000000668 nanoseconds
+OSS: total time this dispatch was 1000000668 nanoseconds
+OSS: Placing PID 21695 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 184125:91967607
+OSS: Receiving that process with PID 21691 ran for 1000000755 nanoseconds
+OSS: total time this dispatch was 1000000755 nanoseconds
+OSS: Placing PID 21691 in queue 2
+OSS: Generating process 70 with pid 21703 and putting it in queue 0 at time 184135:91972662
+OSS: Dispatching process with PID 21703 from queue 0 at Index 16 at time 184135:91972662
+OSS: Receiving that process with PID 21703 ran for 1000000905 nanoseconds
+OSS: total time this dispatch was -3294966391 nanoseconds
+OSS: Placing PID 21703 in queue 0
+OSS: Dispatching process with PID 21701 from queue 2 at Index 15 at time 185273:92556188
+OSS: Receiving that process with PID 21701 ran for 1000000506 nanoseconds
+OSS: total time this dispatch was 1000000506 nanoseconds
+OSS: Placing PID 21701 in queue 2
+OSS: Dispatching process with PID 21698 from queue 2 at Index 13 at time 185281:92559819
+OSS: Receiving that process with PID 21698 ran for 1000000693 nanoseconds
+OSS: total time this dispatch was 1000000693 nanoseconds
+OSS: Placing PID 21698 in queue 2
+OSS: Dispatching process with PID 21695 from queue 2 at Index 11 at time 187186:93497885
+OSS: Receiving that process with PID 21695 ran for 1000000583 nanoseconds
+OSS: total time this dispatch was 1000000583 nanoseconds
+OSS: Placing PID 21695 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 187192:93501903
+OSS: Receiving that process with PID 21691 ran for 1000000672 nanoseconds
+OSS: total time this dispatch was 1000000672 nanoseconds
+OSS: Placing PID 21691 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21703 from queue 1 at Index 16 at time 188369:94088601
+OSS: Receiving that process with PID 21703 ran for 1000000662 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21703 in queue 1
+OSS: Dispatching process with PID 21701 from queue 2 at Index 15 at time 190608:95210654
+OSS: Receiving that process with PID 21701 ran for 1000000312 nanoseconds
+OSS: total time this dispatch was 1000000312 nanoseconds
+OSS: Placing PID 21701 in queue 2
+OSS: Dispatching process with PID 21698 from queue 2 at Index 13 at time 190617:95214537
+OSS: Receiving that process with PID 21698 ran for 1000000693 nanoseconds
+OSS: process with PID 21698 has terminated and had 2705036745 CPU time
+OSS: Dispatching process with PID 21695 from queue 2 at Index 11 at time 192328:96053237
+OSS: Receiving that process with PID 21695 ran for 1000000682 nanoseconds
+OSS: total time this dispatch was 1000000682 nanoseconds
+OSS: Placing PID 21695 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 192333:96056642
+OSS: Receiving that process with PID 21691 ran for 1000000163 nanoseconds
+OSS: total time this dispatch was 1000000163 nanoseconds
+OSS: Placing PID 21691 in queue 2
+OSS: Generating process 71 with pid 21705 and putting it in queue 0 at time 193518:96648287
+OSS: Dispatching process with PID 21705 from queue 0 at Index 17 at time 193518:96648287
+OSS: Receiving that process with PID 21705 ran for 1000000405 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21705 in queue 0
+OSS: Dispatching process with PID 21703 from queue 2 at Index 16 at time 195868:97837558
+OSS: Receiving that process with PID 21703 ran for 1000000662 nanoseconds
+OSS: process with PID 21703 has terminated and had -6589933025 CPU time
+OSS: Dispatching process with PID 21701 from queue 2 at Index 15 at time 197031:98408489
+OSS: Receiving that process with PID 21701 ran for 1000000762 nanoseconds
+OSS: total time this dispatch was 1000000762 nanoseconds
+OSS: Placing PID 21701 in queue 2
+OSS: Dispatching process with PID 21695 from queue 2 at Index 11 at time 197035:98410390
+OSS: Receiving that process with PID 21695 ran for 1000000107 nanoseconds
+OSS: total time this dispatch was 1000000107 nanoseconds
+OSS: Placing PID 21695 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 197041:98413372
+OSS: Receiving that process with PID 21691 ran for 1000000471 nanoseconds
+OSS: total time this dispatch was -3294966825 nanoseconds
+OSS: Placing PID 21691 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21705 from queue 1 at Index 17 at time 199405:99578071
+OSS: Receiving that process with PID 21705 ran for 1000000749 nanoseconds
+OSS: total time this dispatch was 1000000749 nanoseconds
+OSS: Placing PID 21705 in queue 1
+OSS: Dispatching process with PID 21701 from queue 2 at Index 15 at time 199413:99581337
+OSS: Receiving that process with PID 21701 ran for 1000000261 nanoseconds
+OSS: total time this dispatch was 1000000261 nanoseconds
+OSS: Placing PID 21701 in queue 2
+OSS: Dispatching process with PID 21695 from queue 2 at Index 11 at time 199416:99582102
+OSS: Receiving that process with PID 21695 ran for 1000000107 nanoseconds
+OSS: process with PID 21695 has terminated and had 115104737 CPU time
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 199514:99633197
+OSS: Receiving that process with PID 21691 ran for 1000000935 nanoseconds
+OSS: total time this dispatch was 1000000935 nanoseconds
+OSS: Placing PID 21691 in queue 2
+OSS: Generating process 72 with pid 21707 and putting it in queue 0 at time 199519:99636441
+OSS: Dispatching process with PID 21707 from queue 0 at Index 0 at time 199519:99636441
+OSS: Receiving that process with PID 21707 ran for 1000000729 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21707 in queue 0
+OSS: Dispatching process with PID 21705 from queue 2 at Index 17 at time 200645:100218608
+OSS: Receiving that process with PID 21705 ran for 1000000852 nanoseconds
+OSS: total time this dispatch was 1000000852 nanoseconds
+OSS: Placing PID 21705 in queue 2
+OSS: Dispatching process with PID 21701 from queue 2 at Index 15 at time 200651:100223020
+OSS: Receiving that process with PID 21701 ran for 1000000854 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21701 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 200655:100225658
+OSS: Receiving that process with PID 21691 ran for 1000000126 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21691 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21707 from queue 1 at Index 0 at time 200659:100227703
+OSS: Receiving that process with PID 21707 ran for 1000000195 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21707 in queue 1
+OSS: Dispatching process with PID 21705 from queue 2 at Index 17 at time 200662:100229071
+OSS: Receiving that process with PID 21705 ran for 1000000852 nanoseconds
+OSS: process with PID 21705 has terminated and had 3000002006 CPU time
+OSS: Dispatching process with PID 21701 from queue 2 at Index 15 at time 201846:100809521
+OSS: Receiving that process with PID 21701 ran for 1000000130 nanoseconds
+OSS: total time this dispatch was 1000000130 nanoseconds
+OSS: Placing PID 21701 in queue 2
+OSS: Dispatching process with PID 21691 from queue 2 at Index 8 at time 201849:100810419
+OSS: Receiving that process with PID 21691 ran for 1000000126 nanoseconds
+OSS: process with PID 21691 has terminated and had -4769794038 CPU time
+OSS: Generating process 73 with pid 21709 and putting it in queue 0 at time 201851:100811661
+OSS: Dispatching process with PID 21709 from queue 0 at Index 1 at time 201851:100811661
+OSS: Receiving that process with PID 21709 ran for 1000000704 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21709 in queue 0
+OSS: Dispatching process with PID 21707 from queue 2 at Index 0 at time 201914:100842868
+OSS: Receiving that process with PID 21707 ran for 1000000608 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21707 in queue 2
+OSS: Dispatching process with PID 21701 from queue 2 at Index 15 at time 201917:100844136
+OSS: Receiving that process with PID 21701 ran for 1000000597 nanoseconds
+OSS: total time this dispatch was 1000000597 nanoseconds
+OSS: Placing PID 21701 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21709 from queue 1 at Index 1 at time 201921:100845518
+OSS: Receiving that process with PID 21709 ran for 1000000652 nanoseconds
+OSS: total time this dispatch was 1000000652 nanoseconds
+OSS: Placing PID 21709 in queue 1
+OSS: Dispatching process with PID 21707 from queue 2 at Index 0 at time 201924:100847787
+OSS: Receiving that process with PID 21707 ran for 1000000608 nanoseconds
+OSS: process with PID 21707 has terminated and had -5589933060 CPU time
+OSS: Dispatching process with PID 21701 from queue 2 at Index 15 at time 201925:100848261
+OSS: Receiving that process with PID 21701 ran for 1000000503 nanoseconds
+OSS: total time this dispatch was 1000000503 nanoseconds
+OSS: Placing PID 21701 in queue 2
+OSS: Generating process 74 with pid 21710 and putting it in queue 0 at time 201932:100852711
+OSS: Dispatching process with PID 21710 from queue 0 at Index 2 at time 201932:100852711
+OSS: Receiving that process with PID 21710 ran for 1000000922 nanoseconds
+OSS: total time this dispatch was 1000000922 nanoseconds
+OSS: Placing PID 21710 in queue 0
+OSS: Dispatching process with PID 21709 from queue 1 at Index 1 at time 204969:102362344
+OSS: Receiving that process with PID 21709 ran for 1000000554 nanoseconds
+OSS: total time this dispatch was 1000000554 nanoseconds
+OSS: Placing PID 21709 in queue 1
+OSS: Dispatching process with PID 21701 from queue 2 at Index 15 at time 204976:102366282
+OSS: Receiving that process with PID 21701 ran for 1000000503 nanoseconds
+OSS: process with PID 21701 has terminated and had 10000004266 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21710 from queue 1 at Index 2 at time 204978:102367170
+OSS: Receiving that process with PID 21710 ran for 1000000031 nanoseconds
+OSS: total time this dispatch was 1000000031 nanoseconds
+OSS: Placing PID 21710 in queue 1
+OSS: Dispatching process with PID 21709 from queue 2 at Index 1 at time 204985:102370982
+OSS: Receiving that process with PID 21709 ran for 1000000290 nanoseconds
+OSS: total time this dispatch was 1000000290 nanoseconds
+OSS: Placing PID 21709 in queue 2
+OSS: Generating process 75 with pid 21711 and putting it in queue 0 at time 204989:102371876
+OSS: Dispatching process with PID 21711 from queue 0 at Index 3 at time 204989:102371876
+OSS: Receiving that process with PID 21711 ran for 1000000922 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21711 in queue 0
+OSS: Dispatching process with PID 21710 from queue 1 at Index 2 at time 206275:103040916
+OSS: Receiving that process with PID 21710 ran for 1000000023 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21710 in queue 1
+OSS: Dispatching process with PID 21709 from queue 2 at Index 1 at time 206278:103041847
+OSS: Receiving that process with PID 21709 ran for 1000000905 nanoseconds
+OSS: total time this dispatch was -3294966391 nanoseconds
+OSS: Placing PID 21709 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21711 from queue 1 at Index 3 at time 206285:103044694
+OSS: Receiving that process with PID 21711 ran for 1000000264 nanoseconds
+OSS: total time this dispatch was -3294967032 nanoseconds
+OSS: Placing PID 21711 in queue 1
+OSS: Dispatching process with PID 21710 from queue 2 at Index 2 at time 206293:103048873
+OSS: Receiving that process with PID 21710 ran for 1000000570 nanoseconds
+OSS: total time this dispatch was 1000000570 nanoseconds
+OSS: Placing PID 21710 in queue 2
+OSS: Dispatching process with PID 21709 from queue 2 at Index 1 at time 206296:103050868
+OSS: Receiving that process with PID 21709 ran for 1000000132 nanoseconds
+OSS: total time this dispatch was -3294967164 nanoseconds
+OSS: Placing PID 21709 in queue 2
+OSS: Generating process 76 with pid 21712 and putting it in queue 0 at time 206303:103051920
+OSS: Dispatching process with PID 21712 from queue 0 at Index 4 at time 206303:103051920
+OSS: Receiving that process with PID 21712 ran for 1000000232 nanoseconds
+OSS: total time this dispatch was -3294967064 nanoseconds
+OSS: Placing PID 21712 in queue 0
+OSS: Dispatching process with PID 21711 from queue 2 at Index 3 at time 208153:103983941
+OSS: Receiving that process with PID 21711 ran for 1000000264 nanoseconds
+OSS: process with PID 21711 has terminated and had -2294966110 CPU time
+OSS: Dispatching process with PID 21710 from queue 2 at Index 2 at time 208154:103984524
+OSS: Receiving that process with PID 21710 ran for 1000000570 nanoseconds
+OSS: process with PID 21710 has terminated and had 4000001546 CPU time
+OSS: Dispatching process with PID 21709 from queue 2 at Index 1 at time 208155:103985353
+OSS: Receiving that process with PID 21709 ran for 1000000641 nanoseconds
+OSS: total time this dispatch was -3294966655 nanoseconds
+OSS: Placing PID 21709 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21712 from queue 1 at Index 4 at time 208162:103989216
+OSS: Receiving that process with PID 21712 ran for 1000000059 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21712 in queue 1
+OSS: Dispatching process with PID 21709 from queue 2 at Index 1 at time 208165:103990493
+OSS: Receiving that process with PID 21709 ran for 1000000076 nanoseconds
+OSS: total time this dispatch was -3294967220 nanoseconds
+OSS: Placing PID 21709 in queue 2
+OSS: Generating process 77 with pid 21713 and putting it in queue 0 at time 208171:103993063
+OSS: Dispatching process with PID 21713 from queue 0 at Index 5 at time 208171:103993063
+OSS: Receiving that process with PID 21713 ran for 1000000714 nanoseconds
+OSS: total time this dispatch was 1000000714 nanoseconds
+OSS: Placing PID 21713 in queue 0
+OSS: Dispatching process with PID 21712 from queue 1 at Index 4 at time 210815:105328164
+OSS: Receiving that process with PID 21712 ran for 1000000059 nanoseconds
+OSS: process with PID 21712 has terminated and had -2294967005 CPU time
+OSS: Dispatching process with PID 21709 from queue 2 at Index 1 at time 210816:105328533
+OSS: Receiving that process with PID 21709 ran for 1000000724 nanoseconds
+OSS: total time this dispatch was 1000000724 nanoseconds
+OSS: Placing PID 21709 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21713 from queue 0 at Index 5 at time 210823:105331778
+OSS: Receiving that process with PID 21713 ran for 1000000977 nanoseconds
+OSS: total time this dispatch was -3294966319 nanoseconds
+OSS: Placing PID 21713 in queue 0
+OSS: Dispatching process with PID 21709 from queue 2 at Index 1 at time 210828:105334887
+OSS: Receiving that process with PID 21709 ran for 1000000171 nanoseconds
+OSS: total time this dispatch was 1000000171 nanoseconds
+OSS: Placing PID 21709 in queue 2
+OSS: Generating process 78 with pid 21714 and putting it in queue 0 at time 210832:105336377
+OSS: Dispatching process with PID 21714 from queue 0 at Index 6 at time 210832:105336377
+OSS: Receiving that process with PID 21714 ran for 1000000080 nanoseconds
+OSS: total time this dispatch was 1000000080 nanoseconds
+OSS: Placing PID 21714 in queue 0
+OSS: Dispatching process with PID 21713 from queue 1 at Index 5 at time 213026:106426115
+OSS: Receiving that process with PID 21713 ran for 1000000189 nanoseconds
+OSS: total time this dispatch was -3294967107 nanoseconds
+OSS: Placing PID 21713 in queue 1
+OSS: Dispatching process with PID 21709 from queue 2 at Index 1 at time 213032:106428900
+OSS: Receiving that process with PID 21709 ran for 1000000414 nanoseconds
+OSS: total time this dispatch was 1000000414 nanoseconds
+OSS: Placing PID 21709 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21714 from queue 0 at Index 6 at time 213036:106430834
+OSS: Receiving that process with PID 21714 ran for 1000000525 nanoseconds
+OSS: total time this dispatch was 1000000525 nanoseconds
+OSS: Placing PID 21714 in queue 0
+OSS: Dispatching process with PID 21713 from queue 1 at Index 5 at time 213043:106435261
+OSS: Receiving that process with PID 21713 ran for 1000000435 nanoseconds
+OSS: total time this dispatch was 1000000435 nanoseconds
+OSS: Placing PID 21713 in queue 1
+OSS: Dispatching process with PID 21709 from queue 2 at Index 1 at time 213050:106440342
+OSS: Receiving that process with PID 21709 ran for 1000000461 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21709 in queue 2
+OSS: Generating process 79 with pid 21716 and putting it in queue 0 at time 213054:106443075
+OSS: Dispatching process with PID 21714 from queue 0 at Index 6 at time 213054:106443075
+OSS: Receiving that process with PID 21714 ran for 1000000690 nanoseconds
+OSS: total time this dispatch was 1000000690 nanoseconds
+OSS: Placing PID 21714 in queue 0
+OSS: Dispatching process with PID 21716 from queue 0 at Index 7 at time 213057:106445045
+OSS: Receiving that process with PID 21716 ran for 1000000192 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21716 in queue 0
+OSS: Dispatching process with PID 21713 from queue 1 at Index 5 at time 214096:106964433
+OSS: Receiving that process with PID 21713 ran for 1000000267 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21713 in queue 1
+OSS: Dispatching process with PID 21709 from queue 2 at Index 1 at time 215822:107839928
+OSS: Receiving that process with PID 21709 ran for 1000000461 nanoseconds
+OSS: process with PID 21709 has terminated and had -9474830756 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21714 from queue 0 at Index 6 at time 215824:107840704
+OSS: Receiving that process with PID 21714 ran for 1000000083 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21714 in queue 0
+OSS: Dispatching process with PID 21716 from queue 0 at Index 7 at time 217999:108905667
+OSS: Receiving that process with PID 21716 ran for 1000000947 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21716 in queue 0
+OSS: Dispatching process with PID 21713 from queue 1 at Index 5 at time 218002:108907762
+OSS: Receiving that process with PID 21713 ran for 1000000267 nanoseconds
+OSS: process with PID 21713 has terminated and had -3589932010 CPU time
+OSS: Generating process 80 with pid 21717 and putting it in queue 0 at time 218004:108908344
+OSS: Dispatching process with PID 21717 from queue 0 at Index 8 at time 218004:108908344
+OSS: Receiving that process with PID 21717 ran for 1000000376 nanoseconds
+OSS: total time this dispatch was 1000000376 nanoseconds
+OSS: Placing PID 21717 in queue 0
+OSS: Dispatching process with PID 21714 from queue 1 at Index 6 at time 218077:108945694
+OSS: Receiving that process with PID 21714 ran for 1000000617 nanoseconds
+OSS: total time this dispatch was 1000000617 nanoseconds
+OSS: Placing PID 21714 in queue 1
+OSS: Dispatching process with PID 21716 from queue 1 at Index 7 at time 218082:108947873
+OSS: Receiving that process with PID 21716 ran for 1000000947 nanoseconds
+OSS: process with PID 21716 has terminated and had 2000001139 CPU time
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21717 from queue 0 at Index 8 at time 218084:108948730
+OSS: Receiving that process with PID 21717 ran for 1000000211 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21717 in queue 0
+OSS: Dispatching process with PID 21714 from queue 2 at Index 6 at time 218087:108949969
+OSS: Receiving that process with PID 21714 ran for 1000000067 nanoseconds
+OSS: total time this dispatch was 1000000067 nanoseconds
+OSS: Placing PID 21714 in queue 2
+OSS: Generating process 81 with pid 21718 and putting it in queue 0 at time 218093:108952898
+OSS: Dispatching process with PID 21718 from queue 0 at Index 9 at time 218093:108952898
+OSS: Receiving that process with PID 21718 ran for 1000000494 nanoseconds
+OSS: total time this dispatch was 1000000494 nanoseconds
+OSS: Placing PID 21718 in queue 0
+OSS: Dispatching process with PID 21717 from queue 1 at Index 8 at time 220335:110069198
+OSS: Receiving that process with PID 21717 ran for 1000000211 nanoseconds
+OSS: process with PID 21717 has terminated and had -2294966709 CPU time
+OSS: Dispatching process with PID 21714 from queue 2 at Index 6 at time 220336:110070156
+OSS: Receiving that process with PID 21714 ran for 1000000678 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21714 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21718 from queue 0 at Index 9 at time 220340:110072343
+OSS: Receiving that process with PID 21718 ran for 1000000289 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21718 in queue 0
+OSS: Dispatching process with PID 21714 from queue 2 at Index 6 at time 220343:110073949
+OSS: Receiving that process with PID 21714 ran for 1000000678 nanoseconds
+OSS: process with PID 21714 has terminated and had 7000002740 CPU time
+OSS: Generating process 82 with pid 21719 and putting it in queue 0 at time 220345:110074989
+OSS: Dispatching process with PID 21719 from queue 0 at Index 10 at time 220345:110074989
+OSS: Receiving that process with PID 21719 ran for 1000000760 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21719 in queue 0
+OSS: Dispatching process with PID 21718 from queue 1 at Index 9 at time 220405:110104124
+OSS: Receiving that process with PID 21718 ran for 1000000031 nanoseconds
+OSS: total time this dispatch was 1000000031 nanoseconds
+OSS: Placing PID 21718 in queue 1
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21719 from queue 1 at Index 10 at time 220414:110108492
+OSS: Receiving that process with PID 21719 ran for 1000000121 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21719 in queue 1
+OSS: Dispatching process with PID 21718 from queue 2 at Index 9 at time 220417:110109676
+OSS: Receiving that process with PID 21718 ran for 1000000649 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21718 in queue 2
+OSS: Generating process 83 with pid 21720 and putting it in queue 0 at time 220421:110111847
+OSS: Dispatching process with PID 21720 from queue 0 at Index 11 at time 220421:110111847
+OSS: Receiving that process with PID 21720 ran for 1000000491 nanoseconds
+OSS: total time this dispatch was 1000000491 nanoseconds
+OSS: Placing PID 21720 in queue 0
+OSS: Dispatching process with PID 21719 from queue 1 at Index 10 at time 222590:111189034
+OSS: Receiving that process with PID 21719 ran for 1000000121 nanoseconds
+OSS: process with PID 21719 has terminated and had 2000000881 CPU time
+OSS: Dispatching process with PID 21718 from queue 2 at Index 9 at time 222591:111189335
+OSS: Receiving that process with PID 21718 ran for 1000000712 nanoseconds
+OSS: total time this dispatch was 1000000712 nanoseconds
+OSS: Placing PID 21718 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21720 from queue 1 at Index 11 at time 222595:111191710
+OSS: Receiving that process with PID 21720 ran for 1000000516 nanoseconds
+OSS: total time this dispatch was 1000000516 nanoseconds
+OSS: Placing PID 21720 in queue 1
+OSS: Dispatching process with PID 21718 from queue 2 at Index 9 at time 222598:111192633
+OSS: Receiving that process with PID 21718 ran for 1000000069 nanoseconds
+OSS: total time this dispatch was 1000000069 nanoseconds
+OSS: Placing PID 21718 in queue 2
+OSS: Generating process 84 with pid 21721 and putting it in queue 0 at time 222607:111195669
+OSS: Dispatching process with PID 21721 from queue 0 at Index 12 at time 222607:111195669
+OSS: Receiving that process with PID 21721 ran for 1000000932 nanoseconds
+OSS: total time this dispatch was 1000000932 nanoseconds
+OSS: Placing PID 21721 in queue 0
+OSS: Dispatching process with PID 21720 from queue 1 at Index 11 at time 224640:112207224
+OSS: Receiving that process with PID 21720 ran for 1000000147 nanoseconds
+OSS: total time this dispatch was 1000000147 nanoseconds
+OSS: Placing PID 21720 in queue 1
+OSS: Dispatching process with PID 21718 from queue 2 at Index 9 at time 224647:112210862
+OSS: Receiving that process with PID 21718 ran for 1000000884 nanoseconds
+OSS: total time this dispatch was -3294966412 nanoseconds
+OSS: Placing PID 21718 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21721 from queue 1 at Index 12 at time 224651:112213251
+OSS: Receiving that process with PID 21721 ran for 1000000160 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21721 in queue 1
+OSS: Dispatching process with PID 21720 from queue 1 at Index 11 at time 224654:112214862
+OSS: Receiving that process with PID 21720 ran for 1000000147 nanoseconds
+OSS: process with PID 21720 has terminated and had 3000001154 CPU time
+OSS: Dispatching process with PID 21718 from queue 2 at Index 9 at time 224655:112215566
+OSS: Receiving that process with PID 21718 ran for 1000000024 nanoseconds
+OSS: total time this dispatch was -3294967272 nanoseconds
+OSS: Placing PID 21718 in queue 2
+OSS: Generating process 85 with pid 21722 and putting it in queue 0 at time 224664:112221467
+OSS: Dispatching process with PID 21722 from queue 0 at Index 13 at time 224664:112221467
+OSS: Receiving that process with PID 21722 ran for 1000000036 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21722 in queue 0
+OSS: Dispatching process with PID 21721 from queue 1 at Index 12 at time 226775:113302645
+OSS: Receiving that process with PID 21721 ran for 1000000207 nanoseconds
+OSS: total time this dispatch was 1000000207 nanoseconds
+OSS: Placing PID 21721 in queue 1
+OSS: Dispatching process with PID 21718 from queue 2 at Index 9 at time 226778:113304708
+OSS: Receiving that process with PID 21718 ran for 1000000192 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21718 in queue 2
+OSS: generating a new launch time.
+OSS: Dispatching process with PID 21722 from queue 0 at Index 13 at time 226782:113307027
+OSS: Receiving that process with PID 21722 ran for 1000000547 nanoseconds
+OSS: total time this dispatch was 1000000547 nanoseconds
+OSS: Placing PID 21722 in queue 0
+OSS: Dispatching process with PID 21721 from queue 2 at Index 12 at time 226787:113309669
+OSS: Receiving that process with PID 21721 ran for 1000000297 nanoseconds
+OSS: not using its entire time quantum
+OSS: Placing PID 21721 in queue 2
+OSS: Dispatching process with PID 21718 from queue 2 at Index 9 at time 226790:113310330
+OSS: Receiving that process with PID 21718 ran for 1000000192 nanoseconds
+OSS: process with PID 21718 has terminated and had 410068752 CPU time
+OSS: Generating process 86 with pid 21724 and putting it in queue 0 at time 226792:113311371
+OSS: Dispatching process with PID 21724 from queue 0 at Index 14 at time 226792:113311371

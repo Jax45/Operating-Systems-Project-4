@@ -101,11 +101,11 @@ int main(int argc, char  **argv) {
 	
 	//get random number
 	if(isFinished){
-		purpose = rand() % 3;
+		purpose = rand() % 4;
 		//purpose = 0;
 	}
 	else{
-		purpose = rand() % 2 + 1;
+		purpose = rand() % 3 + 1;
 	}
 	//purpose = 0;
 	if (purpose == 0){
@@ -160,6 +160,12 @@ int main(int argc, char  **argv) {
 			//r_semop(semid, semsignal, 1);			
 		}
 	}
+	else if(purpose == 3){
+		int part = rand() % 99 + 1;
+		double percentage = (double)part/100;
+		quantum = (unsigned int)((double)quantum*percentage);
+		sprintf(message.mesg_text,"not using its entire time quantum");
+	}
 	//else = 1
 	
 	//get quantum from shm
@@ -170,12 +176,12 @@ int main(int argc, char  **argv) {
 	//dispatch->pid = 0;
 	//will we use entire quantum?
 	//shmdt(dispatch);
-	if ( rand() % 2 ){
+	/*if ( rand() % 2 ){
 		//use part of quantum
 		quantum = rand() % quantum;
-	}
+	}*/
 	//unsigned long long int CPU;
-	//unsigned long long int duration; 	
+	unsigned long long int duration; 	
 	unsigned long long int currentTime;	
 	unsigned long long  burst;
 	unsigned int ns = quantum;
@@ -238,14 +244,15 @@ int main(int argc, char  **argv) {
 					exit(1);
 
 				}
-				shmpcb[bitIndex].duration = (currentTime - startTime);
+				shmpcb[bitIndex].duration = /*quantum;*/(currentTime - startTime);
 				shmpcb[bitIndex].CPU += (currentTime - startTime);//shmpcb[bitIndex].duration;
+				//shmpcb[bitIndex].CPU += quantum;
 				shmpcb[bitIndex].system = ((shmclock->second - shmpcb[bitIndex].startTime.second) * 1000000000);
 				shmpcb[bitIndex].system += shmclock->nano - shmpcb[bitIndex].startTime.nano;
 				if(shmpcb[bitIndex].CPU >= 50000000){
 					isFinished = true;
 				}
-				
+				duration = shmpcb[bitIndex].duration;
 				shmdt(shmpcb);	
 				
 			}
@@ -265,7 +272,9 @@ int main(int argc, char  **argv) {
 		//message.mesg_text = "Not Done";
 		message.pid = 0;//getppid();
 		message.mesg_type = 2;
-		sprintf(message.mesg_text, "Not done yet.");
+		if(purpose != 3){
+			sprintf(message.mesg_text, "total time this dispatch was %lld nanoseconds",duration);
+		}
 		msgsnd(msgid, &message, sizeof(message), 0);
 			
     }

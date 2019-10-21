@@ -30,13 +30,9 @@ user.c will have random 0-3 working.
 
 
 Updated todo:
-add wait time
-add cpu time
+
 add system time
-add event wait
 add % quantum wait with dRand
-add functions for queue (avgwait);
-add multilevel queue
 add 100 process limit
 add 1000 line text limit
 output throughput
