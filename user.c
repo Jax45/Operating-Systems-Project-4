@@ -102,6 +102,7 @@ int main(int argc, char  **argv) {
 	//get random number
 	if(isFinished){
 		purpose = rand() % 3;
+		//purpose = 0;
 	}
 	else{
 		purpose = rand() % 2 + 1;
@@ -114,15 +115,50 @@ int main(int argc, char  **argv) {
                 /*send back what time you calculated to end on.*/
                 sprintf(message.mesg_text, "Done");
                 msgsnd(msgid, &message, sizeof(message), 0);
-                perror("USER: ");
-		printf("Exiting Process\n");
 		//shmdt(shmpcb);
 		shmdt(dispatch);
                 exit(0);
 	}	
 	else if(purpose == 2){
 		//Wait for event
-		
+		int r = rand() % 5;
+		int s = rand() % 1000;
+		if (r_semop(semid, semwait, 1) == -1){
+        	        perror("Error: oss: Failed to lock semid. ");
+        	        exit(1);
+	        }
+
+		//r_semop(semid, semwait, 1);
+		struct Clock *shmclock = (struct Clock*) shmat(shmid,(void*)0,0);
+                s += shmclock->nano;
+                r += shmclock->second;
+                if( s >= 1000000000){
+                	r += s / 1000000000;
+        	        s = s % 1000000000;
+	        }
+
+                shmdt(shmclock);
+		r_semop(semid, semsignal, 1);	
+		bool eventDone = false;
+		while(!eventDone){
+			if (r_semop(semid, semwait, 1) == -1){
+		                perror("Error: user: Failed to lock semid. ");
+        		        exit(1);
+        		}
+	                struct Clock *shmclock = (struct Clock*) shmat(shmid,(void*)0,0);
+
+			//r_semop(semid, semwait, 1);
+			if((shmclock->second == r && shmclock->nano > s) || shmclock->second > r){
+				eventDone = true;
+			}
+			shmdt(shmclock);
+			if ( r_semop(semid, semsignal, 1) == -1) {
+                        perror("Error: user: Failed to clean up semaphore");
+                        return 1;
+	                }
+
+			//r_semop(semid, semsignal, 1);			
+		}
 	}
 	//else = 1
 	
@@ -204,7 +240,8 @@ int main(int argc, char  **argv) {
 				}
 				shmpcb[bitIndex].duration = (currentTime - startTime);
 				shmpcb[bitIndex].CPU += (currentTime - startTime);//shmpcb[bitIndex].duration;
-				
+				shmpcb[bitIndex].system = ((shmclock->second - shmpcb[bitIndex].startTime.second) * 1000000000);
+				shmpcb[bitIndex].system += shmclock->nano - shmpcb[bitIndex].startTime.nano;
 				if(shmpcb[bitIndex].CPU >= 50000000){
 					isFinished = true;
 				}

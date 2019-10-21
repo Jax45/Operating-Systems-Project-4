@@ -14,8 +14,8 @@ struct Clock{
 
 //Structure for the Process Control Block
 struct PCB{
-        struct Clock launch;
-        struct Clock dispatch;
+        struct Clock startTime;
+        struct Clock endTime;
         unsigned long long int CPU;
         unsigned long long int  system;
 	unsigned long long int duration;

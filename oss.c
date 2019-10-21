@@ -129,7 +129,7 @@ int findOpen(int * last){
 	return -1;
 
 }
-
+unsigned long long calcWait(const struct Queue * queue);
 void incrementClock();
 //Global for increment clock
 struct sembuf semwait[1];
@@ -138,6 +138,8 @@ struct sembuf semsignal[1];
 //setsembuf(semsignal, 0, 1, 0);
 
 int main(int argc, char **argv){
+	const int ALPHA = 1;
+	const int BETA = 1;
 	int opt;
 	//get the options from the user.
 	while((opt = getopt (argc, argv, "hs:l:t:")) != -1){
@@ -185,7 +187,7 @@ int main(int argc, char **argv){
 	shmdt(shmclock);
 
 	//get shared memory for the Process Control Table
-	key_t pcbkey = ftok("./oss",'l');
+	key_t pcbkey = ftok("./oss",'v');
 	if(errno){
 		perror("Error: oss: Shared Memory key not obtained: ");
                 exitSafe(1);
@@ -199,10 +201,10 @@ int main(int argc, char **argv){
         shmpcb = (struct PCB*) shmat(shmidPCB,(void*)0,0);
         int x;
 	for(x = 0; x < 18; x++){
-		shmpcb[x].launch.second = 0;
-		shmpcb[x].launch.nano = 0;
-		shmpcb[x].dispatch.second = 0;
-		shmpcb[x].dispatch.nano = 0;
+		shmpcb[x].startTime.second = 0;
+		shmpcb[x].startTime.nano = 0;
+		shmpcb[x].endTime.second = 0;
+		shmpcb[x].endTime.nano = 0;
 		shmpcb[x].CPU = 0;
 		shmpcb[x].system = 0;
 		shmpcb[x].burst = 0;
@@ -298,6 +300,7 @@ int main(int argc, char **argv){
 	//make the initial 18 processes
 	//for(i = 0; i < 1; i++){
 	int lastPid = -1;
+	
 	//int j;
 	//for(j = 0; j < 1; j++){
 	while(1){
@@ -376,32 +379,38 @@ int main(int argc, char **argv){
                        		        //printf("Setting up the PCB\n");
                        		        shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
                        		        shmpcb[lastPid].simPID = pid;
-//Add start time
+					shmpcb[lastPid].startTime.second = shmclock->second;
+					shmpcb[lastPid].startTime.nano = shmclock->nano;
 //							
 					setBit(bitMap,lastPid);
 					//pidArray[lastPidIndex] = 1;
 					//bitMap[i] = 1;
 					//shmpcb[i].dispatch.second = currentTime.second + 1;
                         	    	//shmpcb[i].dispatch.nano = currentTime.nano + 1;
-					shmdt(shmclock);
+					//shmdt(shmclock);
                         	        shmdt(shmpcb);
 				}
-			}				
+			}
+			shmdt(shmclock);
+				
 			if (r_semop(semid, semsignal, 1) == -1) {
                         	perror("Error: oss: failed to signal Semaphore. ");
                                	exitSafe(1);
                 	}        
 		        
 		}
+		//calculate the wait times for queue 1 and 2
+		unsigned long long waitOne = calcWait(priorityOne);
+		unsigned long long waitTwo = calcWait(priorityTwo);
 		//dispatch the ready process
 		//check queue 0
 		//struct Queue* chosenQueue = priorityZero;
-		int size = sizeOfQueue(priorityZero);
+		//int size = sizeOfQueue(priorityZero);
                 //int size1 = sizeOfQueue(priorityOne);
                 //int size2 = sizeOfQueue(priorityTwo);
 		//int size = size0;
  		// Here we need to loop through queu
-		struct Node* n = deQueue(priorityZero);
+		//struct Node* n = deQueue(priorityZero);
 
 //		if(n == NULL){
 //			n = deQueue(priorityOne);
@@ -411,14 +420,27 @@ int main(int argc, char **argv){
 //			n = deQueue(priorityTwo);
 		//	chosenQueue = priorityTwo;
 //		}
-		
+			
 		int queueFlag = 0;
-		//int size0 = sizeOfQueue(priorityZero);
-                //int size1 = sizeOfQueue(priorityOne);
-                //int size2 = sizeOfQueue(priorityTwo);
-	       	//printf("size of queue0 : %d\n",size0);
-		while(size != 0){
-			printf("size of queue0 : %d\n",size); 
+		int size0 = sizeOfQueue(priorityZero);
+                int size1 = sizeOfQueue(priorityOne);
+                int size2 = sizeOfQueue(priorityTwo);
+		struct Node* n = NULL;
+		if(size0 > 0){
+    	        	n = deQueue(priorityZero);
+		}
+		else if(size1 > 0){
+                        n = deQueue(priorityOne);
+			queueFlag = 1;
+		}
+		else if(size2 > 0){
+                        n = deQueue(priorityTwo);
+			queueFlag = 2;
+		}
+		
+		//printf("size of queue0 : %d\n",size0);
+		while((size0 + size1 + size2) > 0){
+			printf("size of queue0 : %d, queue1: %d, queue2: %d\n",size0,size1,size2); 
 			if (r_semop(semid, semwait, 1) == -1){
                 	        perror("Error: oss: Failed to lock semid. ");
                 	        exitSafe(1);
@@ -434,6 +456,15 @@ int main(int argc, char **argv){
 		       	printf("OSS: Dispatching process with PID %lld from queue 0 at time %d:%d\n",shmpcb[k].simPID,shmclock->second,shmclock->nano);
 		       	fprintf(fp,"OSS: Dispatching process with PID %lld from queue 0 at Index %d at time %d:%d\n",shmpcb[k].simPID,k,shmclock->second,shmclock->nano);
 		       	fflush(fp);
+			unsigned int quantum = rand() % 100000 + 1;
+			
+			if(shmpcb[k].priority == 1){
+				quantum = quantum/2;
+			}
+			else if(shmpcb[k].priority == 2){
+				quantum = quantum/4;	
+			}
+			
 			pid_t tempPid = shmpcb[k].simPID;	
                        	shmdt(shmpcb);
 			shmdt(shmclock);
@@ -449,7 +480,7 @@ int main(int argc, char **argv){
 			sprintf(message.mesg_text,"Test");
 			r_semop(semid, semwait, 1);	
 			shmpid->index = k;
-		       	shmpid->quantum = rand() % 10 + 1;
+		       	shmpid->quantum = quantum; // rand() % 10 + 1;
                        	shmpid->pid = tempPid;
 			r_semop(semid, semsignal, 1);
 			//msgsnd(msgid, &message, sizeof(message), 0);
@@ -478,40 +509,73 @@ int main(int argc, char **argv){
 	                        	   	resetBit(bitMap,k);
 		
 						//pidArray[k] = 0;
-						shmpcb[k].launch.second = 0;
-        	        			shmpcb[k].launch.nano = 0;
-        	        			shmpcb[k].dispatch.second = 0;
-       	        				shmpcb[k].dispatch.nano = 0;
+						shmpcb[k].startTime.second = 0;
+        	        			shmpcb[k].startTime.nano = 0;
+        	        			shmpcb[k].endTime.second = 0;
+       	        				shmpcb[k].endTime.nano = 0;
         	        			shmpcb[k].CPU = 0;
                 				shmpcb[k].system = 0;
                 				shmpcb[k].burst = 0;
                 				shmpcb[k].simPID = 0;
 					        shmpcb[k].priority = 0;
-						size--;
-						if(size > 0){
-							n = deQueue(priorityZero);	
-                                                       printf("Dequeued %d\n",n->key);
+						//size--;
+						//if(size > 0){
+						//	n = deQueue(priorityZero);	
+                                                //       printf("Dequeued %d\n",n->key);
 
-						}
 					}
 					else{
 						//process not done yet
 						fprintf(fp,"Process %lld is still running already having used up %d CPU time\n",shmpcb[k].simPID, shmpcb[k].CPU);
 						fflush(fp);
-						//place back in same queue
-						enQueue(priorityZero,k);
-	                                        printf("Re enqueued k=%d\n",k);
-						//enQueue(someQ,k);
-
-						size--;
-						if(size > 0){
-							//printf("Dequeued %d\n",n->key);
-							n = deQueue(priorityZero);
-							printf("Dequeued %d\n",n->key);
-							//n = deQueue(someQ);
+						if(queueFlag == 0){
+							waitOne = calcWait(priorityOne);
+							if (waitOne * ALPHA < (shmpcb[k].system - shmpcb[k].CPU)){
+								enQueue(priorityOne,k);
+							}
+							else{
+								enQueue(priorityZero,k);
+							}
 						}
-						printf("size is: %d\n",size);	
+						else if(queueFlag == 1){
+							waitTwo = calcWait(priorityTwo);
+							if (waitTwo * BETA < (shmpcb[k].system - shmpcb[k].CPU)){
+								enQueue(priorityTwo,k);
+							}
+							else{
+								enQueue(priorityOne,k);
+							}
+						}
+						else{
+							enQueue(priorityTwo,k);
+						}
+						
+
+						//size--;
+						//if(size > 0){
+						//	n = deQueue(priorityZero);
+						//	printf("Dequeued %d\n",n->key);
+						//	//printf("Dequeued %d\n",n->key);
+						//}
+						//printf("size is: %d\n",size);	
+							//n = deQueue(someQ);
 					}
+					//move to next node
+			                size0--;
+                                        if(size0 > 0){
+                                        	n = deQueue(priorityZero);
+                                        	queueFlag = 0;
+                                        }
+                                        else if(size1 > 0){
+                                                n = deQueue(priorityOne);
+                                                queueFlag = 1;
+                                                size1--;
+                                        }
+                                        else if(size2 > 0){
+                                                queueFlag = 2;
+                                                size2--;
+                                                n = deQueue(priorityTwo);
+                                        }
 					shmdt(shmpcb);
 				}	
 				else if(errno){
@@ -527,6 +591,23 @@ int main(int argc, char **argv){
 	return 0;
 }
 
+unsigned long long calcWait(const struct Queue * queue){
+	struct Node* n = queue->front;
+	unsigned long long sum = 0;
+	if(n == NULL){
+		return 0;
+	}
+	shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
+	while(n != NULL){
+		sum += shmpcb[n->key].system - shmpcb[n->key].CPU; 			
+		n = n->next;
+	}
+	shmdt(shmpcb);
+	return (unsigned long long)(sum/(unsigned long long)sizeOfQueue(queue));	
+}
+	
+
+
 void incrementClock(){
 
 		if (r_semop(semid, semwait, 1) == -1){
@@ -534,11 +615,12 @@ void incrementClock(){
                         exitSafe(1);
                 }
                 else{
-                        shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
-                        unsigned int increment = rand() % 50000000;
-                        if(shmclock->nano >= 1000000000){
-                                shmclock->second += (unsigned int)(shmclock->nano / 1000000000);
-                                shmclock->nano = (shmclock->nano % 1000000000) + increment;
+                        //shmdt(shmclock);
+			shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
+                        unsigned int increment = (unsigned int)rand() % 100000;
+                        if(shmclock->nano >= 1000000000 - increment){
+                                shmclock->second += (unsigned int)(shmclock->nano / (unsigned int)1000000000);
+                                shmclock->nano = (shmclock->nano % (unsigned int)1000000000) + increment;
                         }
                         else{
                                 shmclock->nano += increment;

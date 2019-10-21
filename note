@@ -11,21 +11,10 @@ Done
 4. keep track of and output statistics like thorughput, idle time, etc
 
 5. implement an additional user class and the multilevel feedback queue
-	USER CLASS?
         priority, zero, one, two,
 6. add the chance for user processes to be blocked on an event. keep track of stats on this
 	inside scheduling the [0,3] thing.
-
-
 Questions:
-    do the processes have to be generated and launched between dispatches?
-        ask for basic flow
-    should the generate processes be 1.xx 2.xx 3.xx for 3 processes at one time or all laucnhed at same time
-    how to come up with launch time if bitmap is full?
-          If your process table is already full when you go to generate a process, just skip that generation, but do determine
-          another time in the future to try and generate a new process.
-    entire Scheduling section
-    
 
 todo:
 random numbers are all generated
@@ -41,13 +30,13 @@ user.c will have random 0-3 working.
 
 
 Updated todo:
-Fix the bitmap kill in oss.
-0 not generated til after 50 ms
-take out extra launch step
-rework queue to deq and enq
-add bitmap
 add wait time
-add start time
 add cpu time
-add functions for queue (avgwait and count);
-
+add system time
+add event wait
+add % quantum wait with dRand
+add functions for queue (avgwait);
+add multilevel queue
+add 100 process limit
+add 1000 line text limit
+output throughput
