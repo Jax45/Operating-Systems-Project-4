@@ -3,12 +3,10 @@
 //Description: This is the child process of the parent program oss.c
 //please check that one for details on the whole project. this program is not
 //designed to be called on its own.
-//This program takes in 3 arguments, the shared memory id, semaphore id, and the message queue id.
-//witht that data the program tries to access the shared memory through the semaphore given.
-//when it gets the SHM, it checks the clock and calculates a random time to add to the ns that it will end
-//then it releases shared memory and checks until that time has passed on that shm clock.
-//then sends the data in a message queue to the parent process. and terminates.
-
+//This program takes in 5 arguments, the shared memory id, semaphore id, the message queue id, the dispatch shmid, and the PCB shmid.
+//after it gets that data the program waits for the dispatch to show its pid, then waits on the semaphore to prevent race condition.
+//then calculates what it will do with it's quantum and when it is done returns the control to the OSS with a message.
+//the process will only end if the oss kills it or a 0 is generated in the purpose variable.
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -29,24 +27,18 @@
 struct PCB *shmpcb;
 struct Dispatch *dispatch;
 
+//void sigHandler(int sig){
+//	exit(1);
+//}
 
-//signal handler
-void signalHandler(int sig){
-	//shmdt(shmpcb);
-        //shmdt(dispatch);
-	//shmdt(shmclock);
-	exit(1);
-}
 
 int main(int argc, char  **argv) {
 	srand(getpid());
-	//signal(SIGKILL,signalHandler);	
-	
+	//signal(SIGKILL,sigHandler);
 	struct sembuf semsignal[1];
 	struct sembuf semwait[1];
 	int error;	
-	//printf("Inside process: %ld\nsemid after: %d\n", (long)getpid(),atoi(argv[2]));
-	//get semaphore id	
+	//get IPC data.	
 	int shmid = atoi(argv[1]);	
 	int semid = atoi(argv[2]);
 	int msgid = atoi(argv[3]);
@@ -56,8 +48,7 @@ int main(int argc, char  **argv) {
                 perror("Error: user: Failed to create a private semaphore");
                 exit(1);
         }	
-	//struct Dispatch *dispatch = (struct Dispatch*) shmat(shmidPID,(void*)0,0);
-        //struct PCB *shmpcb = (struct PCB*) shmat(shmidpcb,(void*)0,0);
+	//initialize purpose
 	int purpose = 1;
 	unsigned int quantum;
         int bitIndex;
@@ -67,21 +58,7 @@ int main(int argc, char  **argv) {
 	//printf("Before the while loop\n");
     while(1){	
 	 dispatch = (struct Dispatch*) shmat(shmidPID,(void*)0,0);
-	//message.mesg_type = 1;	
 	pid_t myPid = getpid();
-	//message.mesg_type = 1;
-	//message.pid = 0;
-	/*while(1){
-		int result = msgrcv(msgid, &message, sizeof(message), 1, IPC_NOWAIT);
-		if(result != -1){
-		    if (message.pid == myPid){	
-	                break;
-		    }
-	        }
-		else{
-			errno = 0;
-		}
-	}*/
 	while(1){
 			
         	if(dispatch->pid == myPid){
@@ -102,7 +79,6 @@ int main(int argc, char  **argv) {
 	//get random number
 	if(isFinished){
 		purpose = rand() % 4;
-		//purpose = 0;
 	}
 	else{
 		purpose = rand() % 3 + 1;
@@ -160,34 +136,20 @@ int main(int argc, char  **argv) {
 			//r_semop(semid, semsignal, 1);			
 		}
 	}
+	//use percentage of quantum.
 	else if(purpose == 3){
 		int part = rand() % 99 + 1;
 		double percentage = (double)part/100;
 		quantum = (unsigned int)((double)quantum*percentage);
 		sprintf(message.mesg_text,"not using its entire time quantum");
 	}
-	//else = 1
-	
-	//get quantum from shm
-	//dispatch = (struct Dispatch*) shmat(shmidPID,(void*)0,0);
-	//unsigned int quantum = dispatch->quantum;
-	//int bitIndex = dispatch->index;
-	printf("bit index %d, quantum %d",bitIndex,quantum);
-	//dispatch->pid = 0;
-	//will we use entire quantum?
-	//shmdt(dispatch);
-	/*if ( rand() % 2 ){
-		//use part of quantum
-		quantum = rand() % quantum;
-	}*/
-	//unsigned long long int CPU;
 	unsigned long long int duration; 	
-	unsigned long long int currentTime;	
-	unsigned long long  burst;
+	//unsigned long long int currentTime;	
+	//unsigned long long  burst;
 	unsigned int ns = quantum;
 	unsigned int sec;
-	unsigned long long int startTime;
-	
+	//unsigned long long int startTime;
+	//struct Clock start;	
 	if (r_semop(semid, semwait, 1) == -1){
                  perror("Error: oss: Failed to lock semid. ");
                  exit(1);
@@ -197,11 +159,13 @@ int main(int argc, char  **argv) {
 	        struct Clock *shmclock = (struct Clock*) shmat(shmid,(void*)0,0);
 		ns += shmclock->nano;
 		sec = shmclock->second;
-	 	startTime = (1000000000 * shmclock->second) + shmclock->nano; 
+	//	start.nano = shmclock->nano;
+	//	start.second = shmclock->second;
+	 //	startTime = (1000000000 * shmclock->second) + shmclock->nano; 
 	        shmdt(shmclock);
-		printf("got the clock ns= %d sec= %d\n",ns,sec);	
+		//printf("got the clock ns= %d sec= %d\n",ns,sec);	
 		shmpcb = (struct PCB*) shmat(shmidpcb, (void*)0,0);
-		burst = shmpcb[bitIndex].burst;
+	//	burst = shmpcb[bitIndex].burst;
 		shmdt(shmpcb);	
 		//exit the Critical Section
 		if ( r_semop(semid, semsignal, 1) == -1) {
@@ -218,8 +182,6 @@ int main(int argc, char  **argv) {
 		sec += ns / 1000000000;
 		ns = ns % 1000000000;
 	}
-	printf("Waiting for logical time: %d:%d",sec,ns);
-	
 	fflush(stdout);
 	bool timeElapsed = false;
 	while(!timeElapsed){
@@ -233,10 +195,10 @@ int main(int argc, char  **argv) {
 	                struct Clock *shmclock = (struct Clock*) shmat(shmid,(void*)0,0);
 			if((shmclock->nano >= ns && shmclock->second == sec) || shmclock->second > sec){
 				timeElapsed = true;
-				currentTime = (1000000000 * shmclock->second) + shmclock->nano;
-			//	dispatch = (struct Dispatch*) shmat(shmidPID,(void*)0,0);
+				//currentTime = (1000000000 * shmclock->second) + shmclock->nano;
+				dispatch = (struct Dispatch*) shmat(shmidPID,(void*)0,0);
 			        shmpcb = (struct PCB*) shmat(shmidpcb,(void*)0,0);
-
+ 
 				//struct PCB *shmpcb = (struct PCB*) shmat(shmidpcb, (void*)0,0);
 				if (shmpcb == (struct PCB*)(-1)){
 
@@ -244,8 +206,8 @@ int main(int argc, char  **argv) {
 					exit(1);
 
 				}
-				shmpcb[bitIndex].duration = /*quantum;*/(currentTime - startTime);
-				shmpcb[bitIndex].CPU += (currentTime - startTime);//shmpcb[bitIndex].duration;
+				shmpcb[bitIndex].duration = quantum;
+				shmpcb[bitIndex].CPU += shmpcb[bitIndex].duration;
 				//shmpcb[bitIndex].CPU += quantum;
 				shmpcb[bitIndex].system = ((shmclock->second - shmpcb[bitIndex].startTime.second) * 1000000000);
 				shmpcb[bitIndex].system += shmclock->nano - shmpcb[bitIndex].startTime.nano;
@@ -260,7 +222,7 @@ int main(int argc, char  **argv) {
 
 			//exit CS
 	                if ((error = r_semop(semid, semsignal, 1)) == -1) {
-	                        printf("Failed to clean up");
+	                        //printf("Failed to clean up");
        		                return 1;
                 	}
 

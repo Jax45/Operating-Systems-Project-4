@@ -1,19 +1,17 @@
 /************************************************************************************
  * Name: Jackson Hoenig
  * Class: CMPSCI 4760
- * Project 3
+ * Project 4
  * Description:
- *     This program sets a shared memory clock which is a structure of and int,
- *     and a long long int. then sets up a semaphore to guard that shared memory.
- *     then, this program sets up a message queue for communication between it and
- *     its children processes. this program will spawn the maximum number of 
- *     child processes at a time and increment the shared memory clock one ns every 
- *     loop it goes through. this program also will read messages coming back from the
- *     child processes and log them in the logfile given in the options.
- *     this program will only end in one of three ways:
- *     timeout, 100 processes spawned, or 2 seconds of logical shm time passed
- *     for more information see the Readme.
- *************************************************************************************
+ * This Project is an operating system scheduler simulator.  The OSS will periodically generate a launch
+ * time that it will then fork off a child process exececuting the USER binary. The time is kept track of
+ * in the shared memory clock that is incremented in the OSS after each iteration of the loop.
+ * The Oss can be called with option t to change the timeout from the default of 3 real-time seconds.
+ * The oss communicates with the forked children by going through a round robin queue of three priorities.
+ * then the oss dispatches the process by updating shared memory that the children are looking at.
+ * oss waits for message received back then either executes the next available process or loops back to the start.
+ * See readme for more information.
+ * *************************************************************************************
 */
 
 #include <stdio.h>
@@ -33,7 +31,11 @@
 #include "semaphoreFunc.h"
 #include "bitMap.h"
 #define PERMS (IPC_CREAT | IPC_EXCL | S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH)
+#define ALPHA 1
+#define BETA 1
 
+//global var.
+int processes = 0;
 
 //prototype for exit safe
 void exitSafe(int);
@@ -42,9 +44,8 @@ void exitSafe(int);
 int maxChildren = 10;
 char* logFile = "log.txt";
 int timeout = 3;
+long double passedTime = 0.0;
 
-//File pointer
-//FILE * fp;
 //get shared memory
 static int shmid;
 static int shmidPID;
@@ -61,22 +62,20 @@ int pidArray[20];
 char unsigned bitMap[3];
 //function is called when the alarm signal comes back.
 void timerHandler(int sig){
-	printf("Process has ended due to timeout\n");
-	//kill the children
+	long double througput = passedTime / processes;
+	printf("Process has ended due to timeout, Processses finished: %d, time passed: %Lf\n",processes,passedTime);
+	printf("OSS: it takes about %Lf seconds to generate and finish one process \n",througput);
+	printf("OSS: throughput = %Lf\n",processes / passedTime);
+	fflush(stdout);
+	//get the pids so we can kill the children
 	int i = 0;
 	shmpcb = (struct PCB*) shmat(shmidPCB,(void*)0,0);
-	/*for(i = 0; i < 18; i++){
-		bitMap[i] = pidArray[i];
-	}*/
         for(i = 0; i < 18; i++) {
-        	//printf("i: %d, simPid: %lld",i,shmpcb[i].simPID);
 	       if(((bitMap[i/8] & (1 << (i % 8 ))) == 0) && shmpcb[i].simPID != getpid())
 		pidArray[i] = shmpcb[i].simPID;
-		// kill(shmpcb[i].simPID,SIGKILL);
         }
 	shmdt(shmpcb);
-
-	printf("Killed process \n");
+	//printf("Killed process \n");
 	exitSafe(1);
 }
 //function to exit safely if there is an error or anything
@@ -99,70 +98,40 @@ void exitSafe(int id){
         shmctl(shmidPCB,IPC_RMID,NULL);
         shmctl(shmidPID,IPC_RMID,NULL);
 	int i;
+	//kill the children.
 	for(i = 0; i < 18; i++){
 		if((bitMap[i/8] & (1 << (i % 8 ))) != 0){	
-			kill(pidArray[i],SIGKILL);		
+			//if(pidArray[i] == getpid()){
+				kill(pidArray[i],SIGKILL);
+			//}		
 		}	
 	}
 	exit(0);
 }
 
-//function to be called when the logical shm time has
-//exceeded 2 seconds.
-void logicalTimeout(){
-	printf("2 seconds of logical time have elapsed. killing the remaining processes and terminating.\n");
-	int i = 0;
-        for(i = 0; i < maxChildren; i++) {
-             kill(pidArray[i],SIGABRT);
-        }
-        exitSafe(1);
-}
-// Return -1 if not found change last to open bit
-int findOpen(int * last){
-	int i = 0;
-	for(i = 0; i < 18; i++){
-		if(pidArray[i] == 0){
-			*last = i;
-			return i;
-		}
-	}
-	return -1;
-
-}
 unsigned long long calcWait(const struct Queue * queue);
 void incrementClock();
 //Global for increment clock
 struct sembuf semwait[1];
 struct sembuf semsignal[1];
-//setsembuf(semwait, 0, -1, 0);
-//setsembuf(semsignal, 0, 1, 0);
+
 
 int main(int argc, char **argv){
-	const int ALPHA = 1;
-	const int BETA = 1;
+	//const int ALPHA = 1;
+	//const int BETA = 1;
 	int opt;
 	//get the options from the user.
-	while((opt = getopt (argc, argv, "hs:l:t:")) != -1){
+	while((opt = getopt (argc, argv, "ht:")) != -1){
 		switch(opt){
 			case 'h':
-				printf("Usage: ./oss [-s [Number Of Max Children]]] [-l [Log File Name]] [-t [timeout in seconds]]\n");
+				printf("Usage: ./oss [-t [timeout in seconds]]\n");
 				exit(1);
-			case 's':
-				maxChildren = atoi(optarg);
-				if (maxChildren > 18){
-					printf("-s option argument must be less than 20.");
-					exit(0);
-				}
-				break;
-			case 'l':
-				logFile = optarg;
-				break;
 			case 't':
 				timeout = atoi(optarg);
 				break;
 			
 			default:
-				printf("Wrong Option used.\nUsage: ./oss [-s [Number Of Max Children]] [-l [Log File Name]] [-t [timeout in seconds]]\n");
+				printf("Wrong Option used.\nUsage: ./oss [-t [timeout in seconds]]\n");
 				exit(1);
 		}
 	}
@@ -185,7 +154,7 @@ int main(int argc, char **argv){
 	shmclock->second = 0;
 	shmclock->nano = 0;
 	shmdt(shmclock);
-
+ 
 	//get shared memory for the Process Control Table
 	key_t pcbkey = ftok("./oss",'v');
 	if(errno){
@@ -242,8 +211,6 @@ int main(int argc, char **argv){
 	}
 	
 	//declare semwait and semsignal
-	//struct sembuf semwait[1];
-	//struct sembuf semsignal[1];
 	setsembuf(semwait, 0, -1, 0);
 	setsembuf(semsignal, 0, 1, 0);
 	if (initElement(semid, 0, 1) == -1 || errno){
@@ -273,9 +240,8 @@ int main(int argc, char **argv){
 
 	
 //*******************************************************************
-//
-//
-//
+//The loop starts below here. before this there is only setup for 
+//shared memory, semaphores, and message queues.
 //******************************************************************	
 	//open logfile
 	FILE *fp;	
@@ -286,11 +252,13 @@ int main(int argc, char **argv){
 	struct Queue* priorityZero = createQueue();
 	struct Queue* priorityOne = createQueue();
 	struct Queue* priorityTwo = createQueue();
-	struct Queue* someQ = createQueue();
 	//int que[18] = 	
-	
-//int i;
-	int processes = 0;
+		
+
+	//for limit purposes.
+	int lines = 0;
+	processes = 0;
+
 	const int maxTimeBetweenNewProcsNS = 10;
 	const int maxTimeBetweenNewProcsSecs = 2;
 	shmpid = (struct Dispatch*) shmat(shmidPID,(void*)0,0);
@@ -305,11 +273,13 @@ int main(int argc, char **argv){
 	//int j;
 	//for(j = 0; j < 1; j++){
 	while(1){
-		
+		//if we do not have a launch time, generate a new one.
 		if(launchTime.second == 0 && launchTime.nano == 0){
 			//printf("Finding a launch time\n");
-			fprintf(fp,"OSS: generating a new launch time.\n");
-			//Create new launch time
+			lines++;
+			if(lines < 10000){
+				fprintf(fp,"OSS: generating a new launch time.\n");
+			}//Create new launch time
 			if (r_semop(semid, semwait, 1) == -1){
                                         perror("Error: oss: Failed to lock semid. ");
                                         exitSafe(1);
@@ -331,9 +301,8 @@ int main(int argc, char **argv){
 		}
 		//check if we need to launch the processes
 		//printf("Outside the for loop\n");
-			
-		//if(findOpen(&lastPidIndex) != -1){
-//					if((lastPid = openBit(bitMap,lastPid)) != -1){
+		
+		//get the semaphore	
 		if (r_semop(semid, semwait, 1) == -1){
                        perror("Error: oss: Failed to lock semid. ");
                        exitSafe(1);
@@ -341,7 +310,7 @@ int main(int argc, char **argv){
                 else{	
 			shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
 			if(shmclock->second > launchTime.second || (shmclock->second == launchTime.second && shmclock->nano > launchTime.nano)){
-				//int xy = 0;
+				//if we have an open bit, fork.
 				if(((lastPid = openBit(bitMap,lastPid)) != -1) && (processes < 100)){
 					launchTime.second = 0;
 					launchTime.nano = 0;
@@ -368,27 +337,24 @@ int main(int argc, char **argv){
 						exitSafe(2);
 					}
                         		//printf("forked child %d\n",pid);
-                        		fprintf(fp,"OSS: Generating process %d with pid %d and putting it in queue 0 at time %d:%d\n",processes,pid,shmclock->second,shmclock->nano);
+                        		lines++;
+					if(lines < 10000){
+                        		fprintf(fp,"OSS: Generating process %d with pid %lld and putting it in queue 0 at time %d:%d\n",processes,(long long)pid,shmclock->second,shmclock->nano);
+					}
 					fflush(fp);	
-					printf("place in queue %d\n",lastPid);
+					printf("OSS: Generating process %d with pid %lld and putting it in queue 0 at time %d:%d\n",processes,(long long)pid,shmclock->second,shmclock->nano);
 					//place in queue
 					enQueue(priorityZero,lastPid);
-                                        //enQueue(priorityZero,lastPidIndex);
 					processes++;
 					//printf("Queue size: %d \n",sizeOfQueue(priorityZero));
 					
-                       		        //printf("Setting up the PCB\n");
+                       		        //Setting up the PCB
                        		        shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
                        		        shmpcb[lastPid].simPID = pid;
 					shmpcb[lastPid].startTime.second = shmclock->second;
 					shmpcb[lastPid].startTime.nano = shmclock->nano;
-//							
+					//set the bit to 1.		
 					setBit(bitMap,lastPid);
-					//pidArray[lastPidIndex] = 1;
-					//bitMap[i] = 1;
-					//shmpcb[i].dispatch.second = currentTime.second + 1;
-                        	    	//shmpcb[i].dispatch.nano = currentTime.nano + 1;
-					//shmdt(shmclock);
                         	        shmdt(shmpcb);
 				}
 			}
@@ -405,50 +371,26 @@ int main(int argc, char **argv){
 		unsigned long long waitTwo = calcWait(priorityTwo);
 		//dispatch the ready process
 		//check queue 0
-		//struct Queue* chosenQueue = priorityZero;
-		//int size = sizeOfQueue(priorityZero);
-                //int size1 = sizeOfQueue(priorityOne);
-                //int size2 = sizeOfQueue(priorityTwo);
-		//int size = size0;
- 		// Here we need to loop through queu
-		//struct Node* n = deQueue(priorityZero);
-
-//		if(n == NULL){
-//			n = deQueue(priorityOne);
-		//	chosenQueue = priorityOne;
-//		}
-//		if(n == NULL){
-//			n = deQueue(priorityTwo);
-		//	chosenQueue = priorityTwo;
-//		}
-			
+		//keep track of the current queue.	
 		int queueFlag = 0;
 		int size0 = sizeOfQueue(priorityZero);
                 int size1 = sizeOfQueue(priorityOne);
                 int size2 = sizeOfQueue(priorityTwo);
 		struct Node* n = NULL;
+		//find the first filled queue.
 		if(size0 > 0){
     	        	n = deQueue(priorityZero);
-		//	size0--;
 		}
 		else if(size1 > 0){
                         n = deQueue(priorityOne);
 			queueFlag = 1;
-		//	size1--;
 		}
 		else if(size2 > 0){
                         n = deQueue(priorityTwo);
 			queueFlag = 2;
-		//	size2--;
 		}
-	       // printf("size of queue0 : %d, queue1: %d, queue2: %d\n",size0,size1,size2);
-		//printf("size of queue0 : %d\n",size0);
-		//bool first = true;
+		//while the size's are not all 0.
 		while((size0 + size1 + size2) > 0){
-/*&			if(first){
-				printf("size of queue0 : %d, queue1: %d, queue2: %d\n",size0,size1,size2); 
-			}
-			first = false;*/
 			if (r_semop(semid, semwait, 1) == -1){
                 	        perror("Error: oss: Failed to lock semid. ");
                 	        exitSafe(1);
@@ -456,15 +398,18 @@ int main(int argc, char **argv){
                     
                      	shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
                      	shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
-                     	printf("n->key = %d\n",n->key);
+                     	//printf("n->key = %d\n",n->key);
 		     	fflush(stdout);
 		     	int k = n->key;
 		     	//n = n->next;  
 			//dispatch that process
-		       	printf("OSS: Dispatching process with PID %lld from queue %d at time %d:%d\n",shmpcb[k].simPID,queueFlag,shmclock->second,shmclock->nano);
-		       	fprintf(fp,"OSS: Dispatching process with PID %lld from queue %d at Index %d at time %d:%d\n",shmpcb[k].simPID,queueFlag,k,shmclock->second,shmclock->nano);
-		       	fflush(fp);
-			unsigned int quantum = rand() % 10000000;
+		       	printf("OSS: Dispatching process with PID %lld from queue %d at time %d:%d\n",(long long)shmpcb[k].simPID,queueFlag,shmclock->second,shmclock->nano);
+		       	lines++;
+			if(lines <= 10000){
+			fprintf(fp,"OSS: Dispatching process with PID %lld from queue %d at Index %d at time %d:%d\n",(long long)shmpcb[k].simPID,queueFlag,k,shmclock->second,shmclock->nano);
+		       	}
+			fflush(fp);
+			unsigned int quantum = rand() % 50000000 + 10;
 			
 			if(shmpcb[k].priority == 1){
 				quantum = quantum/2;
@@ -497,16 +442,21 @@ int main(int argc, char **argv){
 			while(!msgREC){
 				message.mesg_type = 2;	
               			if (msgrcv(msgid, &message, sizeof(message), 2, IPC_NOWAIT) != -1){
-					printf("Message: %s,%d,%d\n",message.mesg_text,message.mesg_type,message.pid);
+					//printf("Message: %s,%ld,%d\n",message.mesg_text,message.mesg_type,message.pid);
 			        	msgREC = true;
 					shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
-	                        	printf("OSS: Receiving that process with PID %lld ran for %d nanoseconds\n",tempPid, shmpcb[k].duration);
-	                        	fprintf(fp,"OSS: Receiving that process with PID %lld ran for %d nanoseconds\n",tempPid,shmpcb[k].duration);
-	                        	  
+	                        	printf("OSS: Receiving that process with PID %lld ran for %lld nanoseconds\n",(long long)tempPid, shmpcb[k].duration);
+	                        	lines++;
+					if(lines <= 10000){
+						fprintf(fp,"OSS: Receiving that process with PID %lld total CPU time is %lld nanoseconds\n",(long long)tempPid,shmpcb[k].CPU);
+	                        	}  
 					//if the process is done wait and do not enqueue
 					if(message.pid == getpid()){
-						printf("lower process is done");
-						fprintf(fp, "OSS: process with PID %lld has terminated and had %lld CPU time\n",shmpcb[k].simPID, shmpcb[k].CPU);			
+						//printf("lower process is done");
+						lines++;
+						if(lines <= 10000){
+						fprintf(fp, "OSS: process with PID %lld has terminated and had %lld CPU time\n",(long long)shmpcb[k].simPID, shmpcb[k].CPU);			
+						}
 						//Wait on the terminated process
 						int status = 0;
 					        if(waitpid(tempPid, &status, 0) == -1){
@@ -528,24 +478,21 @@ int main(int argc, char **argv){
 					        shmpcb[k].priority = 0;
                                                 shmdt(shmpcb);
 
-						//size--;
-						//if(size > 0){
-						//	n = deQueue(priorityZero);	
-                                                //       printf("Dequeued %d\n",n->key);
 
 					}
 					else{
 						//process not done yet
 						//fprintf(fp,"OSS: Process %lld used up %d CPU time\n",shmpcb[k].simPID, shmpcb[k].CPU);
+						lines++;
+						if(lines < 10000){
 						fprintf(fp, "OSS: %s\n",message.mesg_text);
+						}
 						fflush(fp);
                                                 waitOne = calcWait(priorityOne);
                                                 waitTwo = calcWait(priorityTwo);
 	                                        shmpcb = (struct PCB*) shmat(shmidPCB, (void*)0,0);
-
+						//determine which queue to enqueue to.
 						if(queueFlag == 0){
-							//waitOne = calcWait(priorityOne);
-							
 							if (waitOne * ALPHA < (shmpcb[k].system - shmpcb[k].CPU)){
 								enQueue(priorityOne,k);
 								shmpcb[k].priority = 1;
@@ -555,7 +502,6 @@ int main(int argc, char **argv){
 							}
 						}
 						else if(queueFlag == 1){
-							//waitTwo = calcWait(priorityTwo);
 							if (waitTwo * BETA < (shmpcb[k].system - shmpcb[k].CPU)){
 								enQueue(priorityTwo,k);
                                                                 shmpcb[k].priority = 2;
@@ -570,20 +516,14 @@ int main(int argc, char **argv){
                                                         shmpcb[k].priority = 2; 
 
 						}
-						fprintf(fp,"OSS: Placing PID %d in queue %d\n",shmpcb[k].simPID,queueFlag);	
+						lines++;
+						if(lines < 10000){
+						fprintf(fp,"OSS: Placing PID %lld in queue %d\n",(long long)shmpcb[k].simPID,queueFlag);	
+						}
 						fflush(fp);
 						shmdt(shmpcb);
-						//size--;
-						//if(size > 0){
-						//	n = deQueue(priorityZero);
-						//	printf("Dequeued %d\n",n->key);
-						//	//printf("Dequeued %d\n",n->key);
-						//}
-						//printf("size is: %d\n",size);	
-							//n = deQueue(someQ);
 					}
 					//move to next node
-			                //size0--;
 			               	if(queueFlag == 0){
 						size0--;
 					}
@@ -596,19 +536,15 @@ int main(int argc, char **argv){
                                         if(size0 > 0){
                                         	n = deQueue(priorityZero);
                                         	queueFlag = 0;
-						//size0--;
                                         }
                                         else if(size1 > 0){
                                                 n = deQueue(priorityOne);
                                                 queueFlag = 1;
-                                                //size1--;
                                         }
                                         else if(size2 > 0){
                                                 queueFlag = 2;
-                                                //size2--;
                                                 n = deQueue(priorityTwo);
                                         }
-					//shmdt(shmpcb);
 				}	
 				else if(errno){
 			 	   errno = 0;
@@ -623,6 +559,7 @@ int main(int argc, char **argv){
 	return 0;
 }
 
+//Calculate the average waiting time for a given queue.
 unsigned long long calcWait(const struct Queue * queue){
 	struct Node* n = queue->front;
 	unsigned long long sum = 0;
@@ -639,7 +576,8 @@ unsigned long long calcWait(const struct Queue * queue){
 }
 	
 
-
+//Increment the clock after each iteration of the loop.
+//by 1.xx seconds with xx nanoseconds between 1-1000
 void incrementClock(){
 
 		if (r_semop(semid, semwait, 1) == -1){
@@ -647,7 +585,7 @@ void incrementClock(){
                         exitSafe(1);
                 }
                 else{
-                        //shmdt(shmclock);
+			/*make sure we convert the nanoseconds to seconds after it gets large enough*/
 			shmclock = (struct Clock*) shmat(shmid, (void*)0,0);
                         unsigned int increment = (unsigned int)rand() % 1000;
                         if(shmclock->nano >= 1000000000 - increment){
@@ -657,11 +595,11 @@ void incrementClock(){
                         else{
                                 shmclock->nano += increment;
                         }
-                        /*add a second!*/
+			if(processes < 100){
+				passedTime = (shmclock->second) + (double)(shmclock->nano / 1000000000);
+                        }
+			/*add a second!*/
                         shmclock->second += 1;
-                        //currentTime.nano = shmclock->nano;
-                        //currentTime.second = shmclock->second;
-                        /*fprintf(fp,"Incremented the clock %d:%d\n",shmclock->second,shmclock->nano);*/
                         shmdt(shmclock);
                         if (r_semop(semid, semsignal, 1) == -1) {
                                 perror("Error: oss: failed to signal Semaphore. ");

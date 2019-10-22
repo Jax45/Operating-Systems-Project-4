@@ -40,7 +40,7 @@ struct Node {
 struct Queue {
 	struct Node *front, *rear;
 };
-
+//node for queue
 struct Node* newNode(int x){
 	struct Node *temp = (struct Node*)malloc(sizeof(struct Node));
 	temp->key = x;
@@ -77,7 +77,8 @@ struct Node* deQueue(struct Queue* q) {
 	} 
 	return temp; 
 }
-int sizeOfQueue(struct Queue* q) {
+//get the size of the queue without dequeueing
+int sizeOfQueue(const struct Queue* q) {
 	if(q->front == NULL){
 		return 0;
 	}
@@ -89,4 +90,3 @@ int sizeOfQueue(struct Queue* q) {
 	}
 	return i;
 }
-//something
